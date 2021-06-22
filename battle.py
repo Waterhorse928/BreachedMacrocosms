@@ -28,8 +28,18 @@ print(aliveCharacters[1].name)
 print(utsuho.atk)
 print(utsuho.atkChange)
 
-utsuho.atkChange = -30
 utsuho.statUpdate()
 
 print(utsuho.atk)
 print(utsuho.atkChange)
+
+utsuho.abyssNova(utsuho)
+
+print(utsuho.atk)
+print(utsuho.atkChange)
+
+utsuho.statUpdate()
+
+print(utsuho.atk)
+print(utsuho.atkChange)
+
