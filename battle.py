@@ -26,25 +26,6 @@ aliveCharacters.sort(key = turnOrder, reverse = True)
 print(aliveCharacters[0].name)
 print(aliveCharacters[1].name)
 
-print(utsuho.atk)
-print(utsuho.atkChange)
-
-utsuho.statUpdate()
-
-print(utsuho.atk)
-print(utsuho.atkChange)
-
-utsuho.abyssNova(utsuho)
-
-print(utsuho.atk)
-print(utsuho.atkChange)
-
-utsuho.statUpdate()
-
-print(utsuho.atk)
-print(utsuho.atkChange)
-
-
 print(f"Utsuho's HP is {utsuho.hp}")
 utsuho.hp = 0
 print(f"Utsuho's HP is {utsuho.hp}")
@@ -54,3 +35,12 @@ orin.rekindlingOfDeadAshes(utsuho)
 print(f"Utsuho's HP is {utsuho.hp}")
 orin.rekindlingOfDeadAshes(utsuho)
 print(f"Utsuho's HP is {utsuho.hp}")
+
+print(f"Utsuho's ATK is {utsuho.atk}")
+print(f"Utsuho's MAG is {utsuho.mag}")
+print(f"Utsuho's RES is {utsuho.res}")
+utsuho.abyssNova(utsuho)
+utsuho.statUpdate()
+print(f"Utsuho's ATK is {utsuho.atk}")
+print(f"Utsuho's MAG is {utsuho.mag}")
+print(f"Utsuho's RES is {utsuho.res}")

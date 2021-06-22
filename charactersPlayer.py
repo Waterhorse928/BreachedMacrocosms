@@ -7,7 +7,10 @@ class Utsuho(charactersMaster.Character):
         target.atkChange += self.mag
         target.magChange += self.mag
         target.resChange -= self.mag
-        print('Abyss Nova function run')
+        print(f'Utsuho uses Abyss Nova on {target.name}!')
+        print (f'{target.name} gained {self.mag} ATK!')
+        print (f'{target.name} gained {self.mag} MAG!')
+        print (f'{target.name} lost {min(self.mag,target.res)} RES...')
     
 class Orin(charactersMaster.Character):
     basicAttackName = "Kasha's Claws"
