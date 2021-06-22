@@ -3,7 +3,7 @@ import random
 import charactersPlayer
 import charactersEnemy
 
-utsuho = charactersPlayer.Utsuho(1, 0, 27, 5, 32, 12, 2, 4, 28, 26, False, "Utsuho")
+utsuho = charactersPlayer.Utsuho(1, 0, 27, 29, 32, 12, 2, 4, 28, 26, False, "Utsuho")
 orin = charactersPlayer.Orin(1, 0, 16, 17, 22, 19, 32, 29, 10, 15, False, "Orin")
 rattata = charactersEnemy.Rattata(1, 0, 15, 20, 0, 10, 20, 10, 15, 15, True, "Rattata")
 zubat = charactersEnemy.Zubat(1, 0, 10, 10, 10, 15, 15, 25, 10, 10, True, 'Zubat')
@@ -47,12 +47,3 @@ utsuho.statUpdate()
 print(f"Utsuho's ATK is {utsuho.atk}")
 print(f"Utsuho's MAG is {utsuho.mag}")
 print(f"Utsuho's RES is {utsuho.res}")
-
-utsuho.atkChange = 0
-utsuho.statUpdate()
-print(f"Utsuho's ATK is {utsuho.atk}")
-print(f"Zubat's ATK is {zubat.atk}")
-zubat.supersonic(utsuho)
-utsuho.statUpdate()
-print(f"Utsuho's ATK is {utsuho.atk}")
-print(f"Zubat's ATK is {zubat.atk}")
