@@ -21,5 +21,5 @@ class Orin(charactersMaster.Character):
         else:
             target.hp = min(target.hp + self.mag, target.maxHp)
         healed = target.hp - preHp
-        print("Orin used Rekindling Of Dead Ashes!")
+        print(f"Orin used Rekindling Of Dead Ashes on {target.name}!")
         print(f"{target.name} recovered {healed} HP!")
