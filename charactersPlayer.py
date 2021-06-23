@@ -16,8 +16,8 @@ class Utsuho(charactersMaster.Character):
         print (f'{target.name} lost {min(self.mag,target.res)} RES...')
     
 class Orin(charactersMaster.Character):
-    def __init__(self, level, exp, vit, atk, mag, skl, spd, luk, dfn, res, isEnemy, name):
-        super().__init__(level, exp, vit, atk, mag, skl, spd, luk, dfn, res, isEnemy, name)
+    def __init__(self):
+        super().__init__(1, 0, 16, 17, 22, 19, 32, 29, 10, 15, False, "Orin")
         self.atkName = "Kasha's Claws"
     def rekindlingOfDeadAshes(self, target):
         preHp = target.hp
