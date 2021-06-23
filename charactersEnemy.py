@@ -17,3 +17,5 @@ class Muk(charactersMaster.Character):
     def __init__(self):
         super().__init__(1, 0, 20, 10, 15, 10, 5, 5, 20, 20, True, 'Muk')
         self.skillList.append(skillsList.BasicAttack('Pound'))
+
+rocketCharacters = ["Team Rocket",Rattata(),Zubat(),Muk()]

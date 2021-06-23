@@ -14,4 +14,4 @@ class Orin(charactersMaster.Character):
         self.skillList.append(skillsList.BasicAttack("Kasha's Claws"))
         self.skillList.append(skillsList.RekindlingOfDeadAshes())
 
-tyCharacters = ["Ty's Characters",Utsuho(),Orin()]
+tyCharacters = ["Ty",Utsuho(),Orin()]

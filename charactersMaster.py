@@ -34,7 +34,6 @@ class Character:
         self.lukChange = 0
         self.dfnChange = 0
         self.resChange = 0
-        self.atkName = "Basic Attack"
         self.skillList = []
         
     def statUpdate(self):
@@ -51,7 +50,6 @@ class Character:
         hpChange = self.maxHp - preMaxHp
         self.hp = max(self.hp + hpChange,1)
         print('Stat Update run.')
-    print('Stat Update entered.')
 
 
  
