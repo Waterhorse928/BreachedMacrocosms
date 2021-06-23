@@ -47,3 +47,7 @@ utsuho.statUpdate()
 print(f"Utsuho's ATK is {utsuho.atk}")
 print(f"Utsuho's MAG is {utsuho.mag}")
 print(f"Utsuho's RES is {utsuho.res}")
+
+print(f"Utsuho's HP is {utsuho.hp}")
+rattata.basicAttack(utsuho)
+print(f"Utsuho's HP is {utsuho.hp}")

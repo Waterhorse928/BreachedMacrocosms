@@ -1,9 +1,9 @@
 import random
 
-def multipleAttack(attacker, defender):
+def multipleAttack(attacker, target):
     attackCount = 1
-    if attacker.spd > defender.spd:
-        multipleAttackChance = attacker.spd - defender.spd
+    if attacker.spd > target.spd:
+        multipleAttackChance = attacker.spd - target.spd
         while multipleAttackChance > 1:
             multipleAttackCheck = random.randint(1, 100)
             if multipleAttackChance >= multipleAttackCheck:
@@ -14,10 +14,10 @@ def multipleAttack(attacker, defender):
     return attackCount
 print('Multiple attacks is working!')
 
-def crit(attacker, defender):
+def crit(attacker, target):
     critMultiplier = 1
-    if attacker.skl > defender.luk:
-        critChance = attacker.skl - defender.luk
+    if attacker.skl > target.luk:
+        critChance = attacker.skl - target.luk
         while critChance > 1:
             critCheck = random.randint(1, 100)
             if critChance >= critCheck:
@@ -28,10 +28,10 @@ def crit(attacker, defender):
     return critMultiplier
 print('Crits are working!')
 
-def miss(attacker, defender):
+def miss(attacker, target):
     miss = False
-    if attacker.skl < defender.luk:
-        missChance = (defender.luk * 2) - (attacker.skl * 2)
+    if attacker.skl < target.luk:
+        missChance = (target.luk * 2) - (attacker.skl * 2)
         missCheck = random.randint(1, 100)
         if missChance >= missCheck:
             miss = True
@@ -73,17 +73,22 @@ class Character:
         self.dfnChange = 0
         self.resChange = 0
         
-    def basicAttack(self, defender):
-        atkDmg = (self.atk * 2 * crit(self, defender)) - defender.dfn
-        if atkDmg > 0:
-            for i in range(multipleAttack(self, defender)):
-                if defender.hp > 0:
-                    if miss(self, defender) == False:
-                        defender.hp -= atkDmg
-                else:
-#                    defender.ko()
-                    break
-   
+    def basicAttack(self, target):
+        critMod = crit(self, target)
+        atkCount = multipleAttack(self, target)
+        atkDmg = (self.atk * 2 * critMod) - target.dfn
+        print(f"{self.name} uses Basic Attack on {target.name}!")
+        if atkCount != 1:
+            print(f"{self.name} attacks {atkCount} times!")
+        if critMod != 1:
+            print(f"x{critMod} Critical!")
+        for i in range(atkCount):
+            if miss(self, target) == False:
+                target.hp -= atkDmg
+                print(f"{target.name} takes {atkDmg} Damage!")
+            else:
+                print(f"{target.name} dodged...")
+
     def statUpdate(self):
         preMaxHp = self.maxHp
         self.vit = max(self.vitBase + self.vitChange,0)
