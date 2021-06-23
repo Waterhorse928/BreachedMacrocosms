@@ -1,43 +1,5 @@
 import random
 
-def multipleAttack(attacker, target):
-    attackCount = 1
-    if attacker.spd > target.spd:
-        multipleAttackChance = attacker.spd - target.spd
-        while multipleAttackChance > 1:
-            multipleAttackCheck = random.randint(1, 100)
-            if multipleAttackChance >= multipleAttackCheck:
-                attackCount += 1
-            else:
-                break
-            multipleAttackChance /= 2
-    return attackCount
-print('Multiple attacks is working!')
-
-def crit(attacker, target):
-    critMultiplier = 1
-    if attacker.skl > target.luk:
-        critChance = attacker.skl - target.luk
-        while critChance > 1:
-            critCheck = random.randint(1, 100)
-            if critChance >= critCheck:
-                critMultiplier += 0.5
-            else:
-                break
-            critChance /= 2
-    return critMultiplier
-print('Crits are working!')
-
-def miss(attacker, target):
-    miss = False
-    if attacker.skl < target.luk:
-        missChance = (target.luk * 2) - (attacker.skl * 2)
-        missCheck = random.randint(1, 100)
-        if missChance >= missCheck:
-            miss = True
-    return miss
-print('Misses are working!')
-
 class Character:
     def __init__(self, level, exp, vit, atk, mag, skl, spd, luk, dfn, res, isEnemy, name):
         self.level = level
@@ -75,22 +37,6 @@ class Character:
         self.atkName = "Basic Attack"
         self.skillList = []
         
-    def basicAttack(self, target):
-        critMod = crit(self, target)
-        atkCount = multipleAttack(self, target)
-        atkDmg = round((self.atk * 2 * critMod) - target.dfn)
-        print(f"{self.name} uses {self.atkName} on {target.name}!")
-        if atkCount != 1:
-            print(f"{self.name} attacks {atkCount} times!")
-        if critMod != 1:
-            print(f"x{critMod} Critical!")
-        for i in range(atkCount):
-            if miss(self, target) == False:
-                target.hp -= atkDmg
-                print(f"{target.name} takes {atkDmg} Damage!")
-            else:
-                print(f"{target.name} dodged...")
-
     def statUpdate(self):
         preMaxHp = self.maxHp
         self.vit = max(self.vitBase + self.vitChange,0)

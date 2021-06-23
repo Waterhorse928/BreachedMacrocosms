@@ -12,7 +12,6 @@ def multipleAttack(user, target):
                 break
             multipleAttackChance /= 2
     return attackCount
-print('Multiple attacks entered.')
 
 def crit(user, target):
     critMultiplier = 1
@@ -26,7 +25,6 @@ def crit(user, target):
                 break
             critChance /= 2
     return critMultiplier
-print('Crits entered.')
 
 def miss(user, target):
     miss = False
@@ -36,20 +34,17 @@ def miss(user, target):
         if missChance >= missCheck:
             miss = True
     return miss
-print('Misses entered.')
-
 
 class Skill:
-    def __init__(self, type, cooldown, maxCooldown, name):
+    def __init__(self, type, cooldown, name):
         self.type = type
         self.cooldown = cooldown
-        self.maxCooldown = maxCooldown
+        self.maxCooldown = cooldown
         self.name = name
-
 
 class BasicAttack (Skill):
     def __init__(self, name):
-        super().__init__(0, 0, 0, name)
+        super().__init__(0, 0, name)
     
     def skill(self, user, target):
         critMod = crit(user, target)
@@ -69,7 +64,7 @@ class BasicAttack (Skill):
 
 class AbyssNova (Skill):
     def __init__(self):
-        super().__init__(0, 2, 2, "Abyss Nova")
+        super().__init__(0, 2, "Abyss Nova")
     
     def skill(self, user, target):
         target.atkChange += user.mag
@@ -82,7 +77,7 @@ class AbyssNova (Skill):
 
 class RekindlingOfDeadAshes (Skill):
     def __init__(self):
-        super().__init__(1, 2, 2, "Rekindling of Dead Ashes")
+        super().__init__(1, 2, "Rekindling of Dead Ashes")
     
     def rekindlingOfDeadAshes(self, user, target):
         preHp = target.hp
@@ -93,3 +88,13 @@ class RekindlingOfDeadAshes (Skill):
         healed = target.hp - preHp
         print(f"{user.name} used Rekindling Of Dead Ashes!")
         print(f"{target.name} recovered {healed} HP!")
+
+class Supersonic (Skill):
+    def __init__(self):
+        super().__init__(type, 2, "Supersonic")
+    
+    def supersonic(self, user, target):
+        target.atkChange -= user.atk
+        print(f'{user.name} uses Supersonic on {target.name}!')
+        print(f'{target.name} lost {min(user.atk, target.atk)} ATK...')
+
