@@ -8,13 +8,21 @@ playerList = charactersPlayer.tyCharacters
 player = {}
 enemy = charactersEnemy.rocketCharacters
 
-# Displays enemies and sets up enemy party
+
+
+
+# Displays enemies at the start
 def encounter ():
     print(f"Encountered {enemy[0]}!")
     print(end="  ")
     for x in range(1, len(enemy)-1):
         print(f"{enemy[x].name},", end=' ')
     print(f"and {enemy[int(len(enemy)-1)].name}!")
+ # displays enemies for selection
+def displayEnemies ():
+    print(f"{enemy[0]}:")
+    for x in range(1, len(enemy)):
+        print(f" {x}. {enemy[x].name}")
 
 # Displays player's characters and asks them to choose a party
 def characterSelect ():
@@ -23,18 +31,79 @@ def characterSelect ():
         print(f" {x}. {playerList[x].name}")
 
     for x in range(1, min(len(playerList), 5)):
-        player[int(x)] = input(f"Choose a character for slot {x}: ")
-        player[int(x)] = int(player[int(x)])
-        player[int(x)] = playerList[player[int(x)]]
+        player[x] = input(f"Choose a character for slot {x}: ")
+        player[x] = int(player[x])
+        player[x] = playerList[player[x]]
 
 # Displays skills for a particular character
-def listSkills ():
-    print(f"{player[1].name}'s Skills:")
-    for x in range(len(player[1].skillList)):
-        print(f" {x}. {player[1].skillList[x].name}")
+def listSkills (user):
+    print(f"{user.name}'s Skills:")
+    for x in range(len(user.skillList)):
+        print(f" {x}. {user.skillList[x].name}")
 
 # Use a skill. Not working yet.
 def useSkill(user, skill, target):
-    player[user].skillList[skill].skill(player[user],player[target])
+    user.skillList[skill].skill(user,target)
 
+# choose actions loop
+def chooseActions ():
+    for x in range(1, len(player)+1):
+        listSkills (player[x])
+        action[x] = int(input("Choose a skill: "))
+        displayEnemies ()
+        target[x] = enemy[int(input("Choose a target: "))]
+
+
+
+# Makes stuff work?
+def turnKey(self):
+    return self.turnNumber
+
+# redefines turnList and slot
+def turnOrder ():
+    # add all characters to turnList
+    for x in range(1, len(player)+1):
+        turnList.insert(x, player[x].name)
+    for x in range(1, len(enemy)):
+        turnList.insert(x+int(len(player)), enemy[x].name)
+    # slot part
+    for x in range(1, len(turnList)+1):
+        slot[x] = turnList[x-1]
+    slotList.extend(turnList)
+    # sort turnList
+    for x in turnList:
+        x.turnNumber = x.spd + random.randint(0, 5)
+    turnList.sort(key = turnKey, reverse = True)
+    
+def findStuff (name):
+
+    pass
+
+
+def round ():
+    for x in range(1, len(turnList)+1):
+        y = slotList.index(player[2])+1
+        useSkill(slot[y], action[y], target[y])
+
+
+
+
+
+# Start Battle
 encounter ()
+characterSelect ()
+action = {}
+target = {}
+# actionEx = {} Later I'll work on this
+# targetEx = {}
+turnList = []
+slotList = []
+slot = {}
+chooseActions ()
+turnOrder ()
+
+print(enemy[1].hp)
+
+round ()
+
+print(enemy[1].hp)
