@@ -1,14 +1,12 @@
 import random
 import charactersMaster
+import skillsList
 
 class Utsuho(charactersMaster.Character):
     def __init__(self):
         super().__init__(1, 0, 27, 29, 32, 12, 2, 4, 28, 26, False, "Utsuho")
-        self.atkName = 'Control Rod Crush'
-        basicAttack = ["Control Rod Crush",0]
-        abyssNova = ["Abyss Nova",1]
-        self.skillList.append(basicAttack)
-        self.skillList.append(abyssNova)
+        self.skillList.append(skillsList.BasicAttack("Control Rod Crush"))
+        self.skillList.append(skillsList.AbyssNova())
          
     def abyssNova(self, target):
         target.atkChange += self.mag
@@ -22,7 +20,9 @@ class Utsuho(charactersMaster.Character):
 class Orin(charactersMaster.Character):
     def __init__(self):
         super().__init__(1, 0, 16, 17, 22, 19, 32, 29, 10, 15, False, "Orin")
-        self.atkName = "Kasha's Claws"
+        self.skillList.append(skillsList.BasicAttack("Kasha's Claws"))
+        self.skillList.append(skillsList.RekindlingOfDeadAshes())
+
     def rekindlingOfDeadAshes(self, target):
         preHp = target.hp
         if target.hp == 0:
@@ -33,4 +33,4 @@ class Orin(charactersMaster.Character):
         print(f"Orin used Rekindling Of Dead Ashes on {target.name}!")
         print(f"{target.name} recovered {healed} HP!")
 
-tyCharacters = [Utsuho(),Orin()]
+tyCharacters = ["Ty's Characters",Utsuho(),Orin()]
