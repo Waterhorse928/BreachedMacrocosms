@@ -5,6 +5,10 @@ class Utsuho(charactersMaster.Character):
     def __init__(self):
         super().__init__(1, 0, 27, 29, 32, 12, 2, 4, 28, 26, False, "Utsuho")
         self.atkName = 'Control Rod Crush'
+        basicAttack = ["Control Rod Crush",0]
+        abyssNova = ["Abyss Nova",1]
+        self.skillList.append(basicAttack)
+        self.skillList.append(abyssNova)
          
     def abyssNova(self, target):
         target.atkChange += self.mag
@@ -28,3 +32,5 @@ class Orin(charactersMaster.Character):
         healed = target.hp - preHp
         print(f"Orin used Rekindling Of Dead Ashes on {target.name}!")
         print(f"{target.name} recovered {healed} HP!")
+
+tyCharacters = [Utsuho(),Orin()]

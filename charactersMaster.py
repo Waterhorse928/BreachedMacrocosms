@@ -73,6 +73,7 @@ class Character:
         self.dfnChange = 0
         self.resChange = 0
         self.atkName = "Basic Attack"
+        self.skillList = []
         
     def basicAttack(self, target):
         critMod = crit(self, target)
