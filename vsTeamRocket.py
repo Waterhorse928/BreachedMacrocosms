@@ -53,9 +53,7 @@ def chooseActions ():
         displayEnemies ()
         target[x] = enemy[int(input("Choose a target: "))]
 
-
-
-# Makes stuff work?
+# Helps turnOrder sort or something
 def turnKey(self):
     return self.turnNumber
 
@@ -63,9 +61,9 @@ def turnKey(self):
 def turnOrder ():
     # add all characters to turnList
     for x in range(1, len(player)+1):
-        turnList.insert(x, player[x].name)
+        turnList.insert(x, player[x])
     for x in range(1, len(enemy)):
-        turnList.insert(x+int(len(player)), enemy[x].name)
+        turnList.insert(x+int(len(player)), enemy[x])
     # slot part
     for x in range(1, len(turnList)+1):
         slot[x] = turnList[x-1]
@@ -75,17 +73,11 @@ def turnOrder ():
         x.turnNumber = x.spd + random.randint(0, 5)
     turnList.sort(key = turnKey, reverse = True)
     
-def findStuff (name):
-
-    pass
-
-
+# a round of combat
 def round ():
-    for x in range(1, len(turnList)+1):
-        y = slotList.index(player[2])+1
+    for x in range(0, len(turnList)):
+        y = slotList.index(turnList[x])+1
         useSkill(slot[y], action[y], target[y])
-
-
 
 
 
@@ -101,9 +93,5 @@ slotList = []
 slot = {}
 chooseActions ()
 turnOrder ()
-
-print(enemy[1].hp)
-
 round ()
 
-print(enemy[1].hp)
