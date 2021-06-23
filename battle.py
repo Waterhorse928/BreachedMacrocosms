@@ -30,24 +30,9 @@ print(aliveCharacters[1].name)
 
 
 print(f"Utsuho's HP is {utsuho.hp}")
-utsuho.hp = 0
-print(f"Utsuho's HP is {utsuho.hp}")
-orin.rekindlingOfDeadAshes(utsuho)
-print(f"Utsuho's HP is {utsuho.hp}")
-orin.rekindlingOfDeadAshes(utsuho)
-print(f"Utsuho's HP is {utsuho.hp}")
-orin.rekindlingOfDeadAshes(utsuho)
-print(f"Utsuho's HP is {utsuho.hp}")
-
-print(f"Utsuho's ATK is {utsuho.atk}")
-print(f"Utsuho's MAG is {utsuho.mag}")
-print(f"Utsuho's RES is {utsuho.res}")
-utsuho.abyssNova(utsuho)
-utsuho.statUpdate()
-print(f"Utsuho's ATK is {utsuho.atk}")
-print(f"Utsuho's MAG is {utsuho.mag}")
-print(f"Utsuho's RES is {utsuho.res}")
-
-print(f"Utsuho's HP is {utsuho.hp}")
 rattata.basicAttack(utsuho)
 print(f"Utsuho's HP is {utsuho.hp}")
+
+print(f"Ratata's HP is {rattata.hp}")
+utsuho.basicAttack(rattata)
+print(f"Ratata's HP is {rattata.hp}")

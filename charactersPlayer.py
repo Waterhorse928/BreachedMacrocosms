@@ -2,7 +2,9 @@ import random
 import charactersMaster
 
 class Utsuho(charactersMaster.Character):
-    basicAttackName = 'Control Rod Crush'
+    def __init__(self, level, exp, vit, atk, mag, skl, spd, luk, dfn, res, isEnemy, name):
+        super().__init__(level, exp, vit, atk, mag, skl, spd, luk, dfn, res, isEnemy, name)
+        self.atkName = 'Control Rod Crush'   
     def abyssNova(self, target):
         target.atkChange += self.mag
         target.magChange += self.mag
@@ -13,7 +15,9 @@ class Utsuho(charactersMaster.Character):
         print (f'{target.name} lost {min(self.mag,target.res)} RES...')
     
 class Orin(charactersMaster.Character):
-    basicAttackName = "Kasha's Claws"
+    def __init__(self, level, exp, vit, atk, mag, skl, spd, luk, dfn, res, isEnemy, name):
+        super().__init__(level, exp, vit, atk, mag, skl, spd, luk, dfn, res, isEnemy, name)
+        self.atkName = "Kasha's Claws"
     def rekindlingOfDeadAshes(self, target):
         preHp = target.hp
         if target.hp is 0:

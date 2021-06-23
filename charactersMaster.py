@@ -72,12 +72,13 @@ class Character:
         self.lukChange = 0
         self.dfnChange = 0
         self.resChange = 0
+        self.atkName = "Basic Attack"
         
     def basicAttack(self, target):
         critMod = crit(self, target)
         atkCount = multipleAttack(self, target)
-        atkDmg = (self.atk * 2 * critMod) - target.dfn
-        print(f"{self.name} uses Basic Attack on {target.name}!")
+        atkDmg = round((self.atk * 2 * critMod) - target.dfn)
+        print(f"{self.name} uses {self.atkName} on {target.name}!")
         if atkCount != 1:
             print(f"{self.name} attacks {atkCount} times!")
         if critMod != 1:
