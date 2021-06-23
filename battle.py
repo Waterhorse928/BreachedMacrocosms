@@ -31,4 +31,6 @@ aliveCharacters.sort(key = turnOrder, reverse = True)
 print(aliveCharacters[0].name)
 print(aliveCharacters[1].name)
 
-
+print("Utsuho's Skills: \n 1. Control Rod Crush \n 2. Abyss Nova")
+act1 = input("Select a number: ")
+print("")
