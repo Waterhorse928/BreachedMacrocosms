@@ -20,6 +20,8 @@ for x in range(len(player[1].skillList)):
 
 
 
+player[1].skillList[1].skill(player[1],player[2])
+
 
 
 act1 = input("Use which number skill?: ")
