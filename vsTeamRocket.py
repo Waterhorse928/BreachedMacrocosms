@@ -14,6 +14,9 @@ slot = {}
 # Character Actions to take next
 action = {}
 target = {}
+# extra attacks
+# actionEx = {} I'll work on this later
+targetEx = {}
 
 # Displays enemies at the start
 def encounter ():
@@ -52,9 +55,13 @@ def listSkills (user):
     for x in range(len(user.skillList)):
         print(f" {x}. {user.skillList[x].name}")
 
-# Use a skill. Not working yet.
+# Use a skill.
 def useSkill(user, skill, target):
     user.skillList[skill].skill(user,target)
+
+# use Basic Attack
+def useBasicAttack (user, target):
+    user.skillList[0].skill(user,target)
 
 # choose actions loop
 def chooseActions ():
@@ -64,10 +71,13 @@ def chooseActions ():
             action[x] = int(input("Choose a skill: "))
             if player[x].skillList[action[x]].type == 1 or player[x].skillList[action[x]].type ==  3:
                 displayPlayers ()
-                target[x] = player[int(input("Choose a target: "))]
+                target[x] = player[int(input("Choose a target for skill: "))]
+                displayEnemies ()
+                targetEx[x] = enemy[int(input("Choose a target for extra attack: "))]
             else:
                 displayEnemies ()
-                target[x] = enemy[int(input("Choose a target: "))]
+                target[x] = enemy[int(input("Choose a target for skill: "))]
+                targetEx[x] = 0
         else:
             action[x] = 0
             target[x] = enemy[random.randint(1, len(enemy)-1)]
@@ -77,6 +87,7 @@ def enemyActions ():
     players = len(player)
     for x in range(1, len(enemy)):
         action[x+players] = random.randint(0, len(enemy[x].skillList)-1)
+        targetEx[x+players] = 0
         targeted = False
         while not targeted:
             target[x+players] = player[random.randint(1, players)]
@@ -115,20 +126,17 @@ def round ():
             useSkill(slot[y], action[y], target[y])
             slot[y].statUpdate ()
             target[y].statUpdate ()
+            if targetEx[y] != 0:
+                useBasicAttack (slot[y], targetEx[y])
             if target[y].hp == 0:
                 print(f"{target[y].name} was knocked out!")
     for x in range(1, len(slot)+1):
         slot[x].rotateStatChanges ()
-        
-    print(slot[1].atk) 
-    print(slot[2].atk)
 
 # run the entire battle
 def startBattle ():
     encounter ()
     characterSelect ()
-    # actionEx = {} I'll work on this later
-    # targetEx = {}
     battleOver = False
     playerWon = False
     enemyWon = False
