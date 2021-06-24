@@ -64,7 +64,7 @@ class BasicAttack (Skill):
 
 class AbyssNova (Skill):
     def __init__(self):
-        super().__init__(0, 2, "Abyss Nova")
+        super().__init__(1, 2, "Abyss Nova")
     
     def skill(self, user, target):
         target.atkChange += user.mag
@@ -79,7 +79,7 @@ class RekindlingOfDeadAshes (Skill):
     def __init__(self):
         super().__init__(1, 2, "Rekindling of Dead Ashes")
     
-    def rekindlingOfDeadAshes(self, user, target):
+    def skill(self, user, target):
         preHp = target.hp
         if target.hp == 0:
             target.hp = min(target.hp + (user.mag * 2), target.maxHp)
@@ -91,9 +91,9 @@ class RekindlingOfDeadAshes (Skill):
 
 class Supersonic (Skill):
     def __init__(self):
-        super().__init__(type, 2, "Supersonic")
+        super().__init__(2, 2, "Supersonic")
     
-    def supersonic(self, user, target):
+    def skill(self, user, target):
         target.atkChange -= user.atk
         print(f'{user.name} uses Supersonic on {target.name}!')
         print(f'{target.name} lost {min(user.atk, target.atk)} ATK...')

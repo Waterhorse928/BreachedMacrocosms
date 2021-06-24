@@ -18,11 +18,13 @@ def encounter ():
     for x in range(1, len(enemy)-1):
         print(f"{enemy[x].name},", end=' ')
     print(f"and {enemy[int(len(enemy)-1)].name}!")
- # displays enemies for selection
+ 
+# displays enemies for selection
 def displayEnemies ():
     print(f"{enemy[0]}:")
     for x in range(1, len(enemy)):
-        print(f" {x}. {enemy[x].name}")
+        if enemy[x].isAlive == True:
+            print(f" {x}. {enemy[x].name}")
 
 # Displays player's characters and asks them to choose a party
 def characterSelect ():
@@ -48,18 +50,34 @@ def useSkill(user, skill, target):
 # choose actions loop
 def chooseActions ():
     for x in range(1, len(player)+1):
-        listSkills (player[x])
-        action[x] = int(input("Choose a skill: "))
-        displayEnemies ()
-        target[x] = enemy[int(input("Choose a target: "))]
+        if player[x].isAlive == True:
+            listSkills (player[x])
+            action[x] = int(input("Choose a skill: "))
+            displayEnemies ()
+            target[x] = enemy[int(input("Choose a target: "))]
+        else:
+            action[x] = 0
+            target[x] = enemy[random.randint(1, len(enemy)-1)]
+
+def enemyActions ():
+    players = len(player)
+    for x in range(1, len(enemy)):
+        action[x+players] = random.randint(0, len(enemy[x].skillList)-1)
+        targeted = False
+        while not targeted:
+            target[x+players] = player[random.randint(1, players)]
+            if target[x+players].isAlive == True:
+                targeted = True
 
 # Helps turnOrder sort or something
 def turnKey(self):
     return self.turnNumber
 
-# redefines turnList and slot
+# redefines turnList, slotList and slot
 def turnOrder ():
-    # add all characters to turnList
+    turnList.clear ()
+    slotList.clear ()
+    # add all characters to turnList    
     for x in range(1, len(player)+1):
         turnList.insert(x, player[x])
     for x in range(1, len(enemy)):
@@ -77,7 +95,15 @@ def turnOrder ():
 def round ():
     for x in range(0, len(turnList)):
         y = slotList.index(turnList[x])+1
-        useSkill(slot[y], action[y], target[y])
+        slot[y].statUpdate ()
+        target[y].statUpdate ()
+        if slot[y].isAlive == True:
+            useSkill(slot[y], action[y], target[y])
+            slot[y].statUpdate ()
+            target[y].statUpdate ()
+            if target[y].hp == 0:
+                print(f"{target[y].name} was knocked out!")
+
 
 
 
@@ -91,15 +117,10 @@ target = {}
 turnList = []
 slotList = []
 slot = {}
-chooseActions ()
-turnOrder ()
 
-action[3] = 0
-action[4] = 0
-action[5] = 0
-target[3] = player[1]
-target[4] = player[1]
-target[5] = player[1]
-
-round ()
+for x in range(0,10):
+    chooseActions ()
+    turnOrder ()
+    enemyActions ()
+    round ()
 

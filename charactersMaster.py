@@ -47,9 +47,13 @@ class Character:
         self.dfn = max(self.dfnBase + self.dfnChange,0)
         self.res = max(self.resBase + self.resChange,0)
         self.maxHp = (self.vit * 2) + 20
-        hpChange = self.maxHp - preMaxHp
-        self.hp = max(self.hp + hpChange,1)
-        print('Stat Update run.')
+        if self.hp <= 0:
+            self.isAlive = False
+            self.hp = 0
+        else:
+            hpChange = self.maxHp - preMaxHp
+            self.hp = max(self.hp + hpChange,1)
+
 
 
  
