@@ -93,5 +93,13 @@ slotList = []
 slot = {}
 chooseActions ()
 turnOrder ()
+
+action[3] = 0
+action[4] = 0
+action[5] = 0
+target[3] = player[1]
+target[4] = player[1]
+target[5] = player[1]
+
 round ()
 

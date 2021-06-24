@@ -49,7 +49,7 @@ class BasicAttack (Skill):
     def skill(self, user, target):
         critMod = crit(user, target)
         atkCount = multipleAttack(user, target)
-        atkDmg = round((user.atk * 2 * critMod) - target.dfn)
+        atkDmg = max(round((user.atk * 2 * critMod) - target.dfn),0)
         print(f"{user.name} used {self.name}!")
         if atkCount != 1:
             print(f"{user.name} attacked {atkCount} times!")
