@@ -58,7 +58,7 @@ class BasicAttack (Skill):
         for i in range(atkCount):
             if miss(user, target) == False:
                 target.hp -= atkDmg
-                print(f"{target.name} takes {atkDmg} Damage!")
+                print(f"{target.name} took {atkDmg} damage!")
             else:
                 print(f"{target.name} dodged...")
 
@@ -67,9 +67,9 @@ class AbyssNova (Skill):
         super().__init__(1, 2, "Abyss Nova")
     
     def skill(self, user, target):
-        target.atkChange += user.mag
-        target.magChange += user.mag
-        target.resChange -= user.mag
+        target.atkChange1 += user.mag
+        target.magChange1 += user.mag
+        target.resChange1 -= user.mag
         print(f'{user.name} used Abyss Nova!')
         print (f'{target.name} gained {user.mag} ATK!')
         print (f'{target.name} gained {user.mag} MAG!')
@@ -77,7 +77,7 @@ class AbyssNova (Skill):
 
 class RekindlingOfDeadAshes (Skill):
     def __init__(self):
-        super().__init__(1, 2, "Rekindling of Dead Ashes")
+        super().__init__(3, 2, "Rekindling of Dead Ashes")
     
     def skill(self, user, target):
         preHp = target.hp
@@ -94,7 +94,7 @@ class Supersonic (Skill):
         super().__init__(2, 2, "Supersonic")
     
     def skill(self, user, target):
-        target.atkChange -= user.atk
+        target.atkChange1 -= user.atk
         print(f'{user.name} uses Supersonic on {target.name}!')
         print(f'{target.name} lost {min(user.atk, target.atk)} ATK...')
 

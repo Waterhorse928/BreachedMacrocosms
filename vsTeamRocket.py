@@ -7,9 +7,13 @@ import charactersEnemy
 playerList = charactersPlayer.tyCharacters
 player = {}
 enemy = charactersEnemy.rocketCharacters
-
-
-
+# Character Slots and Turn Order
+turnList = []
+slotList = []
+slot = {}
+# Character Actions to take next
+action = {}
+target = {}
 
 # Displays enemies at the start
 def encounter ():
@@ -37,6 +41,11 @@ def characterSelect ():
         player[x] = int(player[x])
         player[x] = playerList[player[x]]
 
+# Displays player's slots
+def displayPlayers ():
+    for x in range(1, len(player)+1):
+        print(f" {x}. {player[x].name}")
+
 # Displays skills for a particular character
 def listSkills (user):
     print(f"{user.name}'s Skills:")
@@ -53,12 +62,17 @@ def chooseActions ():
         if player[x].isAlive == True:
             listSkills (player[x])
             action[x] = int(input("Choose a skill: "))
-            displayEnemies ()
-            target[x] = enemy[int(input("Choose a target: "))]
+            if player[x].skillList[action[x]].type == 1 or player[x].skillList[action[x]].type ==  3:
+                displayPlayers ()
+                target[x] = player[int(input("Choose a target: "))]
+            else:
+                displayEnemies ()
+                target[x] = enemy[int(input("Choose a target: "))]
         else:
             action[x] = 0
             target[x] = enemy[random.randint(1, len(enemy)-1)]
 
+# chooses enemy actions and targets
 def enemyActions ():
     players = len(player)
     for x in range(1, len(enemy)):
@@ -90,7 +104,7 @@ def turnOrder ():
     for x in turnList:
         x.turnNumber = x.spd + random.randint(0, 5)
     turnList.sort(key = turnKey, reverse = True)
-    
+
 # a round of combat
 def round ():
     for x in range(0, len(turnList)):
@@ -103,24 +117,45 @@ def round ():
             target[y].statUpdate ()
             if target[y].hp == 0:
                 print(f"{target[y].name} was knocked out!")
+    for x in range(1, len(slot)+1):
+        slot[x].rotateStatChanges ()
+        
+    print(slot[1].atk) 
+    print(slot[2].atk)
 
+# run the entire battle
+def startBattle ():
+    encounter ()
+    characterSelect ()
+    # actionEx = {} I'll work on this later
+    # targetEx = {}
+    battleOver = False
+    playerWon = False
+    enemyWon = False
+    while battleOver == False:
+        chooseActions ()
+        turnOrder ()
+        enemyActions ()
+        round ()
+        alivePlayers = 0
+        aliveEnemies = 0
+        for x in range(1, len(enemy)):
+            if enemy[x].isAlive == True:
+                aliveEnemies += 1
+        for x in range(1, len(player)+1):
+            if player[x].isAlive == True:
+                alivePlayers += 1        
+        if alivePlayers == 0:
+            battleOver = True
+            enemyWon = True
+        if aliveEnemies == 0:
+            battleOver = True
+            playerWon = True
+    if playerWon == True:
+        print("You Won!")
+    if enemyWon == True:
+        print("You Lost...")
 
-
-
-# Start Battle
-encounter ()
-characterSelect ()
-action = {}
-target = {}
-# actionEx = {} Later I'll work on this
-# targetEx = {}
-turnList = []
-slotList = []
-slot = {}
-
-for x in range(0,10):
-    chooseActions ()
-    turnOrder ()
-    enemyActions ()
-    round ()
+startBattle ()
+        
 
