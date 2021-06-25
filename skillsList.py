@@ -1,4 +1,5 @@
 import random
+import discord
 
 def multipleAttack(user, target):
     attackCount = 1
