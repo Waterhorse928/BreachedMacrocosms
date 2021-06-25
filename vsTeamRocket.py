@@ -136,10 +136,13 @@ def round ():
                 target[y].statUpdate ()
                 if targetEx[y] != 0:
                     useBasicAttack (slot[y], targetEx[y])
+                    slot[y].statUpdate ()
+                    target[y].statUpdate ()
                 if target[y].hp == 0:
                     print(f"{target[y].name} was knocked out!")
     for x in range(1, len(slot)+1):
         slot[x].rotateStatChanges ()
+        # put lower cooldowns function here
 
 # run the entire battle
 def startBattle ():
