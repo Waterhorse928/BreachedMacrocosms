@@ -53,7 +53,14 @@ def displayPlayers ():
 def listSkills (user):
     print(f"{user.name}'s Skills:")
     for x in range(len(user.skillList)):
-        print(f" {x}. {user.skillList[x].name}")
+        if user.skillList[x].cooldown == 0:
+            print(f" {x}. {user.skillList[x].name}")
+        else:
+            if user.skillList[x].cooldown == 1:
+                turns = "turn"
+            else:
+                turns = "turns"
+            print(f" [Cooldown: {user.skillList[x].cooldown} {turns}] {user.skillList[x].name}")
 
 # Use a skill.
 def useSkill(user, skill, target):
@@ -69,7 +76,7 @@ def chooseActions ():
         if player[x].isAlive == True:
             listSkills (player[x])
             action[x] = int(input("Choose a skill: "))
-            if player[x].skillList[action[x]].type == 1 or player[x].skillList[action[x]].type ==  3:
+            if player[x].skillList[action[x]].type == 1 or player[x].skillList[action[x]].type == 3:
                 displayPlayers ()
                 target[x] = player[int(input("Choose a target for skill: "))]
                 displayEnemies ()
@@ -123,13 +130,14 @@ def round ():
         slot[y].statUpdate ()
         target[y].statUpdate ()
         if slot[y].isAlive == True:
-            useSkill(slot[y], action[y], target[y])
-            slot[y].statUpdate ()
-            target[y].statUpdate ()
-            if targetEx[y] != 0:
-                useBasicAttack (slot[y], targetEx[y])
-            if target[y].hp == 0:
-                print(f"{target[y].name} was knocked out!")
+            if slot[y].skillList[action[y]].cooldown == 0:
+                useSkill(slot[y], action[y], target[y])
+                slot[y].statUpdate ()
+                target[y].statUpdate ()
+                if targetEx[y] != 0:
+                    useBasicAttack (slot[y], targetEx[y])
+                if target[y].hp == 0:
+                    print(f"{target[y].name} was knocked out!")
     for x in range(1, len(slot)+1):
         slot[x].rotateStatChanges ()
 

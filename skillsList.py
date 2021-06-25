@@ -38,7 +38,7 @@ def miss(user, target):
 class Skill:
     def __init__(self, type, cooldown, name):
         self.type = type
-        self.cooldown = cooldown
+        self.cooldown = 0
         self.maxCooldown = cooldown
         self.name = name
 
@@ -51,16 +51,16 @@ class BasicAttack (Skill):
         atkCount = multipleAttack(user, target)
         atkDmg = max(round((user.atk * 2 * critMod) - target.dfn),0)
         print(f"{user.name} used {self.name}!")
-        if atkCount != 1:
-            print(f"{user.name} attacked {atkCount} times!")
         if critMod != 1:
-            print(f"x{critMod} Critical!")
+            print(f" x{critMod} Critical!")
+        if atkCount != 1:
+            print(f" {user.name} attacked {atkCount} times!")
         for i in range(atkCount):
             if miss(user, target) == False:
                 target.hp -= atkDmg
-                print(f"{target.name} took {atkDmg} damage!")
+                print(f" {target.name} took {atkDmg} damage!")
             else:
-                print(f"{target.name} dodged...")
+                print(f" {target.name} dodged...")
 
 class AbyssNova (Skill):
     def __init__(self):
@@ -71,9 +71,10 @@ class AbyssNova (Skill):
         target.magChange1 += user.mag
         target.resChange1 -= user.mag
         print(f'{user.name} used Abyss Nova!')
-        print (f'{target.name} gained {user.mag} ATK!')
-        print (f'{target.name} gained {user.mag} MAG!')
-        print (f'{target.name} lost {min(user.mag,target.res)} RES...')
+        print (f' {target.name} gained {user.mag} ATK!')
+        print (f' {target.name} gained {user.mag} MAG!')
+        print (f' {target.name} lost {min(user.mag,target.res)} RES...')
+        self.cooldown = self.maxCooldown
 
 class RekindlingOfDeadAshes (Skill):
     def __init__(self):
@@ -87,7 +88,8 @@ class RekindlingOfDeadAshes (Skill):
             target.hp = min(target.hp + user.mag, target.maxHp)
         healed = target.hp - preHp
         print(f"{user.name} used Rekindling Of Dead Ashes!")
-        print(f"{target.name} recovered {healed} HP!")
+        print(f" {target.name} recovered {healed} HP!")
+        self.cooldown = self.maxCooldown
 
 class Supersonic (Skill):
     def __init__(self):
@@ -96,5 +98,5 @@ class Supersonic (Skill):
     def skill(self, user, target):
         target.atkChange1 -= user.atk
         print(f'{user.name} uses Supersonic on {target.name}!')
-        print(f'{target.name} lost {min(user.atk, target.atk)} ATK...')
+        print(f' {target.name} lost {min(user.atk, target.atk)} ATK...')
 
