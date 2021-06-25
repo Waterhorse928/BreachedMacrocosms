@@ -99,4 +99,5 @@ class Supersonic (Skill):
         target.atkChange1 -= user.atk
         print(f'{user.name} uses Supersonic on {target.name}!')
         print(f' {target.name} lost {min(user.atk, target.atk)} ATK...')
+        self.cooldown = self.maxCooldown
 

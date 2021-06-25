@@ -15,23 +15,38 @@ slot = {}
 action = {}
 target = {}
 # extra attacks
-# actionEx = {} I'll work on this later
 targetEx = {}
 
-# Displays enemies at the start
+# Displays enemies at the start and removes enemy[0]
 def encounter ():
     print(f"Encountered {enemy[0]}!")
     print(end="  ")
     for x in range(1, len(enemy)-1):
         print(f"{enemy[x].name},", end=' ')
     print(f"and {enemy[int(len(enemy)-1)].name}!")
+    del enemy[0]
  
-# displays enemies for selection
+# displays enemies for selection. Only alive ones
 def displayEnemies ():
-    print(f"{enemy[0]}:")
-    for x in range(1, len(enemy)):
+    for x in range(1, len(enemy)+1):
         if enemy[x].isAlive == True:
             print(f" {x}. {enemy[x].name}")
+
+# Returns a list of alive characters, player or enemy
+def listAliveCharacters (dict):
+    aliveList = []
+    for x in range(1, len(dict)+1):
+        if dict[x].isAlive == True:
+            aliveList.append(dict[x])
+    return aliveList
+
+# Returns a list of useable skills
+def listActiveSkills (user):
+    activeSkills = []
+    for x in user.skillList:
+        if x.cooldown == 0:
+            activeSkills.append(x)
+    return activeSkills
 
 # Displays player's characters and asks them to choose a party
 def characterSelect ():
@@ -64,10 +79,21 @@ def listSkills (user):
 
 # Use a skill.
 def useSkill(user, skill, target):
+    if user.skillList[skill].type in [0,1,2]:
+        if target.hp == 0:
+            if target in player.values():
+                target = random.choice(listAliveCharacters(player))
+            if target in enemy.values():
+                target = random.choice(listAliveCharacters(enemy))
     user.skillList[skill].skill(user,target)
 
 # use Basic Attack
 def useBasicAttack (user, target):
+    if target.hp == 0:
+            if target in player.values():
+                target = random.choice(listAliveCharacters(player))
+            if target in enemy.values():
+                target = random.choice(listAliveCharacters(enemy))
     user.skillList[0].skill(user,target)
 
 # choose actions loop
@@ -87,19 +113,15 @@ def chooseActions ():
                 targetEx[x] = 0
         else:
             action[x] = 0
-            target[x] = enemy[random.randint(1, len(enemy)-1)]
+            target[x] = random.choice(listAliveCharacters(enemy))
 
 # chooses enemy actions and targets
 def enemyActions ():
     players = len(player)
-    for x in range(1, len(enemy)):
-        action[x+players] = random.randint(0, len(enemy[x].skillList)-1)
+    for x in range(1, len(enemy)+1):
+        random.choice(listActiveSkills(enemy[x]))
         targetEx[x+players] = 0
-        targeted = False
-        while not targeted:
-            target[x+players] = player[random.randint(1, players)]
-            if target[x+players].isAlive == True:
-                targeted = True
+        target[x+players] = random.choice(listAliveCharacters(player))
 
 # Helps turnOrder sort or something
 def turnKey(self):
@@ -112,7 +134,7 @@ def turnOrder ():
     # add all characters to turnList    
     for x in range(1, len(player)+1):
         turnList.insert(x, player[x])
-    for x in range(1, len(enemy)):
+    for x in range(1, len(enemy)+1):
         turnList.insert(x+int(len(player)), enemy[x])
     # slot part
     for x in range(1, len(turnList)+1):
@@ -158,7 +180,7 @@ def startBattle ():
         round ()
         alivePlayers = 0
         aliveEnemies = 0
-        for x in range(1, len(enemy)):
+        for x in range(1, len(enemy)+1):
             if enemy[x].isAlive == True:
                 aliveEnemies += 1
         for x in range(1, len(player)+1):
