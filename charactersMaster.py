@@ -26,7 +26,7 @@ class Character:
         self.spdBase = spd
         self.lukBase = luk
         self.dfnBase = dfn
-        self.resBase = 0
+        self.resBase = res
         self.vitChange = 0
         self.atkChange = 0
         self.magChange = 0

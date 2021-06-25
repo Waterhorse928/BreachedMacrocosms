@@ -38,6 +38,8 @@ def listAliveCharacters (dict):
     for x in range(1, len(dict)+1):
         if dict[x].isAlive == True:
             aliveList.append(dict[x])
+    if aliveList == []:
+        aliveList = [0]
     return aliveList
 
 # Returns a list of useable skills
@@ -48,6 +50,7 @@ def listActiveSkills (user):
             activeSkills.append(x)
     return activeSkills
 
+# lowers skill cooldowns by 1
 def lowerSkillCooldown (user):
     for x in user.skillList:
         if x.cooldown != 0:
@@ -80,26 +83,37 @@ def listSkills (user):
                 turns = "turn"
             else:
                 turns = "turns"
-            print(f" [Cooldown: {user.skillList[x].cooldown} {turns}]. {user.skillList[x].name}")
+            print(f" X. {user.skillList[x].name} [Cooldown: {user.skillList[x].cooldown} {turns}]")
 
 # Use a skill.
 def useSkill(user, skill, target):
+    if target in player.values():
+        party = player
+    if target in enemy.values():
+        party = enemy
+    party = listAliveCharacters(party)
     if user.skillList[skill].type in [0,1,2]:
         if target.hp == 0:
             if target in player.values():
                 target = random.choice(listAliveCharacters(player))
             if target in enemy.values():
                 target = random.choice(listAliveCharacters(enemy))
-    user.skillList[skill].skill(user,target)
+    if target != [0]:
+        user.skillList[skill].skill(user,target,party)
 
 # use Basic Attack
 def useBasicAttack (user, target):
+    if target in player.values():
+        party = player
+    if target in enemy.values():
+        party = enemy
+    party = listAliveCharacters(party)
     if target.hp == 0:
             if target in player.values():
                 target = random.choice(listAliveCharacters(player))
             if target in enemy.values():
                 target = random.choice(listAliveCharacters(enemy))
-    user.skillList[0].skill(user,target)
+    user.skillList[0].skill(user,target,party)
 
 # choose actions loop
 def chooseActions ():

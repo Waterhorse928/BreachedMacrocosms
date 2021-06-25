@@ -46,7 +46,7 @@ class BasicAttack (Skill):
     def __init__(self, name):
         super().__init__(0, 0, name)
     
-    def skill(self, user, target):
+    def skill(self, user, target, party):
         critMod = crit(user, target)
         atkCount = multipleAttack(user, target)
         atkDmg = max(round((user.atk * 2 * critMod) - target.dfn),0)
@@ -61,12 +61,13 @@ class BasicAttack (Skill):
                 print(f" {target.name} took {atkDmg} damage!")
             else:
                 print(f" {target.name} dodged...")
+        self.cooldown = self.maxCooldown
 
 class AbyssNova (Skill):
     def __init__(self):
         super().__init__(1, 3, "Abyss Nova")
     
-    def skill(self, user, target):
+    def skill(self, user, target, party):
         target.atkChange1 += user.mag
         target.magChange1 += user.mag
         target.resChange1 -= user.mag
@@ -80,7 +81,7 @@ class RekindlingOfDeadAshes (Skill):
     def __init__(self):
         super().__init__(3, 3, "Rekindling of Dead Ashes")
     
-    def skill(self, user, target):
+    def skill(self, user, target, party):
         preHp = target.hp
         if target.hp == 0:
             target.hp = min(target.hp + (user.mag * 2), target.maxHp)
@@ -95,17 +96,17 @@ class Supersonic (Skill):
     def __init__(self):
         super().__init__(2, 3, "Supersonic")
     
-    def skill(self, user, target):
+    def skill(self, user, target, party):
         target.atkChange1 -= user.atk
         print(f'{user.name} uses Supersonic on {target.name}!')
         print(f' {target.name} lost {min(user.atk, target.atk)} ATK...')
         self.cooldown = self.maxCooldown
 
-class Quickattack (Skill):
+class QuickAttack (Skill):
     def __init__(self):
         super().__init__(0, 2, "Quick Attack")
     
-    def skill(self, user, target):
+    def skill(self, user, target, party):
         user.spd *= 2
         critMod = crit(user, target)
         atkCount = multipleAttack(user, target)
@@ -121,3 +122,26 @@ class Quickattack (Skill):
                 print(f" {target.name} took {atkDmg} damage!")
             else:
                 print(f" {target.name} dodged...")
+        self.cooldown = self.maxCooldown
+
+class Sludge (Skill):
+    def __init__(self):
+        super().__init__(4, 3, "Sludge")
+
+    def skill(self, user, target, party):
+        critMod = crit(user, target)
+        atkCount = multipleAttack(user, target)
+        print(f"{user.name} used {self.name}!")
+        if critMod != 1:
+            print(f" x{critMod} Critical!")
+        if atkCount != 1:
+            print(f" {user.name} attacked {atkCount} times!")
+        for x in party:
+            atkDmg = max(round((user.mag * 2 * critMod) - x.res),0)
+            for i in range(atkCount):
+                if miss(user, x) == False:
+                    x.hp -= atkDmg
+                    print(f" {x.name} took {atkDmg} damage!")
+                else:
+                    print(f" {x.name} dodged...")
+        self.cooldown = self.maxCooldown
