@@ -43,10 +43,15 @@ def listAliveCharacters (dict):
 # Returns a list of useable skills
 def listActiveSkills (user):
     activeSkills = []
-    for x in user.skillList:
-        if x.cooldown == 0:
+    for x in range(0, len(user.skillList)):
+        if user.skillList[x].cooldown == 0:
             activeSkills.append(x)
     return activeSkills
+
+def lowerSkillCooldown (user):
+    for x in user.skillList:
+        if x.cooldown != 0:
+            x.cooldown -= 1
 
 # Displays player's characters and asks them to choose a party
 def characterSelect ():
@@ -75,7 +80,7 @@ def listSkills (user):
                 turns = "turn"
             else:
                 turns = "turns"
-            print(f" [Cooldown: {user.skillList[x].cooldown} {turns}] {user.skillList[x].name}")
+            print(f" [Cooldown: {user.skillList[x].cooldown} {turns}]. {user.skillList[x].name}")
 
 # Use a skill.
 def useSkill(user, skill, target):
@@ -119,7 +124,7 @@ def chooseActions ():
 def enemyActions ():
     players = len(player)
     for x in range(1, len(enemy)+1):
-        random.choice(listActiveSkills(enemy[x]))
+        action[x+players] = random.choice(listActiveSkills(enemy[x]))
         targetEx[x+players] = 0
         target[x+players] = random.choice(listAliveCharacters(player))
 
@@ -156,15 +161,18 @@ def round ():
                 useSkill(slot[y], action[y], target[y])
                 slot[y].statUpdate ()
                 target[y].statUpdate ()
+                if target[y].hp == 0:
+                    print(f"{target[y].name} was knocked out!")
                 if targetEx[y] != 0:
                     useBasicAttack (slot[y], targetEx[y])
                     slot[y].statUpdate ()
-                    target[y].statUpdate ()
-                if target[y].hp == 0:
-                    print(f"{target[y].name} was knocked out!")
+                    targetEx[y].statUpdate ()
+                    if targetEx[y].hp == 0:
+                        print(f"{targetEx[y].name} was knocked out!")
+
     for x in range(1, len(slot)+1):
         slot[x].rotateStatChanges ()
-        # put lower cooldowns function here
+        lowerSkillCooldown (slot[x])
 
 # run the entire battle
 def startBattle ():

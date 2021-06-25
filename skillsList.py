@@ -64,7 +64,7 @@ class BasicAttack (Skill):
 
 class AbyssNova (Skill):
     def __init__(self):
-        super().__init__(1, 2, "Abyss Nova")
+        super().__init__(1, 3, "Abyss Nova")
     
     def skill(self, user, target):
         target.atkChange1 += user.mag
@@ -78,7 +78,7 @@ class AbyssNova (Skill):
 
 class RekindlingOfDeadAshes (Skill):
     def __init__(self):
-        super().__init__(3, 2, "Rekindling of Dead Ashes")
+        super().__init__(3, 3, "Rekindling of Dead Ashes")
     
     def skill(self, user, target):
         preHp = target.hp
@@ -93,7 +93,7 @@ class RekindlingOfDeadAshes (Skill):
 
 class Supersonic (Skill):
     def __init__(self):
-        super().__init__(2, 2, "Supersonic")
+        super().__init__(2, 3, "Supersonic")
     
     def skill(self, user, target):
         target.atkChange1 -= user.atk
@@ -101,3 +101,23 @@ class Supersonic (Skill):
         print(f' {target.name} lost {min(user.atk, target.atk)} ATK...')
         self.cooldown = self.maxCooldown
 
+class Quickattack (Skill):
+    def __init__(self):
+        super().__init__(0, 2, "Quick Attack")
+    
+    def skill(self, user, target):
+        user.spd *= 2
+        critMod = crit(user, target)
+        atkCount = multipleAttack(user, target)
+        atkDmg = max(round((user.atk * 2 * critMod) - target.dfn),0)
+        print(f"{user.name} used {self.name}!")
+        if critMod != 1:
+            print(f" x{critMod} Critical!")
+        if atkCount != 1:
+            print(f" {user.name} attacked {atkCount} times!")
+        for i in range(atkCount):
+            if miss(user, target) == False:
+                target.hp -= atkDmg
+                print(f" {target.name} took {atkDmg} damage!")
+            else:
+                print(f" {target.name} dodged...")

@@ -6,6 +6,7 @@ class Rattata(charactersMaster.Character):
     def __init__(self):
         super().__init__(1, 0, 15, 20, 0, 10, 20, 10, 15, 15, True, "Rattata")
         self.skillList.append(skillsList.BasicAttack('Tackle'))
+        self.skillList.append(skillsList.Quickattack())
 
 class Zubat(charactersMaster.Character):
     def __init__(self):
@@ -18,4 +19,4 @@ class Muk(charactersMaster.Character):
         super().__init__(1, 0, 20, 10, 15, 10, 5, 5, 20, 20, True, 'Muk')
         self.skillList.append(skillsList.BasicAttack('Pound'))
 
-rocketCharacters = ["Team Rocket",Rattata(),Zubat(),Muk()]
+rocketCharacters = {0:"Team Rocket",1:Rattata(),2:Zubat(),3:Muk()}
