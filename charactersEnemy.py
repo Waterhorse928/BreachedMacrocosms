@@ -20,4 +20,13 @@ class Muk(charactersMaster.Character):
         self.skillList.append(skillsList.BasicAttack('Pound'))
         self.skillList.append(skillsList.Sludge())
 
+class Pirate(charactersMaster.Character):
+    def __init__(self):
+        super().__init__(1, 0, 15, 15, 15, 15, 15, 15, 15, 15, True, "Pirate")
+        self.skillList.append(skillsList.BasicAttack("Slash"))
+
+class Beowolf(charactersMaster.Character):
+    def __init__(self):
+        super().__init__(1, 0, 15, 15, 15, 15, 15, 15, 15, 15, True, "Beowolf")
+
 rocketCharacters = {0:"Team Rocket",1:Rattata(),2:Zubat(),3:Muk()}
