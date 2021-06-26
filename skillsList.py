@@ -145,3 +145,24 @@ class Sludge (Skill):
                 else:
                     print(f" {x.name} dodged...")
         self.cooldown = self.maxCooldown
+
+class GeyserColumn (Skill):
+    def __init__(self):
+        super().__init__(0, 1, "Geyser Column")
+    
+    def skill(self, user, target, party):
+        critMod = crit(user, target)
+        atkCount = multipleAttack(user, target)
+        atkDmg = max(round((user.mag * 3 * critMod) - target.res),0)
+        print(f"{user.name} used {self.name}!")
+        if critMod != 1:
+            print(f" x{critMod} Critical!")
+        if atkCount != 1:
+            print(f" {user.name} attacked {atkCount} times!")
+        for i in range(atkCount):
+            if miss(user, target) == False:
+                target.hp -= atkDmg
+                print(f" {target.name} took {atkDmg} damage!")
+            else:
+                print(f" {target.name} dodged...")
+        self.cooldown = self.maxCooldown
