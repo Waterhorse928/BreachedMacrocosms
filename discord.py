@@ -1,3 +1,0 @@
-import battle
-import discord
-
