@@ -1,8 +1,5 @@
 import random
 import discord
-from discord.ext.commands import Bot
-bot = Bot(command_prefix='!') 
-TOKEN = 'ODU4MDMxMjI3Mjk3NzI2NTA0.YNYN2g.Y7NiBR--GboIfHKX1IiW-ZWJCLY'
 
 def multipleAttack(user, target):
     attackCount = 1
@@ -50,109 +47,102 @@ class BasicAttack (Skill):
     def __init__(self, name):
         super().__init__(0, 0, name)
     
-    async def skill(self, user, target, party):
-        channel = bot.get_channel(858035586564751390)
+    def skill(self, user, target, party):
         critMod = crit(user, target)
         atkCount = multipleAttack(user, target)
         atkDmg = max(round((user.atk * 2 * critMod) - target.dfn),0)
-        await channel.send(f"{user.name} used {self.name}!")
+        print(f"{user.name} used {self.name}!")
         if critMod != 1:
-            await channel.send(f" x{critMod} Critical!")
+            print(f" x{critMod} Critical!")
         if atkCount != 1:
-            await channel.send(f" {user.name} attacked {atkCount} times!")
+            print(f" {user.name} attacked {atkCount} times!")
         for i in range(atkCount):
             if miss(user, target) == False:
                 target.hp -= atkDmg
-                await channel.send(f" {target.name} took {atkDmg} damage!")
+                print(f" {target.name} took {atkDmg} damage!")
             else:
-                await channel.send(f" {target.name} dodged...")
+                print(f" {target.name} dodged...")
         self.cooldown = self.maxCooldown
 
 class AbyssNova (Skill):
     def __init__(self):
         super().__init__(1, 3, "Abyss Nova")
     
-    async def skill(self, user, target, party):
-        channel = bot.get_channel(858035586564751390)
+    def skill(self, user, target, party):
         target.atkChange1 += user.mag
         target.magChange1 += user.mag
         target.resChange1 -= user.mag
-        await channel.send(f'{user.name} used Abyss Nova!')
-        await channel.send (f' {target.name} gained {user.mag} ATK!')
-        await channel.send (f' {target.name} gained {user.mag} MAG!')
-        await channel.send (f' {target.name} lost {min(user.mag,target.res)} RES...')
+        print(f'{user.name} used Abyss Nova!')
+        print (f' {target.name} gained {user.mag} ATK!')
+        print (f' {target.name} gained {user.mag} MAG!')
+        print (f' {target.name} lost {min(user.mag,target.res)} RES...')
         self.cooldown = self.maxCooldown
 
 class RekindlingOfDeadAshes (Skill):
     def __init__(self):
         super().__init__(3, 3, "Rekindling of Dead Ashes")
     
-    async def skill(self, user, target, party):
-        channel = bot.get_channel(858035586564751390)
+    def skill(self, user, target, party):
         preHp = target.hp
         if target.hp == 0:
             target.hp = min(target.hp + (user.mag * 2), target.maxHp)
         else:
             target.hp = min(target.hp + user.mag, target.maxHp)
         healed = target.hp - preHp
-        await channel.send(f"{user.name} used Rekindling Of Dead Ashes!")
-        await channel.send(f" {target.name} recovered {healed} HP!")
+        print(f"{user.name} used Rekindling Of Dead Ashes!")
+        print(f" {target.name} recovered {healed} HP!")
         self.cooldown = self.maxCooldown
 
 class Supersonic (Skill):
     def __init__(self):
         super().__init__(2, 3, "Supersonic")
     
-    async def skill(self, user, target, party):
-        channel = bot.get_channel(858035586564751390)
+    def skill(self, user, target, party):
         target.atkChange1 -= user.atk
-        await channel.send(f'{user.name} uses Supersonic on {target.name}!')
-        await channel.send(f' {target.name} lost {min(user.atk, target.atk)} ATK...')
+        print(f'{user.name} uses Supersonic on {target.name}!')
+        print(f' {target.name} lost {min(user.atk, target.atk)} ATK...')
         self.cooldown = self.maxCooldown
 
 class QuickAttack (Skill):
     def __init__(self):
         super().__init__(0, 2, "Quick Attack")
     
-    async def skill(self, user, target, party):
-        channel = bot.get_channel(858035586564751390)
+    def skill(self, user, target, party):
         user.spd *= 2
         critMod = crit(user, target)
         atkCount = multipleAttack(user, target)
         atkDmg = max(round((user.atk * 2 * critMod) - target.dfn),0)
-        await channel.send(f"{user.name} used {self.name}!")
+        print(f"{user.name} used {self.name}!")
         if critMod != 1:
-            await channel.send(f" x{critMod} Critical!")
+            print(f" x{critMod} Critical!")
         if atkCount != 1:
-            await channel.send(f" {user.name} attacked {atkCount} times!")
+            print(f" {user.name} attacked {atkCount} times!")
         for i in range(atkCount):
             if miss(user, target) == False:
                 target.hp -= atkDmg
-                await channel.send(f" {target.name} took {atkDmg} damage!")
+                print(f" {target.name} took {atkDmg} damage!")
             else:
-                await channel.send(f" {target.name} dodged...")
+                print(f" {target.name} dodged...")
         self.cooldown = self.maxCooldown
 
 class Sludge (Skill):
     def __init__(self):
         super().__init__(4, 3, "Sludge")
 
-    async def skill(self, user, target, party):
-        channel = bot.get_channel(858035586564751390)
+    def skill(self, user, target, party):
         critMod = crit(user, target)
         atkCount = multipleAttack(user, target)
-        await channel.send(f"{user.name} used {self.name}!")
+        print(f"{user.name} used {self.name}!")
         if critMod != 1:
-            await channel.send(f" x{critMod} Critical!")
+            print(f" x{critMod} Critical!")
         if atkCount != 1:
-            await channel.send(f" {user.name} attacked {atkCount} times!")
+            print(f" {user.name} attacked {atkCount} times!")
         for x in party:
             atkDmg = max(round((user.mag * 2 * critMod) - x.res),0)
             for i in range(atkCount):
                 if miss(user, x) == False:
                     x.hp -= atkDmg
-                    await channel.send(f" {x.name} took {atkDmg} damage!")
+                    print(f" {x.name} took {atkDmg} damage!")
                 else:
-                    await channel.send(f" {x.name} dodged...")
+                    print(f" {x.name} dodged...")
         self.cooldown = self.maxCooldown
-

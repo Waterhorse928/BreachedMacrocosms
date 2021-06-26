@@ -2,29 +2,6 @@ import math
 import random
 import charactersPlayer
 import charactersEnemy
-import skillsList
-import discord
-from discord.ext.commands import Bot
-bot = skillsList.bot
-TOKEN = 'ODU4MDMxMjI3Mjk3NzI2NTA0.YNYN2g.Y7NiBR--GboIfHKX1IiW-ZWJCLY'
-
-@bot.event
-async def on_ready():
-    await bot.get_channel(858035586564751390).send(f'Bot connected as {bot.user}')
-    
-	
-@bot.event
-async def on_message(message):
-    if message.content == 'test':
-	    await message.channel.send('Testing 1 2 3!')
-    await bot.process_commands(message)
-    
-@bot.command(name='bm')
-async def beginBattle(context):
-    await startBattle()
-    await bot.process_commands(context)
-
-  
 
 # Character Lists
 playerList = charactersPlayer.tyCharacters
@@ -40,23 +17,20 @@ target = {}
 # extra attacks
 targetEx = {}
 
-channel = bot.get_channel(858035586564751390)
-
 # Displays enemies at the start and removes enemy[0]
-async def encounter ():
-    channel = bot.get_channel(858035586564751390)
-    await channel.send(f"Encountered {enemy[0]}!")
+def encounter ():
+    print(f"Encountered {enemy[0]}!")
+    print(end="  ")
     for x in range(1, len(enemy)-1):
-        await channel.send(f"{enemy[x].name},")
-    await channel.send(f"and {enemy[int(len(enemy)-1)].name}!")
+        print(f"{enemy[x].name},", end=' ')
+    print(f"and {enemy[int(len(enemy)-1)].name}!")
     del enemy[0]
  
 # displays enemies for selection. Only alive ones
-async def displayEnemies ():
-    channel = bot.get_channel(858035586564751390)
+def displayEnemies ():
     for x in range(1, len(enemy)+1):
         if enemy[x].isAlive == True:
-            await channel.send(f" {x}. {enemy[x].name}")
+            print(f" {x}. {enemy[x].name}")
 
 # Returns a list of alive characters, player or enemy
 def listAliveCharacters (dict):
@@ -77,48 +51,42 @@ def listActiveSkills (user):
     return activeSkills
 
 # lowers skill cooldowns by 1
-async def lowerSkillCooldown (user):
+def lowerSkillCooldown (user):
     for x in user.skillList:
         if x.cooldown != 0:
             x.cooldown -= 1
 
 # Displays player's characters and asks them to choose a party
-async def characterSelect ():
-    channel = bot.get_channel(858035586564751390)
-    await channel.send(f"{playerList[0]}'s Characters:")
+def characterSelect ():
+    print(f"{playerList[0]}'s Characters:")
     for x in range(1, len(playerList)):
-        await channel.send(f" {x}. {playerList[x].name}")
+        print(f" {x}. {playerList[x].name}")
 
     for x in range(1, min(len(playerList), 5)):
-        await channel.send(f"Choose a character for slot {x}: ")
-        async def on_message(message):
-            player[x] = await bot.wait_for("message") #WWWWWWWWWWWWWWWWWWHHHHHHHHHHHHHHHHHHHHHHHHHHHYYYYYYYYYYYYYYYYYYYYYYYYY
-            print(player[x])
-            player[x] = int(player[x])
-            player[x] = playerList[player[x]]
+        player[x] = input(f"Choose a character for slot {x}: ")
+        player[x] = int(player[x])
+        player[x] = playerList[player[x]]
 
 # Displays player's slots
-async def displayPlayers ():
-    channel = bot.get_channel(858035586564751390)
+def displayPlayers ():
     for x in range(1, len(player)+1):
-        await channel.send(f" {x}. {player[x].name}")
+        print(f" {x}. {player[x].name}")
 
 # Displays skills for a particular character
-async def listSkills (user):
-    channel = bot.get_channel(858035586564751390)
-    await channel.send(f"{user.name}'s Skills:")
+def listSkills (user):
+    print(f"{user.name}'s Skills:")
     for x in range(len(user.skillList)):
         if user.skillList[x].cooldown == 0:
-            await channel.send(f" {x}. {user.skillList[x].name}")
+            print(f" {x}. {user.skillList[x].name}")
         else:
             if user.skillList[x].cooldown == 1:
                 turns = "turn"
             else:
                 turns = "turns"
-            await channel.send(f" X. {user.skillList[x].name} [Cooldown: {user.skillList[x].cooldown} {turns}]")
+            print(f" X. {user.skillList[x].name} [Cooldown: {user.skillList[x].cooldown} {turns}]")
 
 # Use a skill.
-async def useSkill(user, skill, target):
+def useSkill(user, skill, target):
     if target in player.values():
         party = player
     if target in enemy.values():
@@ -131,10 +99,10 @@ async def useSkill(user, skill, target):
             if target in enemy.values():
                 target = random.choice(listAliveCharacters(enemy))
     if target != [0]:
-        await user.skillList[skill].skill(user,target,party)
+        user.skillList[skill].skill(user,target,party)
 
 # use Basic Attack
-async def useBasicAttack (user, target):
+def useBasicAttack (user, target):
     if target in player.values():
         party = player
     if target in enemy.values():
@@ -145,21 +113,21 @@ async def useBasicAttack (user, target):
                 target = random.choice(listAliveCharacters(player))
             if target in enemy.values():
                 target = random.choice(listAliveCharacters(enemy))
-    await user.skillList[0].skill(user,target,party)
+    user.skillList[0].skill(user,target,party)
 
 # choose actions loop
-async def chooseActions ():
+def chooseActions ():
     for x in range(1, len(player)+1):
         if player[x].isAlive == True:
-            await listSkills (player[x])
+            listSkills (player[x])
             action[x] = int(input("Choose a skill: "))
             if player[x].skillList[action[x]].type == 1 or player[x].skillList[action[x]].type == 3:
-                await displayPlayers ()
+                displayPlayers ()
                 target[x] = player[int(input("Choose a target for skill: "))]
-                await displayEnemies ()
+                displayEnemies ()
                 targetEx[x] = enemy[int(input("Choose a target for extra attack: "))]
             else:
-                await displayEnemies ()
+                displayEnemies ()
                 target[x] = enemy[int(input("Choose a target for skill: "))]
                 targetEx[x] = 0
         else:
@@ -179,7 +147,7 @@ def turnKey(self):
     return self.turnNumber
 
 # redefines turnList, slotList and slot
-async def turnOrder ():
+def turnOrder ():
     turnList.clear ()
     slotList.clear ()
     # add all characters to turnList    
@@ -197,43 +165,41 @@ async def turnOrder ():
     turnList.sort(key = turnKey, reverse = True)
 
 # a round of combat
-async def round ():
-    channel = bot.get_channel(858035586564751390)
+def round ():
     for x in range(0, len(turnList)):
         y = slotList.index(turnList[x])+1
         slot[y].statUpdate ()
         target[y].statUpdate ()
         if slot[y].isAlive == True:
             if slot[y].skillList[action[y]].cooldown == 0:
-                await useSkill(slot[y], action[y], target[y])
+                useSkill(slot[y], action[y], target[y])
                 slot[y].statUpdate ()
                 target[y].statUpdate ()
                 if target[y].hp == 0:
-                    await channel.send(f"{target[y].name} was knocked out!")
+                    print(f"{target[y].name} was knocked out!")
                 if targetEx[y] != 0:
-                    await useBasicAttack (slot[y], targetEx[y])
+                    useBasicAttack (slot[y], targetEx[y])
                     slot[y].statUpdate ()
                     targetEx[y].statUpdate ()
                     if targetEx[y].hp == 0:
-                        await channel.send(f"{targetEx[y].name} was knocked out!")
+                        print(f"{targetEx[y].name} was knocked out!")
 
     for x in range(1, len(slot)+1):
         slot[x].rotateStatChanges ()
-        await lowerSkillCooldown (slot[x])
+        lowerSkillCooldown (slot[x])
 
 # run the entire battle
-async def startBattle ():
-    channel = bot.get_channel(858035586564751390)
-    await encounter ()
-    await characterSelect ()
+def startBattle ():
+    encounter ()
+    characterSelect ()
     battleOver = False
     playerWon = False
     enemyWon = False
     while battleOver == False:
-        await chooseActions ()
-        await turnOrder ()
+        chooseActions ()
+        turnOrder ()
         enemyActions ()
-        await round ()
+        round ()
         alivePlayers = 0
         aliveEnemies = 0
         for x in range(1, len(enemy)+1):
@@ -249,8 +215,6 @@ async def startBattle ():
             battleOver = True
             playerWon = True
     if playerWon == True:
-        await channel.send("You Won!")
+        print("You Won!")
     if enemyWon == True:
-        await channel.send("You Lost...")
-
-bot.run(TOKEN)
+        print("You Lost...")
