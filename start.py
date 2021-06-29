@@ -14,7 +14,7 @@ if select == 1:
 
     if fight == 9040:
         battle.playerList = charactersPlayer.mattCharacters
-        battle.enemy = charactersEnemy.rocketCharacters
+        battle.enemy = charactersEnemy.pirateCharacters
         battle.startBattle()
 
     if fight == 2171:
