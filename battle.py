@@ -4,7 +4,7 @@ import charactersPlayer
 import charactersEnemy
 
 # Character Lists
-playerList = charactersPlayer.tyCharacters
+playerList = []
 player = {}
 enemy = charactersEnemy.rocketCharacters
 # Character Slots and Turn Order

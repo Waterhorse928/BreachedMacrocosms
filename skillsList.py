@@ -39,12 +39,12 @@ class Skill:
     def __init__(self, type, cooldown, name):
         self.type = type
         self.cooldown = 0
-        self.maxCooldown = cooldown
+        self.maxCooldown = cooldown+1
         self.name = name
 
 class BasicAttack (Skill):
-    def __init__(self, name):
-        super().__init__(0, 0, name)
+    def __init__(self, cooldown, name):
+        super().__init__(0, cooldown, name)
     
     def skill(self, user, target, party):
         critMod = crit(user, target)
@@ -64,22 +64,22 @@ class BasicAttack (Skill):
         self.cooldown = self.maxCooldown
 
 class AbyssNova (Skill):
-    def __init__(self):
-        super().__init__(1, 3, "Abyss Nova")
+    def __init__(self, cooldown, name):
+        super().__init__(1, cooldown, name)
     
     def skill(self, user, target, party):
         target.atkChange1 += user.mag
         target.magChange1 += user.mag
         target.resChange1 -= user.mag
-        print(f'{user.name} used Abyss Nova!')
+        print(f'{user.name} used {self.name}!')
         print (f' {target.name} gained {user.mag} ATK!')
         print (f' {target.name} gained {user.mag} MAG!')
         print (f' {target.name} lost {min(user.mag,target.res)} RES...')
         self.cooldown = self.maxCooldown
 
 class RekindlingOfDeadAshes (Skill):
-    def __init__(self):
-        super().__init__(3, 3, "Rekindling of Dead Ashes")
+    def __init__(self, cooldown, name):
+        super().__init__(3, cooldown, name)
     
     def skill(self, user, target, party):
         preHp = target.hp
@@ -88,23 +88,23 @@ class RekindlingOfDeadAshes (Skill):
         else:
             target.hp = min(target.hp + user.mag, target.maxHp)
         healed = target.hp - preHp
-        print(f"{user.name} used Rekindling Of Dead Ashes!")
+        print(f"{user.name} used {self.name}")
         print(f" {target.name} recovered {healed} HP!")
         self.cooldown = self.maxCooldown
 
 class Supersonic (Skill):
-    def __init__(self):
-        super().__init__(2, 3, "Supersonic")
+    def __init__(self, cooldown, name):
+        super().__init__(2, cooldown, name)
     
     def skill(self, user, target, party):
         target.atkChange1 -= user.atk
-        print(f'{user.name} uses Supersonic!')
+        print(f'{user.name} uses {self.name}')
         print(f' {target.name} lost {min(user.atk, target.atk)} ATK...')
         self.cooldown = self.maxCooldown
 
 class QuickAttack (Skill):
-    def __init__(self):
-        super().__init__(0, 2, "Quick Attack")
+    def __init__(self, cooldown, name):
+        super().__init__(0, cooldown, name)
     
     def skill(self, user, target, party):
         user.spd *= 2
@@ -125,8 +125,8 @@ class QuickAttack (Skill):
         self.cooldown = self.maxCooldown
 
 class Sludge (Skill):
-    def __init__(self):
-        super().__init__(4, 3, "Sludge")
+    def __init__(self, cooldown, name):
+        super().__init__(4, cooldown, name)
 
     def skill(self, user, target, party):
         critMod = crit(user, target)
@@ -147,8 +147,8 @@ class Sludge (Skill):
         self.cooldown = self.maxCooldown
 
 class GeyserColumn (Skill):
-    def __init__(self):
-        super().__init__(0, 1, "Geyser Column")
+    def __init__(self, cooldown, name):
+        super().__init__(0, cooldown, name)
     
     def skill(self, user, target, party):
         critMod = crit(user, target)
@@ -168,8 +168,8 @@ class GeyserColumn (Skill):
         self.cooldown = self.maxCooldown
 
 class Curse (Skill):
-    def __init__(self):
-        super().__init__(2, 2, "Curse")
+    def __init__(self, cooldown, name):
+        super().__init__(2, cooldown, name)
 
     def skill(self, user, target, party):
         target.lukChange1 -= user.mag
@@ -178,13 +178,99 @@ class Curse (Skill):
         self.cooldown = self.maxCooldown
 
 class Heal (Skill):
-    def __init__(self):
-        super().__init__(3, 2, "Heal")
+    def __init__(self, cooldown, name):
+        super().__init__(3, cooldown, name)
 
     def skill(self, user, target, party):
         preHp = target.hp
         target.hp = min(target.hp + user.mag, target.maxHp)
         healed = target.hp - preHp
-        print(f"{user.name} used Heal!")
+        print(f"{user.name} used {self.name}!")
         print(f" {target.name} recovered {healed} HP!")
         self.cooldown = self.maxCooldown
+
+class Maul (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(0, cooldown, name)
+    
+    def skill(self, user, target, party):
+        critMod = crit(user, target)
+        atkCount = multipleAttack(user, target)
+        atkDmg = max(round((user.atk * 3 * critMod) - target.dfn),0)
+        print(f"{user.name} used {self.name}!")
+        if critMod != 1:
+            print(f" x{critMod} Critical!")
+        if atkCount != 1:
+            print(f" {user.name} attacked {atkCount} times!")
+        for i in range(atkCount):
+            if miss(user, target) == False:
+                target.hp -= atkDmg
+                print(f" {target.name} took {atkDmg} damage!")
+            else:
+                print(f" {target.name} dodged...")
+        self.cooldown = self.maxCooldown
+
+class OpticalCamouflage (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(1, cooldown, name)
+    
+    def skill(self, user, target, party):
+        target.lukChange1 += user.skl
+        print(f'{user.name} used {self.name}!')
+        print (f' {target.name} gained {user.mag} LUK!')
+        self.cooldown = self.maxCooldown
+
+class MagicMissile (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(0, cooldown, name)
+    
+    def skill(self, user, target, party):
+        critMod = crit(user, target)
+        atkCount = multipleAttack(user, target)
+        atkDmg = max(round((user.mag * 2 * critMod) - (target.res * 0.5)),0)
+        print(f"{user.name} used {self.name}!")
+        if critMod != 1:
+            print(f" x{critMod} Critical!")
+        if atkCount != 1:
+            print(f" {user.name} attacked {atkCount} times!")
+        for i in range(atkCount):
+            if miss(user, target) == False:
+                target.hp -= atkDmg
+                print(f" {target.name} took {atkDmg} damage!")
+            else:
+                print(f" {target.name} dodged...")
+        self.cooldown = self.maxCooldown
+
+class Shoot (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(0, cooldown, name)
+    
+    def skill(self, user, target, party):
+        user.skl *= 2
+        critMod = crit(user, target)
+        atkCount = multipleAttack(user, target)
+        atkDmg = max(round((user.atk * 2 * critMod) - target.dfn),0)
+        print(f"{user.name} used {self.name}!")
+        if critMod != 1:
+            print(f" x{critMod} Critical!")
+        if atkCount != 1:
+            print(f" {user.name} attacked {atkCount} times!")
+        for i in range(atkCount):
+            if miss(user, target) == False:
+                target.hp -= atkDmg
+                print(f" {target.name} took {atkDmg} damage!")
+            else:
+                print(f" {target.name} dodged...")
+        self.cooldown = self.maxCooldown
+
+class WatchOut (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(1, cooldown, name)
+    
+    def skill(self, user, target, party):
+        target.lukChange1 += user.atk
+        print(f'{user.name} used {self.name}!')
+        print (f' {target.name} gained {user.mag} LUK!')
+        self.cooldown = self.maxCooldown
+
+
