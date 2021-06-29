@@ -98,7 +98,7 @@ class Supersonic (Skill):
     
     def skill(self, user, target, party):
         target.atkChange1 -= user.atk
-        print(f'{user.name} uses Supersonic on {target.name}!')
+        print(f'{user.name} uses Supersonic!')
         print(f' {target.name} lost {min(user.atk, target.atk)} ATK...')
         self.cooldown = self.maxCooldown
 
@@ -165,4 +165,26 @@ class GeyserColumn (Skill):
                 print(f" {target.name} took {atkDmg} damage!")
             else:
                 print(f" {target.name} dodged...")
+        self.cooldown = self.maxCooldown
+
+class Curse (Skill):
+    def __init__(self):
+        super().__init__(2, 2, "Curse")
+
+    def skill(self, user, target, party):
+        target.lukChange1 -= user.mag
+        print(f'{user.name} uses {self.name}!')
+        print(f' {target.name} lost {min(user.mag, target.luk)} LUK...')
+        self.cooldown = self.maxCooldown
+
+class Heal (Skill):
+    def __init__(self):
+        super().__init__(3, 2, "Heal")
+
+    def skill(self, user, target, party):
+        preHp = target.hp
+        target.hp = min(target.hp + user.mag, target.maxHp)
+        healed = target.hp - preHp
+        print(f"{user.name} used Heal!")
+        print(f" {target.name} recovered {healed} HP!")
         self.cooldown = self.maxCooldown
