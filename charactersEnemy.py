@@ -21,8 +21,8 @@ class Muk(charactersMaster.Character):
         self.skillList.append(skillsList.Sludge(2,"Sludge"))
 
 class Pirate(charactersMaster.Character):
-    def __init__(self):
-        super().__init__(1, 0, 15, 15, 15, 15, 15, 15, 15, 15, True, "Pirate")
+    def __init__(self, name):
+        super().__init__(1, 0, 15, 15, 15, 15, 15, 15, 15, 15, True, name)
         self.skillList.append(skillsList.BasicAttack(0,"Slash"))
         self.skillList.append(skillsList.WatchOut(2,"Watch Out"))
         self.skillList.append(skillsList.Shoot(2,"Shoot"))
