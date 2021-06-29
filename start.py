@@ -35,6 +35,10 @@ if select == 2:
         story.startStory("Nitori1", type)
     if script == "0803":
         story.startStory("Suwako1", type)
+    if script == "0804":
+        story.startStory("Suwako2", type)
+    if script == "2002":
+        story.startStory("MarisaTest", type)
 
 if select == 3:
     pass
