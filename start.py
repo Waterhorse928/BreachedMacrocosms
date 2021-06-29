@@ -1,9 +1,11 @@
 import battle
 import charactersPlayer
 import charactersEnemy
+import story
 
 print ("1. Battle")
-select = int(input("What would you like to do?: "))
+print ("2. Story")
+select = int(input("Choose a number: "))
 
 if select == 1:
     fight = int(input("Enter code: "))
@@ -24,7 +26,12 @@ if select == 1:
 
 
 if select == 2:
-    pass
+    script = int(input("Enter code: "))
+    print ("1. Wall o' Text")
+    print ("2. Line by Line")
+    type = int(input ('Choose a format: '))
+    if script == 1128:
+        story.startStory("Nitori1", type)
 
 if select == 3:
     pass

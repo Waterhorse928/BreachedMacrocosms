@@ -218,3 +218,4 @@ def startBattle ():
         print("You Won!")
     if enemyWon == True:
         print("You Lost...")
+    input()
