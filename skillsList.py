@@ -217,7 +217,7 @@ class OpticalCamouflage (Skill):
     def skill(self, user, target, party):
         target.lukChange1 += user.skl
         print(f'{user.name} used {self.name}!')
-        print (f' {target.name} gained {user.mag} LUK!')
+        print (f' {target.name} gained {user.skl} LUK!')
         self.cooldown = self.maxCooldown
 
 class MagicMissile (Skill):

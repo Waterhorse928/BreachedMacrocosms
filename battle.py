@@ -74,7 +74,7 @@ def displayPlayers ():
 
 # Displays skills for a particular character
 def listSkills (user):
-    print(f"{user.name}'s Skills:")
+    print(f"{user.name} {user.hp}/{user.maxHp} HP")
     for x in range(len(user.skillList)):
         if user.skillList[x].cooldown == 0:
             print(f" {x}. {user.skillList[x].name}")
