@@ -59,7 +59,7 @@ def lowerSkillCooldown (user):
 
 # Displays player's characters and asks them to choose a party
 def characterSelect ():
-    print(f"{playerList[0]}'s Characters:")
+    print(f"Characters:")
     for x in range(1, len(playerList)):
         print(f" {x}. {playerList[x].name}")
 

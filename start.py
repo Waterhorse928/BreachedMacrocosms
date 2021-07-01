@@ -7,25 +7,26 @@ while True:
     print ("1. Battle")
     print ("2. Story")
     print ("3. Codes")
-    print ("4. Exit")
+    print ("4. Stats [WIP]")
+    print ("5. Exit")
     select = int(input("Choose a number: "))
     
     if select == 1:
         fight = input("Enter code: ")
         if fight == "7417":
-            battle.playerList = charactersPlayer.tyCharacters
+            battle.playerList = charactersPlayer.tyCharacters1
             battle.enemy = charactersEnemy.rocketCharacters
             battle.code = "XXXX"
             battle.startBattle()
     
         if fight == "9040":
-            battle.playerList = charactersPlayer.mattCharacters
+            battle.playerList = charactersPlayer.mattCharacters1
             battle.enemy = charactersEnemy.pirateCharacters
             battle.code = "XXXX"
             battle.startBattle()
     
         if fight == "0171":
-            battle.playerList = charactersPlayer.beccaCharacters
+            battle.playerList = charactersPlayer.beccaCharacters1
             battle.enemy = charactersEnemy.beowolfCharacters
             battle.code = "0804"
             battle.startBattle()
@@ -50,4 +51,7 @@ while True:
         story.startStory("Codes", 1)
     
     if select == 4:
+        pass
+
+    if select == 5:
         break
