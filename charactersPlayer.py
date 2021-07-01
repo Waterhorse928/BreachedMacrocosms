@@ -16,6 +16,9 @@ class Layton(charactersMaster.Character):
         super().__init__(1, 0, data["vit"], data["atk"], data["mag"], data["skl"], data["spd"], data["luk"], data["dfn"], data["res"], False, "Layton")
         if level >= 1:
             self.skillList.append(skillsList.BasicAttack(0,"Fencing"))
+            self.skillList.append(skillsList.Thinking(1,"Critical Thinking"))
+        if level >= 3:
+            self.skillList.append(skillsList.Shoot(1,"Calculated Strike"))
 
 class Lea(charactersMaster.Character):
     def __init__(self, level):
@@ -55,6 +58,8 @@ class Sanae(charactersMaster.Character):
         if level >= 1:
             self.skillList.append(skillsList.BasicAttack(0,"Gohei Smack"))
             self.skillList.append(skillsList.Heal(1,"Heal"))
+        if level >= 3:
+            self.skillList.append(skillsList.Miracle(1,"Miracle"))
 
 class Suwako(charactersMaster.Character):
     def __init__(self, level):
@@ -63,6 +68,8 @@ class Suwako(charactersMaster.Character):
         if level >= 1:
             self.skillList.append(skillsList.BasicAttack(0,"Iron Rings"))
             self.skillList.append(skillsList.Curse(1,"Curse"))
+        if level >= 3:
+            self.skillList.append(skillsList.GeyserColumn(0,"Geyser"))
 
 class Utsuho(charactersMaster.Character):
     def __init__(self, level):
@@ -73,6 +80,8 @@ class Utsuho(charactersMaster.Character):
             self.skillList.append(skillsList.AbyssNova(2,"Abyss Nova"))
     
 
-tyCharacters1 = ["Ty",Utsuho(),Orin()]
-beccaCharacters1 = ["Becca",Suwako(1),Sanae()]
-mattCharacters1 = ["Matthew",Nitori(),Marisa()]
+tyCharacters1 = ["Ty",Utsuho(1),Orin(1)]
+beccaCharacters1 = ["Becca",Suwako(1),Sanae(1)]
+mattCharacters1 = ["Matthew",Nitori(1),Marisa(1)]
+suwako2 = [" ",Suwako(2),Sanae(2),Layton(2)]
+suwako3 = [" ",Suwako(3),Sanae(3),Layton(3)]

@@ -5,8 +5,8 @@ class Character:
     def __init__(self, level, exp, vit, atk, mag, skl, spd, luk, dfn, res, isEnemy, name):
         self.level = level
         self.exp = exp
-        self.hp = (vit * 3) + 40
-        self.maxHp = (vit * 3) + 40
+        self.hp = (vit * 3) + 50
+        self.maxHp = (vit * 3) + 50
         self.vit = vit
         self.atk = atk
         self.mag = mag
@@ -55,7 +55,7 @@ class Character:
         self.luk = max(self.lukBase + self.lukChange + self.lukChange1,0)
         self.dfn = max(self.dfnBase + self.dfnChange + self.dfnChange1,0)
         self.res = max(self.resBase + self.resChange + self.resChange1,0)
-        self.maxHp = (self.vit * 3) + 40
+        self.maxHp = (self.vit * 3) + 50
         if self.hp <= 0:
             self.isAlive = False
             self.hp = 0

@@ -270,7 +270,47 @@ class WatchOut (Skill):
     def skill(self, user, target, party):
         target.lukChange1 += user.atk
         print(f'{user.name} used {self.name}!')
+        print (f' {target.name} gained {user.atk} LUK!')
+        self.cooldown = self.maxCooldown
+
+class Savage (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(0, cooldown, name)
+    
+    def skill(self, user, target, party):
+        critMod = crit(user, target)
+        atkCount = multipleAttack(user, target)
+        atkDmg = max(round((user.atk * 4 * critMod) - target.dfn),0)
+        print(f"{user.name} used {self.name}!")
+        if critMod != 1:
+            print(f" x{critMod} Critical!")
+        if atkCount != 1:
+            print(f" {user.name} attacked {atkCount} times!")
+        for i in range(atkCount):
+            if miss(user, target) == False:
+                target.hp -= atkDmg
+                print(f" {target.name} took {atkDmg} damage!")
+            else:
+                print(f" {target.name} dodged...")
+        self.cooldown = self.maxCooldown
+
+class Miracle (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(1, cooldown, name)
+    
+    def skill(self, user, target, party):
+        target.lukChange1 += user.luk
+        print(f'{user.name} used {self.name}!')
         print (f' {target.name} gained {user.mag} LUK!')
         self.cooldown = self.maxCooldown
 
+class Thinking (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(1, cooldown, name)
+    
+    def skill(self, user, target, party):
+        target.sklChange1 += user.skl
+        print(f'{user.name} used {self.name}!')
+        print (f' {target.name} gained {user.mag} SKL!')
+        self.cooldown = self.maxCooldown
 

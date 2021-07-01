@@ -5,6 +5,8 @@ def gon(level):
 def layton(level):
     if level == 1:
         return {"vit":26,"atk":22,"mag":4,"skl":29,"spd":22,"luk":16,"dfn":22,"res":19}
+    if level == 2:
+        return {"vit":27,"atk":23,"mag":4,"skl":32,"spd":23,"luk":16,"dfn":23,"res":19}
         
 def lea(level):
     if level == 1:
@@ -27,10 +29,14 @@ def orin(level):
 def sanae(level):
     if level == 1:
         return {"vit":23,"atk":10,"mag":17,"skl":14,"spd":19,"luk":31,"dfn":26,"res":27}
+    if level == 2:
+        return {"vit":24,"atk":10,"mag":18,"skl":14,"spd":19,"luk":35,"dfn":26,"res":28}
         
 def suwako(level):
     if level == 1:
         return {"vit":16,"atk":18,"mag":25,"skl":26,"spd":17,"luk":25,"dfn":16,"res":23}
+    if level == 2:
+        return {"vit":17,"atk":18,"mag":27,"skl":28,"spd":17,"luk":27,"dfn":16,"res":23}
 
 def utsuho(level):
     if level == 1:

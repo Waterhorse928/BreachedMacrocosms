@@ -13,22 +13,34 @@ while True:
     
     if select == 1:
         fight = input("Enter code: ")
-        if fight == "7417":
+        if fight == "7417": # Utsuho Lvl 1
             battle.playerList = charactersPlayer.tyCharacters1
             battle.enemy = charactersEnemy.rocketCharacters
-            battle.code = "XXXX"
-            battle.startBattle()
-    
-        if fight == "9040":
+            battle.code = "Story Code: XXXX"
+            battle.startBattle()    
+            
+        if fight == "9040": # Nitori Lvl 1
             battle.playerList = charactersPlayer.mattCharacters1
             battle.enemy = charactersEnemy.pirateCharacters
-            battle.code = "XXXX"
+            battle.code = "Story Code: XXXX"
             battle.startBattle()
     
-        if fight == "0171":
+        if fight == "0171": # Suwako Lvl 1
             battle.playerList = charactersPlayer.beccaCharacters1
             battle.enemy = charactersEnemy.beowolfCharacters
-            battle.code = "0804"
+            battle.code = "Story Code: 0804"
+            battle.startBattle()
+        
+        if fight == "1606": # Suwako Lvl 2
+            battle.playerList = charactersPlayer.suwako2
+            battle.enemy = charactersEnemy.beowolves
+            battle.code = "Battle Code: 3007"
+            battle.startBattle()
+        
+        if fight == "3007": # Suwako Lvl 3
+            battle.playerList = charactersPlayer.suwako3
+            battle.enemy = charactersEnemy.beowolvesAlpha
+            battle.code = "Story Code: XXXX"
             battle.startBattle()
     
     if select == 2:

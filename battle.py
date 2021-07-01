@@ -216,7 +216,7 @@ def startBattle ():
             battleOver = True
             playerWon = True
     if playerWon == True:
-        print("You Won! [Story Code: {code}]")
+        print("You Won! [{code}]")
     if enemyWon == True:
         print("You Lost...")
     input()
