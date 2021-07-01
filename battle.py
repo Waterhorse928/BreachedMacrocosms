@@ -2,6 +2,7 @@ import math
 import random
 import charactersPlayer
 import charactersEnemy
+import time
 
 code = "XXXX"
 # Character Lists
@@ -39,8 +40,6 @@ def listAliveCharacters (dict):
     for x in range(1, len(dict)+1):
         if dict[x].isAlive == True:
             aliveList.append(dict[x])
-    if aliveList == []:
-        aliveList = [0]
     return aliveList
 
 # Returns a list of useable skills
@@ -96,10 +95,16 @@ def useSkill(user, skill, target):
     if user.skillList[skill].type in [0,1,2]:
         if target.hp == 0:
             if target in player.values():
-                target = random.choice(listAliveCharacters(player))
+                try:
+                    target = random.choice(listAliveCharacters(player))
+                except:
+                    pass
             if target in enemy.values():
-                target = random.choice(listAliveCharacters(enemy))
-    if target != [0]:
+                try: 
+                    target = random.choice(listAliveCharacters(enemy))
+                except:
+                    pass
+    if target != []:
         user.skillList[skill].skill(user,target,party)
 
 # use Basic Attack
@@ -111,9 +116,15 @@ def useBasicAttack (user, target):
     party = listAliveCharacters(party)
     if target.hp == 0:
             if target in player.values():
-                target = random.choice(listAliveCharacters(player))
+                try:
+                    target = random.choice(listAliveCharacters(player))
+                except:
+                    pass
             if target in enemy.values():
-                target = random.choice(listAliveCharacters(enemy))
+                try: 
+                    target = random.choice(listAliveCharacters(enemy))
+                except:
+                    pass
     user.skillList[0].skill(user,target,party)
 
 # choose actions loop
@@ -122,9 +133,13 @@ def chooseActions ():
         if player[x].isAlive == True:
             listSkills (player[x])
             action[x] = int(input("Choose a skill: "))
-            if player[x].skillList[action[x]].type == 1 or player[x].skillList[action[x]].type == 3:
-                displayPlayers ()
-                target[x] = player[int(input("Choose a target for skill: "))]
+            if player[x].skillList[action[x]].type in [1,2,3]:
+                if player[x].skillList[action[x]].type == 2:
+                    displayEnemies ()
+                    target[x] = enemy[int(input("Choose a target for skill: "))]
+                if player[x].skillList[action[x]].type in [1,3]:
+                    displayPlayers ()
+                    target[x] = player[int(input("Choose a target for skill: "))]
                 displayEnemies ()
                 targetEx[x] = enemy[int(input("Choose a target for extra attack: "))]
             else:
@@ -173,17 +188,15 @@ def round ():
         target[y].statUpdate ()
         if slot[y].isAlive == True:
             if slot[y].skillList[action[y]].cooldown == 0:
+                time.sleep(0.2)
                 useSkill(slot[y], action[y], target[y])
                 slot[y].statUpdate ()
                 target[y].statUpdate ()
-                if target[y].hp == 0:
-                    print(f"{target[y].name} was knocked out!")
                 if targetEx[y] != 0:
+                    time.sleep(0.2)
                     useBasicAttack (slot[y], targetEx[y])
                     slot[y].statUpdate ()
                     targetEx[y].statUpdate ()
-                    if targetEx[y].hp == 0:
-                        print(f"{targetEx[y].name} was knocked out!")
 
     for x in range(1, len(slot)+1):
         slot[x].rotateStatChanges ()
@@ -216,7 +229,7 @@ def startBattle ():
             battleOver = True
             playerWon = True
     if playerWon == True:
-        print("You Won! [{code}]")
+        print(f"You Won! [{code}]")
     if enemyWon == True:
         print("You Lost...")
     input()

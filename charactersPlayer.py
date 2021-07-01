@@ -6,14 +6,14 @@ import stats
 class Gon(charactersMaster.Character):
     def __init__(self, level):
         data = stats.gon(level)
-        super().__init__(1, 0, data["vit"], data["atk"], data["mag"], data["skl"], data["spd"], data["luk"], data["dfn"], data["res"], False, "Gon")
+        super().__init__(level, 0, data["vit"], data["atk"], data["mag"], data["skl"], data["spd"], data["luk"], data["dfn"], data["res"], False, "Gon")
         if level >= 1:
             self.skillList.append(skillsList.BasicAttack(0,"Punch"))
 
 class Layton(charactersMaster.Character):
     def __init__(self, level):
         data = stats.layton(level)
-        super().__init__(1, 0, data["vit"], data["atk"], data["mag"], data["skl"], data["spd"], data["luk"], data["dfn"], data["res"], False, "Layton")
+        super().__init__(level, 0, data["vit"], data["atk"], data["mag"], data["skl"], data["spd"], data["luk"], data["dfn"], data["res"], False, "Layton")
         if level >= 1:
             self.skillList.append(skillsList.BasicAttack(0,"Fencing"))
             self.skillList.append(skillsList.Thinking(1,"Critical Thinking"))
@@ -30,7 +30,7 @@ class Lea(charactersMaster.Character):
 class Marisa(charactersMaster.Character):
     def __init__(self, level):
         data = stats.marisa(level)
-        super().__init__(1, 0, data["vit"], data["atk"], data["mag"], data["skl"], data["spd"], data["luk"], data["dfn"], data["res"], False, "Marisa")
+        super().__init__(level, 0, data["vit"], data["atk"], data["mag"], data["skl"], data["spd"], data["luk"], data["dfn"], data["res"], False, "Marisa")
         if level >= 1:
             self.skillList.append(skillsList.BasicAttack(0,"Broom Bash"))
             self.skillList.append(skillsList.MagicMissile(1,"Magic Missile"))
@@ -38,7 +38,7 @@ class Marisa(charactersMaster.Character):
 class Nitori(charactersMaster.Character):
     def __init__(self, level):
         data = stats.nitori(level)
-        super().__init__(1, 0, data["vit"], data["atk"], data["mag"], data["skl"], data["spd"], data["luk"], data["dfn"], data["res"], False, "Nitori")
+        super().__init__(level, 0, data["vit"], data["atk"], data["mag"], data["skl"], data["spd"], data["luk"], data["dfn"], data["res"], False, "Nitori")
         if level >= 1:
             self.skillList.append(skillsList.BasicAttack(0,"Crowbar"))
             self.skillList.append(skillsList.OpticalCamouflage(1,"Optical Camouflage"))
@@ -46,7 +46,7 @@ class Nitori(charactersMaster.Character):
 class Orin(charactersMaster.Character):
     def __init__(self, level):
         data = stats.orin(level)
-        super().__init__(1, 0, data["vit"], data["atk"], data["mag"], data["skl"], data["spd"], data["luk"], data["dfn"], data["res"], False, "Orin")
+        super().__init__(level, 0, data["vit"], data["atk"], data["mag"], data["skl"], data["spd"], data["luk"], data["dfn"], data["res"], False, "Orin")
         if level >= 1:
             self.skillList.append(skillsList.BasicAttack(0,"Kasha's Claws"))
             self.skillList.append(skillsList.RekindlingOfDeadAshes(2,"Rekindling of Dead Ashes"))
@@ -54,7 +54,7 @@ class Orin(charactersMaster.Character):
 class Sanae(charactersMaster.Character):
     def __init__(self, level):
         data = stats.sanae(level)
-        super().__init__(2, 0, data["vit"], data["atk"], data["mag"], data["skl"], data["spd"], data["luk"], data["dfn"], data["res"], False, "Sanae")
+        super().__init__(level, 0, data["vit"], data["atk"], data["mag"], data["skl"], data["spd"], data["luk"], data["dfn"], data["res"], False, "Sanae")
         if level >= 1:
             self.skillList.append(skillsList.BasicAttack(0,"Gohei Smack"))
             self.skillList.append(skillsList.Heal(1,"Heal"))
@@ -69,12 +69,12 @@ class Suwako(charactersMaster.Character):
             self.skillList.append(skillsList.BasicAttack(0,"Iron Rings"))
             self.skillList.append(skillsList.Curse(1,"Curse"))
         if level >= 3:
-            self.skillList.append(skillsList.GeyserColumn(0,"Geyser"))
+            self.skillList.append(skillsList.GeyserColumn(1,"Geyser"))
 
 class Utsuho(charactersMaster.Character):
     def __init__(self, level):
         data = stats.utsuho(level)
-        super().__init__(1, 0, data["vit"], data["atk"], data["mag"], data["skl"], data["spd"], data["luk"], data["dfn"], data["res"], False, "Utsuho")
+        super().__init__(level, 0, data["vit"], data["atk"], data["mag"], data["skl"], data["spd"], data["luk"], data["dfn"], data["res"], False, "Utsuho")
         if level >= 1:
             self.skillList.append(skillsList.BasicAttack(0,"Control Rod Crush"))
             self.skillList.append(skillsList.AbyssNova(2,"Abyss Nova"))

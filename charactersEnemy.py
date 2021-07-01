@@ -31,12 +31,12 @@ class Beowolf(charactersMaster.Character):
     def __init__(self, name):
         super().__init__(1, 0, 15, 15, 15, 15, 15, 15, 15, 15, True, name)
         self.skillList.append(skillsList.BasicAttack(0,"Lunge"))
-        self.skillList.append(skillsList.Supersonic(2,"Howl"))
+        self.skillList.append(skillsList.Howl(2,"Howl"))
         self.skillList.append(skillsList.Maul(2,"Maul"))
 
 class AlphaBeowolf(charactersMaster.Character):
     def __init__(self, name):
-        super().__init__(3, 0, 30, 20, 10, 20, 20, 0, 15, 10, True, name)
+        super().__init__(3, 0, 30, 30, 15, 20, 20, 15, 15, 10, True, name)
         self.skillList.append(skillsList.BasicAttack(0,"Tear"))
         self.skillList.append(skillsList.Sludge(1, "Piercing Howl"))
         self.skillList.append(skillsList.Savage(3, "Savage"))
@@ -44,5 +44,5 @@ class AlphaBeowolf(charactersMaster.Character):
 rocketCharacters = {0:"Team Rocket",1:Rattata(),2:Zubat(),3:Muk()}
 beowolfCharacters = {0:"Beowolves",1:Beowolf("Beowolf A"),2:Beowolf("Beowolf B")}
 pirateCharacters = {0:"Pirates",1:Pirate("Pirate A"),2:Pirate("Pirate B"),3:Pirate("Pirate C")}
-beowolvesAlpha = {0:"Alpha Beowolf",1:Beowolf("Beowolf A"),2:Beowolf("Beowolf B"),3:AlphaBeowolf("Alpha Beowolf"),4:Beowolf("Beowolf C"),5:Beowolf("Beowolf D")}
-beowolves = {0:"Beowolves",1:Beowolf("Beowolf A"),2:Beowolf("Beowolf B"),3:Beowolf("Beowolf C"),4:Beowolf("Beowolf D")}
+beowolvesAlpha = {0:"Alpha Beowolf",1:Beowolf("Beowolf A"),3:Beowolf("Beowolf B"),2:AlphaBeowolf("Alpha Beowolf")}
+beowolves = {0:"Beowolves",1:Beowolf("Beowolf A"),2:Beowolf("Beowolf B"),3:Beowolf("Beowolf C")}

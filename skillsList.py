@@ -62,6 +62,8 @@ class BasicAttack (Skill):
             else:
                 print(f" {target.name} dodged...")
         self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
 
 class AbyssNova (Skill):
     def __init__(self, cooldown, name):
@@ -76,6 +78,8 @@ class AbyssNova (Skill):
         print (f' {target.name} gained {user.mag} MAG!')
         print (f' {target.name} lost {min(user.mag,target.res)} RES...')
         self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
 
 class RekindlingOfDeadAshes (Skill):
     def __init__(self, cooldown, name):
@@ -91,6 +95,8 @@ class RekindlingOfDeadAshes (Skill):
         print(f"{user.name} used {self.name}")
         print(f" {target.name} recovered {healed} HP!")
         self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
 
 class Supersonic (Skill):
     def __init__(self, cooldown, name):
@@ -101,6 +107,8 @@ class Supersonic (Skill):
         print(f'{user.name} uses {self.name}')
         print(f' {target.name} lost {min(user.atk, target.atk)} ATK...')
         self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
 
 class QuickAttack (Skill):
     def __init__(self, cooldown, name):
@@ -123,6 +131,8 @@ class QuickAttack (Skill):
             else:
                 print(f" {target.name} dodged...")
         self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
 
 class Sludge (Skill):
     def __init__(self, cooldown, name):
@@ -145,6 +155,8 @@ class Sludge (Skill):
                 else:
                     print(f" {x.name} dodged...")
         self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
 
 class GeyserColumn (Skill):
     def __init__(self, cooldown, name):
@@ -166,6 +178,8 @@ class GeyserColumn (Skill):
             else:
                 print(f" {target.name} dodged...")
         self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
 
 class Curse (Skill):
     def __init__(self, cooldown, name):
@@ -176,6 +190,8 @@ class Curse (Skill):
         print(f'{user.name} uses {self.name}!')
         print(f' {target.name} lost {min(user.mag, target.luk)} LUK...')
         self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
 
 class Heal (Skill):
     def __init__(self, cooldown, name):
@@ -188,6 +204,8 @@ class Heal (Skill):
         print(f"{user.name} used {self.name}!")
         print(f" {target.name} recovered {healed} HP!")
         self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
 
 class Maul (Skill):
     def __init__(self, cooldown, name):
@@ -209,6 +227,8 @@ class Maul (Skill):
             else:
                 print(f" {target.name} dodged...")
         self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
 
 class OpticalCamouflage (Skill):
     def __init__(self, cooldown, name):
@@ -219,6 +239,8 @@ class OpticalCamouflage (Skill):
         print(f'{user.name} used {self.name}!')
         print (f' {target.name} gained {user.skl} LUK!')
         self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
 
 class MagicMissile (Skill):
     def __init__(self, cooldown, name):
@@ -240,6 +262,8 @@ class MagicMissile (Skill):
             else:
                 print(f" {target.name} dodged...")
         self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
 
 class Shoot (Skill):
     def __init__(self, cooldown, name):
@@ -262,6 +286,8 @@ class Shoot (Skill):
             else:
                 print(f" {target.name} dodged...")
         self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
 
 class WatchOut (Skill):
     def __init__(self, cooldown, name):
@@ -272,6 +298,8 @@ class WatchOut (Skill):
         print(f'{user.name} used {self.name}!')
         print (f' {target.name} gained {user.atk} LUK!')
         self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
 
 class Savage (Skill):
     def __init__(self, cooldown, name):
@@ -293,6 +321,8 @@ class Savage (Skill):
             else:
                 print(f" {target.name} dodged...")
         self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
 
 class Miracle (Skill):
     def __init__(self, cooldown, name):
@@ -303,6 +333,8 @@ class Miracle (Skill):
         print(f'{user.name} used {self.name}!')
         print (f' {target.name} gained {user.mag} LUK!')
         self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
 
 class Thinking (Skill):
     def __init__(self, cooldown, name):
@@ -311,6 +343,20 @@ class Thinking (Skill):
     def skill(self, user, target, party):
         target.sklChange1 += user.skl
         print(f'{user.name} used {self.name}!')
-        print (f' {target.name} gained {user.mag} SKL!')
+        print (f' {target.name} gained {user.skl} SKL!')
         self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
+
+class Howl (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(2, cooldown, name)
+    
+    def skill(self, user, target, party):
+        target.dfnChange1 -= user.atk
+        print(f'{user.name} uses {self.name}')
+        print(f' {target.name} lost {min(user.atk, target.dfn)} DEF...')
+        self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
 
