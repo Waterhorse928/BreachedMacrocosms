@@ -27,3 +27,4 @@ Ashe: U-um, I would like to join in as well.
 Claude: Sure! The more the merrier.
 Ashe: No, I mean I want to fight with these people. I think I could learn something new that way.
 Claude: Interesting perspective! Well I won’t stop you. If there’s nothing else, let’s get started!
+Battle Start! [Battle Code: XXXX]

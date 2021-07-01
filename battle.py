@@ -3,6 +3,7 @@ import random
 import charactersPlayer
 import charactersEnemy
 
+code = "XXXX"
 # Character Lists
 playerList = []
 player = {}
@@ -215,7 +216,7 @@ def startBattle ():
             battleOver = True
             playerWon = True
     if playerWon == True:
-        print("You Won!")
+        print("You Won! [Story Code: {code}]")
     if enemyWon == True:
         print("You Lost...")
     input()
