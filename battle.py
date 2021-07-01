@@ -155,8 +155,13 @@ def enemyActions ():
     players = len(player)
     for x in range(1, len(enemy)+1):
         action[x+players] = random.choice(listActiveSkills(enemy[x]))
+        if enemy[x].skillList[action[x+players]] in [1]:
+            target[x+players] = random.choice(listAliveCharacters(enemy))
+        if enemy[x].skillList[action[x+players]] in [3]:
+            target[x+players] = random.choice(list(enemy.values()))
+        if enemy[x].skillList[action[x+players]] in [0,2,4]:
+            target[x+players] = random.choice(listAliveCharacters(player))
         targetEx[x+players] = 0
-        target[x+players] = random.choice(listAliveCharacters(player))
 
 # Helps turnOrder sort or something
 def turnKey(self):
