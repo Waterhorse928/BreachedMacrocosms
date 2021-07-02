@@ -7,8 +7,8 @@ while True:
     print ("1. Battle")
     print ("2. Story")
     print ("3. Codes")
-    print ("4. Stats [WIP]")
-    print ("5. Exit")
+#    print ("4. [WIP]")
+    print ("4. Exit")
     select = int(input("Choose a number: "))
     
     if select == 1:
@@ -62,8 +62,8 @@ while True:
     if select == 3:
         story.startStory("Codes", 1)
     
-    if select == 4:
-        pass
+#    if select == 4:
+#        pass
 
-    if select == 5:
+    if select == 4:
         break

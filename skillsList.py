@@ -154,9 +154,10 @@ class Sludge (Skill):
                     print(f" {x.name} took {atkDmg} damage!")
                 else:
                     print(f" {x.name} dodged...")
+            if x.hp <= 0:
+                print(f" {x.name} was knocked out!")
+            x.statUpdate()
         self.cooldown = self.maxCooldown
-        if target.hp <= 0:
-            print(f" {target.name} was knocked out!")
 
 class GeyserColumn (Skill):
     def __init__(self, cooldown, name):
@@ -354,9 +355,56 @@ class Howl (Skill):
     
     def skill(self, user, target, party):
         target.dfnChange1 -= user.atk
-        print(f'{user.name} uses {self.name}')
+        print(f'{user.name} used {self.name}!')
         print(f' {target.name} lost {min(user.atk, target.dfn)} DEF...')
         self.cooldown = self.maxCooldown
         if target.hp <= 0:
             print(f" {target.name} was knocked out!")
+
+class Heat (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(1, cooldown, name)
+    
+    def skill(self, user, target, party):
+        target.atkChange1 += user.atk
+        target.sklChange1 += user.atk
+        target.vitChange1 -= user.atk * 0.5
+        target.magChange1 -= user.atk * 0.5
+        print(f'{user.name} used {self.name}!')
+        print (f' {target.name} gained {user.atk} ATK!')
+        print (f' {target.name} gained {user.atk} MAG!')
+        print (f' {target.name} lost {min(user.atk,target.vit)} VIT...')
+        print (f' {target.name} lost {min(user.atk,target.mag)} MAG...')
+        self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
+
+class Sun (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(4, cooldown, name)
+
+    def skill(self, user, target, party):
+        target.luk *= 0.5
+        critMod = crit(user, target)
+        target.luk *= 2
+        atkCount = multipleAttack(user, target)
+        print(f"{user.name} used {self.name}!")
+        if critMod != 1:
+            print(f" x{critMod} Critical!")
+        if atkCount != 1:
+            print(f" {user.name} attacked {atkCount} times!")
+        for x in party:
+            x.luk *= 0.5
+            atkDmg = max(round((user.mag * 3 * critMod) - x.res),0)
+            for i in range(atkCount):
+                if miss(user, x) == False:
+                    x.hp -= atkDmg
+                    print(f" {x.name} took {atkDmg} damage!")
+                else:
+                    print(f" {x.name} dodged...")
+            if x.hp <= 0:
+                print(f" {x.name} was knocked out!")
+            x.statUpdate()
+        self.cooldown = self.maxCooldown
+        
 

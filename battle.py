@@ -21,8 +21,7 @@ targetEx = {}
 
 # Displays enemies at the start and removes enemy[0]
 def encounter ():
-    print(f"Encountered {enemy[0]}!")
-    print(end="  ")
+    print(f"Encountered",end=" ")
     for x in range(1, len(enemy)-1):
         print(f"{enemy[x].name},", end=' ')
     print(f"and {enemy[int(len(enemy)-1)].name}!")
@@ -58,7 +57,7 @@ def lowerSkillCooldown (user):
 
 # Displays player's characters and asks them to choose a party
 def characterSelect ():
-    print(f"Characters:")
+#    print(f"Characters:")
     for x in range(1, len(playerList)):
         print(f" {x}. {playerList[x].name}")
 
@@ -74,7 +73,7 @@ def displayPlayers ():
 
 # Displays skills for a particular character
 def listSkills (user):
-    print(f"{user.name} {user.hp}/{user.maxHp} HP")
+    print(f"--{user.name}-- [{user.hp}/{user.maxHp}] HP")
     for x in range(len(user.skillList)):
         if user.skillList[x].cooldown == 0:
             print(f" {x}. {user.skillList[x].name}")
@@ -136,15 +135,15 @@ def chooseActions ():
             if player[x].skillList[action[x]].type in [1,2,3]:
                 if player[x].skillList[action[x]].type == 2:
                     displayEnemies ()
-                    target[x] = enemy[int(input("Choose a target for skill: "))]
+                    target[x] = enemy[int(input(f"Choose a target for {player[x].skillList[action[x]].name}: "))]
                 if player[x].skillList[action[x]].type in [1,3]:
                     displayPlayers ()
-                    target[x] = player[int(input("Choose a target for skill: "))]
+                    target[x] = player[int(input(f"Choose a target for {player[x].skillList[action[x]].name}: "))]
                 displayEnemies ()
-                targetEx[x] = enemy[int(input("Choose a target for extra attack: "))]
+                targetEx[x] = enemy[int(input(f"Choose a target for {player[x].skillList[0].name}: "))]
             else:
                 displayEnemies ()
-                target[x] = enemy[int(input("Choose a target for skill: "))]
+                target[x] = enemy[int(input(f"Choose a target for {player[x].skillList[action[x]].name}: "))]
                 targetEx[x] = 0
         else:
             action[x] = 0

@@ -47,3 +47,4 @@ def suwako(level):
 def utsuho(level):
     if level == 1:
         return {"vit":27,"atk":29,"mag":32,"skl":12,"spd":2,"luk":4,"dfn":28,"res":26}
+

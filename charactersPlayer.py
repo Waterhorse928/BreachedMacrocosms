@@ -78,6 +78,8 @@ class Utsuho(charactersMaster.Character):
         if level >= 1:
             self.skillList.append(skillsList.BasicAttack(0,"Control Rod Crush"))
             self.skillList.append(skillsList.AbyssNova(2,"Abyss Nova"))
+        if level >= 3:
+            self.skillList.append(skillsList.Sun(4,"Subterranean Sun"))
     
 
 tyCharacters1 = ["Ty",Utsuho(1),Orin(1)]
