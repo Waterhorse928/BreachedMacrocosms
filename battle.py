@@ -8,7 +8,7 @@ code = "XXXX"
 # Character Lists
 playerList = []
 player = {}
-enemy = charactersEnemy.rocketCharacters
+enemy = {}
 # Character Slots and Turn Order
 turnList = []
 slotList = []
