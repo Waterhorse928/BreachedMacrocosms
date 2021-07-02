@@ -406,5 +406,54 @@ class Sun (Skill):
                 print(f" {x.name} was knocked out!")
             x.statUpdate()
         self.cooldown = self.maxCooldown
-        
+
+class BlazingDragon (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(0, cooldown, name)
+    
+    def skill(self, user, target, party):
+        user.skl *= 2
+        critMod = crit(user, target)
+        atkCount = multipleAttack(user, target)
+        atkDmg = max(round((user.atk * 3 * critMod) - target.dfn),0)
+        print(f"{user.name} used {self.name}!")
+        if critMod != 1:
+            print(f" x{critMod} Critical!")
+        if atkCount != 1:
+            print(f" {user.name} attacked {atkCount} times!")
+        for i in range(atkCount):
+            if miss(user, target) == False:
+                target.hp -= atkDmg
+                print(f" {target.name} took {atkDmg} damage!")
+            else:
+                print(f" {target.name} dodged...")
+        self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
+
+class CatsWalk (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(4, cooldown, name)
+
+    def skill(self, user, target, party):
+        user.spd *= 2
+        critMod = crit(user, target)
+        atkCount = multipleAttack(user, target)
+        print(f"{user.name} used {self.name}!")
+        if critMod != 1:
+            print(f" x{critMod} Critical!")
+        if atkCount != 1:
+            print(f" {user.name} attacked {atkCount} times!")
+        for x in party:
+            atkDmg = max(round((user.atk * 2 * critMod) - x.dfn),0)
+            for i in range(atkCount):
+                if miss(user, x) == False:
+                    x.hp -= atkDmg
+                    print(f" {x.name} took {atkDmg} damage!")
+                else:
+                    print(f" {x.name} dodged...")
+            if x.hp <= 0:
+                print(f" {x.name} was knocked out!")
+            x.statUpdate()
+        self.cooldown = self.maxCooldown
 

@@ -41,8 +41,10 @@ class AlphaBeowolf(charactersMaster.Character):
         self.skillList.append(skillsList.Sludge(1, "Piercing Howl"))
         self.skillList.append(skillsList.Savage(3, "Savage"))
 
-rocketCharacters = {0:"Team Rocket",1:Rattata(),2:Zubat(),3:Muk()}
-beowolfCharacters = {0:"Beowolves",1:Beowolf("Beowolf A"),2:Beowolf("Beowolf B")}
-pirateCharacters = {0:"Pirates",1:Pirate("Pirate A"),2:Pirate("Pirate B"),3:Pirate("Pirate C")}
-beowolvesAlpha = {0:"Alpha Beowolf",1:Beowolf("Beowolf A"),3:Beowolf("Beowolf B"),2:AlphaBeowolf("Alpha Beowolf")}
-beowolves = {0:"Beowolves",1:Beowolf("Beowolf A"),2:Beowolf("Beowolf B"),3:Beowolf("Beowolf C")}
+
+
+beowolf1 = {0:"Beowolves",1:Beowolf("Beowolf A"),2:Beowolf("Beowolf B")}
+beowolf2 = {0:"Beowolves",1:Beowolf("Beowolf A"),2:Beowolf("Beowolf B"),3:Beowolf("Beowolf C")}
+beowolf3 = {0:"Alpha Beowolf",1:Beowolf("Beowolf A"),3:Beowolf("Beowolf B"),2:AlphaBeowolf("Alpha Beowolf")}
+rocket1 = {0:"Team Rocket",1:Rattata(),2:Zubat(),3:Muk()}
+pirate1 = {0:"Pirates",1:Pirate("Pirate A"),2:Pirate("Pirate B"),3:Pirate("Pirate C")}

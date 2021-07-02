@@ -15,6 +15,10 @@ Utsuho Ch. 1
   Story Code: 2468
   Battle Code: 7417
 
+Utsuho Ch. 2
+  Story Code: 3939
+  Battle Code: XXXX
+
 Marisa Test
   Story Code: 2002
   Battle Code: XXXX

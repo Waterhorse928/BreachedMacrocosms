@@ -26,6 +26,9 @@ class Lea(charactersMaster.Character):
         super().__init__(level, 0, data["vit"], data["atk"], data["mag"], data["skl"], data["spd"], data["luk"], data["dfn"], data["res"], False, "Lea")
         if level >= 1:
             self.skillList.append(skillsList.BasicAttack(0,"Chakram"))
+            self.skillList.append(skillsList.Heat(2, "Heat Element"))
+        if level >= 3:
+            self.skillList.append(skillsList.BlazingDragon(3, "Blazing Dragon"))
 
 class Marisa(charactersMaster.Character):
     def __init__(self, level):
@@ -50,6 +53,8 @@ class Orin(charactersMaster.Character):
         if level >= 1:
             self.skillList.append(skillsList.BasicAttack(0,"Kasha's Claws"))
             self.skillList.append(skillsList.RekindlingOfDeadAshes(2,"Rekindling of Dead Ashes"))
+        if level >3:
+            self.skillList.append(skillsList.CatsWalk(3,"Cat's Walk"))
 
 class Sanae(charactersMaster.Character):
     def __init__(self, level):
@@ -81,9 +86,12 @@ class Utsuho(charactersMaster.Character):
         if level >= 3:
             self.skillList.append(skillsList.Sun(4,"Subterranean Sun"))
     
-
-tyCharacters1 = ["Ty",Utsuho(1),Orin(1)]
-beccaCharacters1 = ["Becca",Suwako(1),Sanae(1)]
-mattCharacters1 = ["Matthew",Nitori(1),Marisa(1)]
+utsuho1 = [" ",Utsuho(1),Orin(1)]
+utsuho2 = [" ",Utsuho(2),Orin(2),Lea(2)]
+utsuho3 = [" ",Utsuho(3),Orin(3),Lea(3)]
+nitori1 = [" ",Nitori(1),Marisa(1)]
+nitori2 = [" ",Nitori(2),Marisa(2),Gon(2)]
+nitori3 = [" ",Nitori(3),Marisa(3),Gon(3)]
+suwako1 = [" ",Suwako(1),Sanae(1)]
 suwako2 = [" ",Suwako(2),Sanae(2),Layton(2)]
 suwako3 = [" ",Suwako(3),Sanae(3),Layton(3)]
