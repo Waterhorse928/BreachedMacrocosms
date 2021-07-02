@@ -16,7 +16,7 @@ while True:
         if fight == "7417": # Utsuho Lvl 1
             battle.playerList = charactersPlayer.tyCharacters1
             battle.enemy = charactersEnemy.rocketCharacters
-            battle.code = "Story Code: XXXX"
+            battle.code = "Story Code: 3939"
             battle.startBattle()    
             
         if fight == "9040": # Nitori Lvl 1
@@ -50,6 +50,8 @@ while True:
         type = int(input ('Choose a format: '))
         if script == "2468":
             story.startStory("Utsuho1", type)
+        if script == "3939":
+            story.startStory("Utsuho2", type)
         if script == "1128":
             story.startStory("Nitori1", type)
         if script == "0803":
