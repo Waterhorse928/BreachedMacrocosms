@@ -11,7 +11,7 @@ Rinnosuke: You see they take the criminal to a dark room, then they-
 Marisa: Yeah yeah, can I try?
 Rinnosuke: Here. I’ve tried it myself.
 Rinnosuke: It only seems to work if you are thinking about a rather basic object.
-Marisa: I see. Hmmm… Ok I’ve got something.
+Marisa: I see. Hmmm... Ok I’ve got something.
 Beep boop
 Marisa: Is it a person? Not even close.
 Marisa: ...
@@ -25,7 +25,7 @@ Marisa: It’s a mind-reading device!
 Nitori: Whoa! Can I have it?
 Marisa: No! You’d just take it apart!
 Nitori: But, I always put it back together again!
-Marisa: True… You can have it when I’m done with it.
+Marisa: True... You can have it when I’m done with it.
 Rinnosuke: Do I get any say in this?
 CRASH
 Nitori: What was that?
@@ -47,7 +47,7 @@ Nitori: That doesn’t make any sense at all. I was going to come help anyway.
 Marisa: Then it’s decided! Let’s go!
 Rinnosuke: Don’t use your broom-
 CRASH
-Rinnosuke: -in the shop…
+Rinnosuke: -in the shop...
 Nitori: See you later!
 Rinnosuke: *sigh*
 Battle Start! [Battle Code: 9040]

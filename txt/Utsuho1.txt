@@ -3,9 +3,9 @@ Utsuho: Orin?
 Orin: Yeah?
 Utsuho: Do you think Satori-sama will make eggs for dinner tonight?
 Orin: Do you ever want to eat anything else?
-Utsuho: …
+Utsuho: ...
 Utsuho: No?
-Orin: …
+Orin: ...
 Orin: She'll probably have some ready for you.
 Utsuho: Yay!
 Orin: Hmm? What was that?
@@ -18,11 +18,11 @@ Grunt C: Or else!
 Utsuho: What’s a Pokemon?
 Orin: I have no idea.
 Grunt A: What? You don’t know what Pokemon are?
-Grunt B: Um… then what do we do?
-Grunt C: Uh… demand cash?
+Grunt B: Um... then what do we do?
+Grunt C: Uh... demand cash?
 Grunt A: That works! Give us all your money!
 Utsuho: No! You can’t have my money!
-Orin: Okuu, you don’t have any money…
-Utsuho: Oh yeah…
+Orin: Okuu, you don’t have any money...
+Utsuho: Oh yeah...
 Grunt A: Ugh! Enough talking! Let’s fight!
 Battle Start! [Battle Code: 7417]
