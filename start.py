@@ -22,7 +22,7 @@ while True:
         if fight == "9040": # Nitori Lvl 1
             battle.playerList = charactersPlayer.nitori1
             battle.enemy = charactersEnemy.pirate1
-            battle.code = "Story Code: XXXX"
+            battle.code = "Story Code: 3958"
             battle.startBattle()
     
         if fight == "0171": # Suwako Lvl 1
@@ -54,6 +54,8 @@ while True:
             story.startStory("Utsuho2", type)
         if script == "1128":
             story.startStory("Nitori1", type)
+        if script == "3958":
+            story.startStory("Nitori2", type)
         if script == "0803":
             story.startStory("Suwako1", type)
         if script == "0804":
