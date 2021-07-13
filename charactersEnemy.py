@@ -41,10 +41,28 @@ class AlphaBeowolf(charactersMaster.Character):
         self.skillList.append(skillsList.Sludge(1, "Piercing Howl"))
         self.skillList.append(skillsList.Savage(3, "Savage"))
 
+class Arbok(charactersMaster.Character):
+    def __init__(self, name):
+        super().__init__(3, 0, 20, 20, 5, 15, 15, 30, 20, 15, True, name) # Total Stats: 140
+        self.skillList.append(skillsList.BasicAttack(0,"Headbutt"))
+        self.skillList.append(skillsList.Wrap(0,"Wrap"))
 
+class Wheezing(charactersMaster.Character):
+    def __init__(self, name):
+        super().__init__(3, 0, 30, 15, 30, 15, 10, 5, 25, 10, True, name) # Total Stats: 140
+        self.skillList.append(skillsList.BasicAttack(0,"Tackle"))
+        self.skillList.append(skillsList.Smokescreen(2,"Smokescreen"))
+        self.skillList.append(skillsList.Sludge(2,"Sludge"))
+        self.skillList.append(skillsList.Smog(2,"Smog"))
+
+class Meowth(charactersMaster.Character):
+    def __init__(self, name):
+        super().__init__(3, 0, 20, 25, 5, 30, 30, 20, 10, 0, True, name) # Total Stats: 140
+        self.skillList.append(skillsList.BasicAttack(0,"Scratch"))
 
 beowolf1 = {0:"Beowolves",1:Beowolf("Beowolf A"),2:Beowolf("Beowolf B")}
 beowolf2 = {0:"Beowolves",1:Beowolf("Beowolf A"),2:Beowolf("Beowolf B"),3:Beowolf("Beowolf C")}
 beowolf3 = {0:"Alpha Beowolf",1:Beowolf("Beowolf A"),3:Beowolf("Beowolf B"),2:AlphaBeowolf("Alpha Beowolf")}
 rocket1 = {0:"Team Rocket",1:Rattata(),2:Zubat(),3:Muk()}
+rocket2 = {0:"Team Rocket",1:Arbok("Arbok"),2:Meowth("Meowth"),3:Wheezing("Wheezing")}
 pirate1 = {0:"Pirates",1:Pirate("Pirate A"),2:Pirate("Pirate B"),3:Pirate("Pirate C")}

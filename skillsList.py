@@ -1,5 +1,15 @@
 import random
 
+# Skill Types
+# 0 = One Target Attack
+# 1 = One Target Buff
+# 2 = One Target Debuff
+# 3 = One Target Heal
+# 4 = Party Attack
+# 5 = Party Buff
+# 6 = Party Debuff
+# 7 = Party Heal
+
 def multipleAttack(user, target):
     attackCount = 1
     if user.spd > target.spd:
@@ -456,4 +466,60 @@ class CatsWalk (Skill):
                 print(f" {x.name} was knocked out!")
             x.statUpdate()
         self.cooldown = self.maxCooldown
+
+class Smokescreen (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(6, cooldown, name)
+
+    def skill(self, user, target, party):
+        print(f'{user.name} used {self.name}!')
+        for x in party:
+            x.sklChange1 -= user.mag
+            print (f' {x.name} lost {min(user.mag,x.skl)} SKL...')
+            x.statUpdate()
+        self.cooldown = self.maxCooldown
+
+class Smog (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(4, cooldown, name)
+
+    def skill(self, user, target, party):
+        self.skl *= 0.5
+        critMod = crit(user, target)
+        atkCount = multipleAttack(user, target)
+        print(f"{user.name} used {self.name}!")
+        if critMod != 1:
+            print(f" x{critMod} Critical!")
+        if atkCount != 1:
+            print(f" {user.name} attacked {atkCount} times!")
+        for x in party:
+            atkDmg = max(round((user.mag * 3 * critMod) - x.res),0)
+            for i in range(atkCount):
+                if miss(user, x) == False:
+                    x.hp -= atkDmg
+                    print(f" {x.name} took {atkDmg} damage!")
+                else:
+                    print(f" {x.name} dodged...")
+            if x.hp <= 0:
+                print(f" {x.name} was knocked out!")
+            x.statUpdate()
+        self.cooldown = self.maxCooldown
+
+class Wrap (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(2, cooldown, name)
+
+    def skill(self, user, target, party):
+        target.spdChange1 -= user.atk
+        print(f'{user.name} uses {self.name}!')
+        print(f' {target.name} lost {min(user.atk, target.spd)} SPD...')
+        self.cooldown = self.maxCooldown
+
+
+
+
+
+
+
+
 

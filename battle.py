@@ -141,10 +141,14 @@ def chooseActions ():
                     target[x] = player[int(input(f"Choose a target for {player[x].skillList[action[x]].name}: "))]
                 displayEnemies ()
                 targetEx[x] = enemy[int(input(f"Choose a target for {player[x].skillList[0].name}: "))]
-            else:
+            if player[x].skillList[action[x]].type in [0]:
                 displayEnemies ()
                 target[x] = enemy[int(input(f"Choose a target for {player[x].skillList[action[x]].name}: "))]
                 targetEx[x] = 0
+            if player[x].skillList[action[x]].type in [4,6]:
+                target[x] = random.choice(listAliveCharacters(enemy))
+            if player[x].skillList[action[x]].type in [5,7]:
+                target[x] = random.choice(listAliveCharacters(enemy))
         else:
             action[x] = 0
             target[x] = random.choice(listAliveCharacters(enemy))
@@ -154,11 +158,11 @@ def enemyActions ():
     players = len(player)
     for x in range(1, len(enemy)+1):
         action[x+players] = random.choice(listActiveSkills(enemy[x]))
-        if enemy[x].skillList[action[x+players]].type in [1]:
+        if enemy[x].skillList[action[x+players]].type in [1,5]:
             target[x+players] = random.choice(listAliveCharacters(enemy))
-        if enemy[x].skillList[action[x+players]].type in [3]:
+        if enemy[x].skillList[action[x+players]].type in [3,7]:
             target[x+players] = random.choice(list(enemy.values()))
-        if enemy[x].skillList[action[x+players]].type in [0,2,4]:
+        if enemy[x].skillList[action[x+players]].type in [0,2,4,6]:
             target[x+players] = random.choice(listAliveCharacters(player))
         targetEx[x+players] = 0
 
@@ -201,6 +205,18 @@ def round ():
                     useBasicAttack (slot[y], targetEx[y])
                     slot[y].statUpdate ()
                     targetEx[y].statUpdate ()
+        aPlayers = 0
+        aEnemies = 0
+        for x in range(1, len(enemy)+1):
+            if enemy[x].isAlive == True:
+                aEnemies += 1
+        for x in range(1, len(player)+1):
+            if player[x].isAlive == True:
+                aPlayers += 1        
+        if aPlayers == 0:
+            break
+        if aEnemies == 0:
+            break
 
     for x in range(1, len(slot)+1):
         slot[x].rotateStatChanges ()
