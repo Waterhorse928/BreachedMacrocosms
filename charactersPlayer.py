@@ -72,9 +72,9 @@ class Suwako(charactersMaster.Character):
         super().__init__(level, 0, data["vit"], data["atk"], data["mag"], data["skl"], data["spd"], data["luk"], data["dfn"], data["res"], False, "Suwako")
         if level >= 1:
             self.skillList.append(skillsList.BasicAttack(0,"Iron Rings"))
-            self.skillList.append(skillsList.Curse(1,"Curse"))
+            self.skillList.append(skillsList.GeyserColumn(1,"Geyser"))            
         if level >= 3:
-            self.skillList.append(skillsList.GeyserColumn(1,"Geyser"))
+            self.skillList.append(skillsList.Curse(1,"Curse"))
 
 class Utsuho(charactersMaster.Character):
     def __init__(self, level):
