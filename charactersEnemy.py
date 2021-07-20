@@ -65,6 +65,31 @@ class Meowth(charactersMaster.Character):
         self.skillList.append(skillsList.Shoot(2, "Bite"))
         self.skillList.append(skillsList.DarkStar(2, "Pep Talk"))
 
+class Wobbuffet(charactersMaster.Character):
+    def __init__(self, name):
+        super().__init__(4, 0, 50, 0, 0, 0, 10, 10, 40, 35, True, name) # Total Stats: 145
+        self.skillList.append(skillsList.BasicAttack(0,"Salute"))
+        self.skillList.append(skillsList.ShadowTag(5, "Shadow Tag"))
+        self.skillList.append(skillsList.Counter(0, "Counter"))
+        self.skillList.append(skillsList.MirrorCoat(0, "Mirror Coat"))
+        self.skillList.append(skillsList.Bide(2, "Bide"))
+
+class Mimikyu(charactersMaster.Character):
+    def __init__(self, name):
+        super().__init__(5, 0, 20, 25, 15, 25, 25, 20, 15, 25, True, name) # Total Stats: 170
+        self.skillList.append(skillsList.BasicAttack(0,"Astonish"))
+    
+class Victreebel(charactersMaster.Character):
+    def __init__(self, name):
+        super().__init__(3, 0, 35, 15, 15, 20, 10, 10, 15, 10, True, name) # Total Stats: 130
+        self.skillList.append(skillsList.BasicAttack(0,"Vine Whip"))
+
+class Yamask(charactersMaster.Character):
+    def __init__(self, name):
+        super().__init__(4, 0, 15, 10, 30, 15, 15, 15, 30, 15, True, name) # Total Stats: 145
+        self.skillList.append(skillsList.BasicAttack(0,"Astonish"))
+
+
 beowolf1 = {0:"Beowolves",1:Beowolf("Beowolf A"),2:Beowolf("Beowolf B")}
 beowolf2 = {0:"Beowolves",1:Beowolf("Beowolf A"),2:Beowolf("Beowolf B"),3:Beowolf("Beowolf C")}
 beowolf3 = {0:"Alpha Beowolf",1:Beowolf("Beowolf A"),3:Beowolf("Beowolf B"),2:AlphaBeowolf("Alpha Beowolf")}

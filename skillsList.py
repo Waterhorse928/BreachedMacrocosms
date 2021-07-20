@@ -557,7 +557,7 @@ class FurySwipes (Skill):
         super().__init__(0, cooldown, name)
     
     def skill(self, user, target, party):
-        user.atk = round(user.atk * 0.5)
+        user.atk *= 0.5
         user.spd *= 4
         critMod = crit(user, target)
         atkCount = multipleAttack(user, target)
@@ -593,6 +593,58 @@ class DarkStar (Skill):
         if target.hp <= 0:
             print(f" {target.name} was knocked out!")
 
+class ShadowTag (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(6, cooldown, name)
 
+    def skill(self, user, target, party):
+        print(f'{user.name} used {self.name}!')
+        for x in party:
+            power = round(user.vit * 0.3)
+            x.spdChange1 -= power
+            x.lukChange1 -= power
+            print (f' {x.name} lost {min(power,x.spd)} SPD...')
+            print (f' {x.name} lost {min(power,x.luk)} LUK...')
+            x.statUpdate()
+        self.cooldown = self.maxCooldown
+
+class Bide (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(1, cooldown, name)
+    
+    def skill(self, user, target, party):
+        power = round(user.vit * 0.5)
+        target.dfnChange1 += power
+        print(f'{user.name} used {self.name}!')
+        print (f' {target.name} gained {power} DEF!')
+        self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
+
+class Counter (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(1, cooldown, name)
+    
+    def skill(self, user, target, party):
+        power = round(user.vit * 0.2)
+        target.dfnChange1 += power
+        target.atkChange1 += power
+        print(f'{user.name} used {self.name}!')
+        print (f' {target.name} gained {power} DEF!')
+        print (f' {target.name} gained {power} ATK!')
+        self.cooldown = self.maxCooldown
+
+class MirrorCoat (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(1, cooldown, name)
+    
+    def skill(self, user, target, party):
+        power = round(user.vit * 0.2)
+        target.resChange1 += power
+        target.magChange1 += power
+        print(f'{user.name} used {self.name}!')
+        print (f' {target.name} gained {power} RES!')
+        print (f' {target.name} gained {power} MAG!')
+        self.cooldown = self.maxCooldown
 
 

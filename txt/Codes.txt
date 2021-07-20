@@ -1,28 +1,27 @@
-Suwako Ch. 1
+
+Suwako 
+ Chapter 1
   Story Code: 0803
   Battle Code: 0171
-
-Suwako Ch. 2
+ Chapter 2
   Story Code: 0804
   Battle Code: 1606
   Battle Code: 3007
 
-Nitori Ch. 1
+Nitori
+ Chapter 1
   Story Code: 1128
   Battle Code: 9040
-
-Nitori Ch. 1
+ Chapter 2
   Story Code: 3958
   Battle Code: XXXX
-
-Utsuho Ch. 1
-  Story Code: 2468
-  Battle Code: 7417
-
-Utsuho Ch. 2
-  Story Code: 3939
   Battle Code: XXXX
 
-Marisa Test
-  Story Code: 2002
+Utsuho
+ Chapter 1
+  Story Code: 2468
+  Battle Code: 7417
+ Chapter 2
+  Story Code: 3939
+  Battle Code: 3846
   Battle Code: XXXX
