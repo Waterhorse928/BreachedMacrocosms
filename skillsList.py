@@ -515,10 +515,83 @@ class Wrap (Skill):
         print(f' {target.name} lost {min(user.atk, target.spd)} SPD...')
         self.cooldown = self.maxCooldown
 
+class Acid (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(6, cooldown, name)
 
+    def skill(self, user, target, party):
+        print(f'{user.name} used {self.name}!')
+        for x in party:
+            x.dfnChange1 -= user.atk
+            print (f' {x.name} lost {min(user.atk,x.dfn)} DEF...')
+            x.statUpdate()
+        self.cooldown = self.maxCooldown
 
+class PoisonSting (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(0, cooldown, name)
+    
+    def skill(self, user, target, party):
+        target.dfn = round(target.dfn * 0.5)
+        user.spd *= 2
+        critMod = crit(user, target)
+        atkCount = multipleAttack(user, target)
+        atkDmg = max(round((user.atk * 2 * critMod) - target.dfn),0)
+        print(f"{user.name} used {self.name}!")
+        if critMod != 1:
+            print(f" x{critMod} Critical!")
+        if atkCount != 1:
+            print(f" {user.name} attacked {atkCount} times!")
+        for i in range(atkCount):
+            if miss(user, target) == False:
+                target.hp -= atkDmg
+                print(f" {target.name} took {atkDmg} damage!")
+            else:
+                print(f" {target.name} dodged...")
+        self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
 
+class FurySwipes (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(0, cooldown, name)
+    
+    def skill(self, user, target, party):
+        user.atk = round(user.atk * 0.5)
+        user.spd *= 4
+        critMod = crit(user, target)
+        atkCount = multipleAttack(user, target)
+        atkDmg = max(round((user.atk * 2 * critMod) - target.dfn),0)
+        print(f"{user.name} used {self.name}!")
+        if critMod != 1:
+            print(f" x{critMod} Critical!")
+        if atkCount != 1:
+            print(f" {user.name} attacked {atkCount} times!")
+        for i in range(atkCount):
+            if miss(user, target) == False:
+                target.hp -= atkDmg
+                print(f" {target.name} took {atkDmg} damage!")
+            else:
+                print(f" {target.name} dodged...")
+        self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
 
+class DarkStar (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(1, cooldown, name)
+    
+    def skill(self, user, target, party):
+        target.sklChange1 += user.atk
+        target.spdChange1 += user.atk
+        target.dfnChange1 -= user.atk
+        print(f'{user.name} used {self.name}!')
+        print (f' {target.name} gained {user.atk} SKL!')
+        print (f' {target.name} gained {user.atk} SPD!')
+        print (f' {target.name} lost {min(user.atk,target.dfn)} DEF...')
+        self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
 
 
 

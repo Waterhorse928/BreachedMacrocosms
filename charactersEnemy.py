@@ -45,7 +45,9 @@ class Arbok(charactersMaster.Character):
     def __init__(self, name):
         super().__init__(3, 0, 20, 20, 5, 15, 15, 30, 20, 15, True, name) # Total Stats: 140
         self.skillList.append(skillsList.BasicAttack(0,"Headbutt"))
-        self.skillList.append(skillsList.Wrap(0,"Wrap"))
+        self.skillList.append(skillsList.Wrap(2,"Wrap"))
+        self.skillList.append(skillsList.Acid(2,"Acid"))
+        self.skillList.append(skillsList.PoisonSting(2,"PoisonSting"))
 
 class Wheezing(charactersMaster.Character):
     def __init__(self, name):
@@ -59,6 +61,9 @@ class Meowth(charactersMaster.Character):
     def __init__(self, name):
         super().__init__(3, 0, 20, 25, 5, 30, 30, 20, 10, 0, True, name) # Total Stats: 140
         self.skillList.append(skillsList.BasicAttack(0,"Scratch"))
+        self.skillList.append(skillsList.FurySwipes(2, "Fury Swipes"))
+        self.skillList.append(skillsList.Shoot(2, "Bite"))
+        self.skillList.append(skillsList.DarkStar(2, "Pep Talk"))
 
 beowolf1 = {0:"Beowolves",1:Beowolf("Beowolf A"),2:Beowolf("Beowolf B")}
 beowolf2 = {0:"Beowolves",1:Beowolf("Beowolf A"),2:Beowolf("Beowolf B"),3:Beowolf("Beowolf C")}
