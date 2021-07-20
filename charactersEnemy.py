@@ -47,7 +47,7 @@ class Arbok(charactersMaster.Character):
         self.skillList.append(skillsList.BasicAttack(0,"Headbutt"))
         self.skillList.append(skillsList.Wrap(2,"Wrap"))
         self.skillList.append(skillsList.Acid(2,"Acid"))
-        self.skillList.append(skillsList.PoisonSting(2,"PoisonSting"))
+        self.skillList.append(skillsList.PoisonSting(2,"Poison Sting"))
 
 class Wheezing(charactersMaster.Character):
     def __init__(self, name):

@@ -376,15 +376,16 @@ class Heat (Skill):
         super().__init__(1, cooldown, name)
     
     def skill(self, user, target, party):
+        power = round (user.atk * 0.5)
         target.atkChange1 += user.atk
         target.sklChange1 += user.atk
-        target.vitChange1 -= user.atk * 0.5
-        target.magChange1 -= user.atk * 0.5
+        target.vitChange1 -= power
+        target.magChange1 -= power
         print(f'{user.name} used {self.name}!')
         print (f' {target.name} gained {user.atk} ATK!')
-        print (f' {target.name} gained {user.atk} MAG!')
-        print (f' {target.name} lost {min(user.atk,target.vit)} VIT...')
-        print (f' {target.name} lost {min(user.atk,target.mag)} MAG...')
+        print (f' {target.name} gained {user.atk} SKL!')
+        print (f' {target.name} lost {min(power,target.vit)} VIT...')
+        print (f' {target.name} lost {min(power,target.mag)} MAG...')
         self.cooldown = self.maxCooldown
         if target.hp <= 0:
             print(f" {target.name} was knocked out!")
@@ -474,8 +475,9 @@ class Smokescreen (Skill):
     def skill(self, user, target, party):
         print(f'{user.name} used {self.name}!')
         for x in party:
-            x.sklChange1 -= user.mag
-            print (f' {x.name} lost {min(user.mag,x.skl)} SKL...')
+            power = round (user.mag * 0.5)
+            x.sklChange1 -= power
+            print (f' {x.name} lost {min(power,x.skl)} SKL...')
             x.statUpdate()
         self.cooldown = self.maxCooldown
 
@@ -484,7 +486,7 @@ class Smog (Skill):
         super().__init__(4, cooldown, name)
 
     def skill(self, user, target, party):
-        self.skl *= 0.5
+        user.skl *= 0.5
         critMod = crit(user, target)
         atkCount = multipleAttack(user, target)
         print(f"{user.name} used {self.name}!")
