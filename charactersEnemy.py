@@ -77,17 +77,30 @@ class Wobbuffet(charactersMaster.Character):
 class Mimikyu(charactersMaster.Character):
     def __init__(self, name):
         super().__init__(5, 0, 20, 25, 15, 25, 25, 20, 15, 25, True, name) # Total Stats: 170
-        self.skillList.append(skillsList.BasicAttack(0,"Astonish"))
+        self.skillList.append(skillsList.BasicAttack(0,"Play Rough"))
+        self.skillList.append(skillsList.MagicMissile(1,"Shadow Ball"))
+        self.skillList.append(skillsList.ShadowClaw(1,"Shadow Claw"))
+        self.skillList.append(skillsList.Savage(2,"Wood Hammer"))
+        self.skillList.append(skillsList.SnuggleForever(5,"Let's Snuggle Forever"))
     
 class Victreebel(charactersMaster.Character):
     def __init__(self, name):
         super().__init__(3, 0, 35, 15, 15, 20, 10, 10, 15, 10, True, name) # Total Stats: 130
         self.skillList.append(skillsList.BasicAttack(0,"Vine Whip"))
+        self.skillList.append(skillsList.Shoot(3,"Razor Leaf"))
+        self.skillList.append(skillsList.Wrap(3,"Wrap"))
+        self.skillList.append(skillsList.SleepPowder(1,"Sleep Powder"))
+        self.skillList.append(skillsList.SwordsDance(1,"Swords Dance"))
+        self.skillList.append(skillsList.Maul(3,"Double-Edge"))
 
 class Yamask(charactersMaster.Character):
     def __init__(self, name):
         super().__init__(4, 0, 15, 10, 30, 15, 15, 15, 30, 15, True, name) # Total Stats: 145
         self.skillList.append(skillsList.BasicAttack(0,"Astonish"))
+        self.skillList.append(skillsList.MagicMissile(0, "Shadow Ball"))
+        self.skillList.append(skillsList.Smokescreen(2,"Haze"))
+        self.skillList.append(skillsList.NightShade(3,"Night Shade"))
+        self.skillList.append(skillsList.Wisp(2,"Will-O-Wisp"))
 
 
 beowolf1 = {0:"Beowolves",1:Beowolf("Beowolf A"),2:Beowolf("Beowolf B")}
@@ -95,4 +108,5 @@ beowolf2 = {0:"Beowolves",1:Beowolf("Beowolf A"),2:Beowolf("Beowolf B"),3:Beowol
 beowolf3 = {0:"Alpha Beowolf",1:Beowolf("Beowolf A"),3:Beowolf("Beowolf B"),2:AlphaBeowolf("Alpha Beowolf")}
 rocket1 = {0:"Team Rocket",1:Rattata(),2:Zubat(),3:Muk()}
 rocket2 = {0:"Team Rocket",1:Arbok("Arbok"),2:Meowth("Meowth"),3:Wheezing("Wheezing")}
+rocket3 = {0:"Team Rocket",1:Wobbuffet("Wobbuffet"),2:Mimikyu("Mimikyu"),3:Victreebel("Victreebel"),4:Yamask("Yamask")}
 pirate1 = {0:"Pirates",1:Pirate("Pirate A"),2:Pirate("Pirate B"),3:Pirate("Pirate C")}

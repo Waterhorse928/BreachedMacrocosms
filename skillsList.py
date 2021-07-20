@@ -649,4 +649,114 @@ class MirrorCoat (Skill):
         print (f' {target.name} gained {power} MAG!')
         self.cooldown = self.maxCooldown
 
+class ShadowClaw (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(0, cooldown, name)
+    
+    def skill(self, user, target, party):
+        user.skl *= 3
+        critMod = crit(user, target)
+        atkCount = multipleAttack(user, target)
+        atkDmg = max(round((user.atk * 2 * critMod) - target.dfn),0)
+        print(f"{user.name} used {self.name}!")
+        if critMod != 1:
+            print(f" x{critMod} Critical!")
+        if atkCount != 1:
+            print(f" {user.name} attacked {atkCount} times!")
+        for i in range(atkCount):
+            if miss(user, target) == False:
+                target.hp -= atkDmg
+                print(f" {target.name} took {atkDmg} damage!")
+            else:
+                print(f" {target.name} dodged...")
+        self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
+
+class SnuggleForever (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(4, cooldown, name)
+
+    def skill(self, user, target, party):
+        critMod = crit(user, target)
+        atkCount = multipleAttack(user, target)
+        print(f"{user.name} used {self.name}!")
+        if critMod != 1:
+            print(f" x{critMod} Critical!")
+        if atkCount != 1:
+            print(f" {user.name} attacked {atkCount} times!")
+        for x in party:
+            atkDmg = max(round((user.atk * 4 * critMod) - x.dfn),0)
+            for i in range(atkCount):
+                if miss(user, x) == False:
+                    x.hp -= atkDmg
+                    print(f" {x.name} took {atkDmg} damage!")
+                else:
+                    print(f" {x.name} dodged...")
+            if x.hp <= 0:
+                print(f" {x.name} was knocked out!")
+            x.statUpdate()
+        self.cooldown = self.maxCooldown
+
+class SleepPowder (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(2, cooldown, name)
+
+    def skill(self, user, target, party):
+        power = round (user.atk)
+        target.lukChange1 -= power
+        target.sklChange1 -= power
+        print(f'{user.name} uses {self.name}!')
+        print(f' {target.name} lost {min(power, target.luk)} LUK...')
+        print(f' {target.name} lost {min(power, target.skl)} SKL...')
+        self.cooldown = self.maxCooldown
+
+class SwordsDance (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(1, cooldown, name)
+    
+    def skill(self, user, target, party):
+        power = round (user.atk * 2)
+        target.atkChange1 += power
+        print(f'{user.name} used {self.name}!')
+        print (f' {target.name} gained {power} ATK!')
+        self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
+
+class NightShade (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(0, cooldown, name)
+    
+    def skill(self, user, target, party):
+        critMod = crit(user, target)
+        atkCount = multipleAttack(user, target)
+        atkDmg = max(round((user.mag * 2 * critMod) - (target.res * 0)),0)
+        print(f"{user.name} used {self.name}!")
+        if critMod != 1:
+            print(f" x{critMod} Critical!")
+        if atkCount != 1:
+            print(f" {user.name} attacked {atkCount} times!")
+        for i in range(atkCount):
+            if miss(user, target) == False:
+                target.hp -= atkDmg
+                print(f" {target.name} took {atkDmg} damage!")
+            else:
+                print(f" {target.name} dodged...")
+        self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
+
+class Wisp (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(2, cooldown, name)
+    
+    def skill(self, user, target, party):
+        target.atkChange1 -= user.mag
+        print(f'{user.name} uses {self.name}')
+        print(f' {target.name} lost {min(user.atk, target.mag)} ATK...')
+        self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
+
 

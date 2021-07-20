@@ -22,9 +22,15 @@ while True:
         if fight == "3846": # Utsuho Lvl 2
             battle.playerList = charactersPlayer.utsuho2
             battle.enemy = charactersEnemy.rocket2
-            battle.code = "Battle Code: XXXX"
+            battle.code = "Battle Code: 7726"
             battle.startBattle()    
-            
+
+        if fight == "7726": # Utsuho Lvl 3
+            battle.playerList = charactersPlayer.utsuho3
+            battle.enemy = charactersEnemy.rocket3
+            battle.code = "Story Code: XXXX"
+            battle.startBattle()    
+        
         if fight == "9040": # Nitori Lvl 1
             battle.playerList = charactersPlayer.nitori1
             battle.enemy = charactersEnemy.pirate1
