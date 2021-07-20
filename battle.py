@@ -147,8 +147,10 @@ def chooseActions ():
                 targetEx[x] = 0
             if player[x].skillList[action[x]].type in [4,6]:
                 target[x] = random.choice(listAliveCharacters(enemy))
+                targetEx[x] = 0
             if player[x].skillList[action[x]].type in [5,7]:
                 target[x] = random.choice(listAliveCharacters(enemy))
+                targetEx[x] = 0
         else:
             action[x] = 0
             target[x] = random.choice(listAliveCharacters(enemy))
