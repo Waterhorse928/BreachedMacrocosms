@@ -22,7 +22,7 @@ class Muk(charactersMaster.Character):
 
 class Pirate(charactersMaster.Character):
     def __init__(self, name):
-        super().__init__(1, 0, 15, 15, 15, 15, 15, 15, 15, 15, True, name)
+        super().__init__(1, 0, 15, 15, 10, 20, 15, 15, 15, 15, True, name)
         self.skillList.append(skillsList.BasicAttack(0,"Slash"))
         self.skillList.append(skillsList.WatchOut(2,"Watch Out"))
         self.skillList.append(skillsList.Shoot(2,"Shoot"))
@@ -102,6 +102,9 @@ class Yamask(charactersMaster.Character):
         self.skillList.append(skillsList.NightShade(3,"Night Shade"))
         self.skillList.append(skillsList.Wisp(2,"Will-O-Wisp"))
 
+class Morgan(charactersMaster.Character):
+    def __init__(self, name):
+        super().__init__(5, 0, 50, 30, 0, 15, 20, 20, 20, 10, True, name)
 
 beowolf1 = {0:"Beowolves",1:Beowolf("Beowolf A"),2:Beowolf("Beowolf B")}
 beowolf2 = {0:"Beowolves",1:Beowolf("Beowolf A"),2:Beowolf("Beowolf B"),3:Beowolf("Beowolf C")}
@@ -110,3 +113,5 @@ rocket1 = {0:"Team Rocket",1:Rattata(),2:Zubat(),3:Muk()}
 rocket2 = {0:"Team Rocket",1:Arbok("Arbok"),2:Meowth("Meowth"),3:Wheezing("Wheezing")}
 rocket3 = {0:"Team Rocket",1:Wobbuffet("Wobbuffet"),2:Mimikyu("Mimikyu"),3:Victreebel("Victreebel"),4:Yamask("Yamask")}
 pirate1 = {0:"Pirates",1:Pirate("Pirate A"),2:Pirate("Pirate B"),3:Pirate("Pirate C")}
+pirate2 = {0:"Pirates",1:Pirate("Pirate A"),2:Pirate("Pirate B"),3:Pirate("Pirate C"),4:Pirate("Pirate D"),5:Pirate("Pirate E")}
+pirate2 = {0:"Pirates",1:Pirate("Pirate A"),2:Pirate("Pirate B"),3:Morgan("Morgan Axe-hand"),4:Pirate("Pirate C"),5:Pirate("Pirate D")}

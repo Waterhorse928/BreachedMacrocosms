@@ -36,6 +36,18 @@ while True:
             battle.enemy = charactersEnemy.pirate1
             battle.code = "Story Code: 3958"
             battle.startBattle()
+
+#        if fight == "3289": # Nitori Lvl 2
+ #           battle.playerList = charactersPlayer.nitori2
+  #          battle.enemy = charactersEnemy.pirate2
+   #         battle.code = "Battle Code: 0653"
+    #        battle.startBattle()
+
+#        if fight == "0653": # Nitori Lvl 3
+ #           battle.playerList = charactersPlayer.nitori3
+  #          battle.enemy = charactersEnemy.pirate3
+   #         battle.code = "Story Code: XXXX"
+    #        battle.startBattle()
     
         if fight == "0171": # Suwako Lvl 1
             battle.playerList = charactersPlayer.suwako1
