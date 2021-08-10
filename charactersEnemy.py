@@ -114,4 +114,4 @@ rocket2 = {0:"Team Rocket",1:Arbok("Arbok"),2:Meowth("Meowth"),3:Wheezing("Wheez
 rocket3 = {0:"Team Rocket",1:Wobbuffet("Wobbuffet"),2:Mimikyu("Mimikyu"),3:Victreebel("Victreebel"),4:Yamask("Yamask")}
 pirate1 = {0:"Pirates",1:Pirate("Pirate A"),2:Pirate("Pirate B"),3:Pirate("Pirate C")}
 pirate2 = {0:"Pirates",1:Pirate("Pirate A"),2:Pirate("Pirate B"),3:Pirate("Pirate C"),4:Pirate("Pirate D"),5:Pirate("Pirate E")}
-pirate2 = {0:"Pirates",1:Pirate("Pirate A"),2:Pirate("Pirate B"),3:Morgan("Morgan Axe-hand"),4:Pirate("Pirate C"),5:Pirate("Pirate D")}
+pirate3 = {0:"Pirates",1:Pirate("Pirate A"),2:Pirate("Pirate B"),3:Morgan("Morgan Axe-hand"),4:Pirate("Pirate C"),5:Pirate("Pirate D")}
