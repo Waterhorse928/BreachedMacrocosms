@@ -154,6 +154,7 @@ def chooseActions ():
         else:
             action[x] = 0
             target[x] = random.choice(listAliveCharacters(enemy))
+            targetEx[x] = 0
 
 # chooses enemy actions and targets
 def enemyActions ():
