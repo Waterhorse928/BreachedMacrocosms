@@ -3,95 +3,60 @@ import charactersPlayer
 import charactersEnemy
 import story
 
+n7417 = ["Fight",charactersPlayer.utsuho1,charactersEnemy.rocket1,"3939"]# Utsuho Lvl 1
+n3846 = ["Fight",charactersPlayer.utsuho2,charactersEnemy.rocket2,"7726"]# Utsuho Lvl 2
+n7726 = ["Fight",charactersPlayer.utsuho3,charactersEnemy.rocket3,"XXXX"]# Utsuho Lvl 3
+n9040 = ["Fight",charactersPlayer.nitori1,charactersEnemy.pirate1,"3958"]# Nitori Lvl 1
+#n3289 = ["Fight",charactersPlayer.nitori2,charactersEnemy.pirate2,"0653"]# Nitori Lvl 2
+#n0653 = ["Fight",charactersPlayer.nitori3,charactersEnemy.pirate3,"XXXX"]# Nitori Lvl 3
+n0171 = ["Fight",charactersPlayer.suwako1,charactersEnemy.beowolf1,"0804"]# Suwako Lvl 1
+n1606 = ["Fight",charactersPlayer.suwako2,charactersEnemy.beowolf2,"3007"]# Suwako Lvl 2
+n3007 = ["Fight",charactersPlayer.suwako3,charactersEnemy.beowolf3,"XXXX"]# Suwako Lvl 3
+n2468 = ["Story","Utsuho1",2,"7417"]# Utsuho Chap 1
+n3939 = ["Story","Utsuho2",2,"3846"]# Utsuho Chap 2
+n1128 = ["Story","Nitori1",2,"9040"]# Nitori Chap 1
+n3958 = ["Story","Nitori2",2,"XXXX"]# Nitori Chap 2
+n0803 = ["Story","Suwako1",2,"0171"]# Suwako Chap 1
+n0804 = ["Story","Suwako2",2,"XXXX"]# Suwako Chap 2
+n2002 = ["Story","MarisaTest",2,"XXXX"]# Marisa Test
+
+
+def runCode (code):
+    if code[0] == "Fight":
+        t = 1
+    if code[0] == "Story":
+        t = 2
+    if t == 1:
+        battle.playerList = code[1]
+        battle.enemy = code[2]
+        battle.code = f"Code: {code[3]}"
+        battle.startBattle()
+    if t == 2:
+        story.startStory(code[1], 2)
+    return "n" + code[3]
+
+
 while True:
-    print ("1. Battle")
-    print ("2. Story")
+    print ("1. Continue")
+    print ("2. New")
     print ("3. Codes")
-#    print ("4. Stats")
     print ("4. Exit")
     select = int(input("Choose a number: "))
     
-    if select == 1:
-        fight = input("Enter code: ")
-        if fight == "7417": # Utsuho Lvl 1
-            battle.playerList = charactersPlayer.utsuho1
-            battle.enemy = charactersEnemy.rocket1
-            battle.code = "Story Code: 3939"
-            battle.startBattle()    
-
-        if fight == "3846": # Utsuho Lvl 2
-            battle.playerList = charactersPlayer.utsuho2
-            battle.enemy = charactersEnemy.rocket2
-            battle.code = "Battle Code: 7726"
-            battle.startBattle()    
-
-        if fight == "7726": # Utsuho Lvl 3
-            battle.playerList = charactersPlayer.utsuho3
-            battle.enemy = charactersEnemy.rocket3
-            battle.code = "Story Code: XXXX"
-            battle.startBattle()    
-        
-        if fight == "9040": # Nitori Lvl 1
-            battle.playerList = charactersPlayer.nitori1
-            battle.enemy = charactersEnemy.pirate1
-            battle.code = "Story Code: 3958"
-            battle.startBattle()
-
-#        if fight == "3289": # Nitori Lvl 2
- #           battle.playerList = charactersPlayer.nitori2
-  #          battle.enemy = charactersEnemy.pirate2
-   #         battle.code = "Battle Code: 0653"
-    #        battle.startBattle()
-
-#        if fight == "0653": # Nitori Lvl 3
- #           battle.playerList = charactersPlayer.nitori3
-  #          battle.enemy = charactersEnemy.pirate3
-   #         battle.code = "Story Code: XXXX"
-    #        battle.startBattle()
-    
-        if fight == "0171": # Suwako Lvl 1
-            battle.playerList = charactersPlayer.suwako1
-            battle.enemy = charactersEnemy.beowolf1
-            battle.code = "Story Code: 0804"
-            battle.startBattle()
-        
-        if fight == "1606": # Suwako Lvl 2
-            battle.playerList = charactersPlayer.suwako2
-            battle.enemy = charactersEnemy.beowolf2
-            battle.code = "Battle Code: 3007"
-            battle.startBattle()
-        
-        if fight == "3007": # Suwako Lvl 3
-            battle.playerList = charactersPlayer.suwako3
-            battle.enemy = charactersEnemy.beowolf3
-            battle.code = "Story Code: XXXX"
-            battle.startBattle()
-    
     if select == 2:
-        script = input("Enter code: ")
-        print ("1. Wall o' Text")
-        print ("2. Line by Line")
-        type = int(input ('Choose a format: '))
-        if script == "2468":
-            story.startStory("Utsuho1", type)
-        if script == "3939":
-            story.startStory("Utsuho2", type)
-        if script == "1128":
-            story.startStory("Nitori1", type)
-        if script == "3958":
-            story.startStory("Nitori2", type)
-        if script == "0803":
-            story.startStory("Suwako1", type)
-        if script == "0804":
-            story.startStory("Suwako2", type)
-        if script == "2002":
-            story.startStory("MarisaTest", type)
-    
+        pass
+
     if select == 3:
         story.startStory("Codes", 1)
     
-#    if select == 4:
-#        pass
-
     if select == 4:
         break
+
+    if select == 1:
+        nextCode = "n" + input("Enter code: ")
+        while True:
+            nextCode = runCode (eval(nextCode))
+            if nextCode == "nXXXX":
+                break
+        story.startStory("XXXX", 2)
+        
