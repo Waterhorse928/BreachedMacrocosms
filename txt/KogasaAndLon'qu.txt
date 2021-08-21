@@ -3,14 +3,14 @@ Lon'qu: ...For how long do you intend to hide behind that rock?
 Kogasa: Boo! Did I scare you?
 Lon'qu: ...
 Lon'qu: No.
-Kogasa: *sniff* I thought you were scared of girls… *sniff* Maybe I can’t scare humans anymore...
-Lon'qu: Who told you that?! Are you... crying?
+Kogasa: *sniff* You were so scared of those other girls... *sniff* Maybe there isn't anyone I can scare anymore...
+Lon'qu: Are you... crying?
 Kogasa: Waaaaaaah!
 Lon'qu: ...
 Kogasa: *sobbing*
 Lon'qu: ARGH! Please stop crying!
 Kogasa: *sniff* *sob* *sniff*
-Lon'qu: Here… do you want… this flower? *throws flower*
+Lon'qu: Here... do you want... this flower? *throws flower*
 Kogasa: ...
 Lon'qu: Are you done now?
 Kogasa: Gwhahahaha!
@@ -20,7 +20,7 @@ Kogasa: You had me fooled! Your face didn’t look scared at all!
 Lon'qu: ...If that’s all I’m going to get back to training.
 Kogasa: Training? What are you training for?
 Lon'qu: I am a warrior. I must train to retain and improve my skill.
-Kogasa: Your skill huh… Do you think if I trained I could scare more people than just you?
+Kogasa: Your skill huh... Do you think if I trained I could scare more people than just you?
 Lon'qu: ...Perhaps.
 Kogasa: Hmm... How do I train though? Wait! You could teach me!
 Lon'qu: Absolutely not.
@@ -28,3 +28,10 @@ Kogasa: Oh come on! Are you scared?
 Lon'qu: ...Fine. Go sit over there and observe.
 Kogasa: Yay! You won’t regret it!
 Lon'qu: *sigh*
+Kogasa: ...
+Kogasa: What's your name?
+Lon'qu: Lon'qu.
+Kogasa: My name's Kogasa!
+Kogasa: Now you could say we're acquaintances!
+Lon'qu: ...
+Lon'qu: HA! RAH! HA!

@@ -31,14 +31,14 @@ CRASH
 Nitori: What was that?
 Rinnosuke: Don’t look at me.
 BANG BANG
- ???: Take everything not bolted! This haul will fund the Morgan Empire!
+???: Take everything not nailed down! This haul will fund the Morgan Empire!
 Marisa: Sounds like someone’s takin’ your stuff Rinnosuke.
 Rinnosuke: Ah! Marisa! You have to stop them!
 Marisa: Can I keep this?
 Rinnosuke: ...Fine.
 Marisa: Pleasure doin’ business. Come on Nitori.
 Nitori: Wah? Why me?
-Marisa: Well don’t you want to look at this thing later?
+Marisa: Don’t you want to look at this thing later?
 Marisa: Let’s go take out those thieves and I’ll let you look at it.
 Nitori: You already said I could have it!
 Marisa: Ah, but I didn’t say you could look at it!
@@ -50,4 +50,3 @@ CRASH
 Rinnosuke: -in the shop...
 Nitori: See you later!
 Rinnosuke: *sigh*
-Battle Start! [Battle Code: 9040]

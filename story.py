@@ -11,5 +11,8 @@ def startStory (file, type):
         x = open(f"{dir_path}/txt/{file}.txt","r",encoding='utf-8')
         y = x.readlines()
         for z in y:
-            print(z, end=' ')
-            input()
+            z = z.replace("\n","")
+            print(z, end='')
+            a = input(" ")
+            if a == "skip":
+                break
