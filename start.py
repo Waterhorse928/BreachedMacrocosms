@@ -12,12 +12,12 @@ n9040 = ["Fight",charactersPlayer.nitori1,charactersEnemy.pirate1,"3958","9040"]
 n0171 = ["Fight",charactersPlayer.suwako1,charactersEnemy.beowolf1,"0804","0171"]# Suwako Lvl 1
 n1606 = ["Fight",charactersPlayer.suwako2,charactersEnemy.beowolf2,"3007","1606"]# Suwako Lvl 2
 n3007 = ["Fight",charactersPlayer.suwako3,charactersEnemy.beowolf3,"XXXX","3007"]# Suwako Lvl 3
-n2468 = ["Story","Utsuho1",2,"7417","2468"]# Utsuho Chap 1
-n3939 = ["Story","Utsuho2",2,"3846","3939"]# Utsuho Chap 2
-n1128 = ["Story","Nitori1",2,"9040","1128"]# Nitori Chap 1
-n3958 = ["Story","Nitori2",2,"XXXX","3958"]# Nitori Chap 2
-n0803 = ["Story","Suwako1",2,"0171","0803"]# Suwako Chap 1
-n0804 = ["Story","Suwako2",2,"XXXX","0804"]# Suwako Chap 2
+n2468 = ["Story","Utsuho1",2,"7417","2468"]# Utsuho Ch 1
+n3939 = ["Story","Utsuho2",2,"3846","3939"]# Utsuho Ch 2
+n1128 = ["Story","Nitori1",2,"9040","1128"]# Nitori Ch 1
+n3958 = ["Story","Nitori2",2,"XXXX","3958"]# Nitori Ch 2
+n0803 = ["Story","Suwako1",2,"0171","0803"]# Suwako Ch 1
+n0804 = ["Story","Suwako2",2,"XXXX","0804"]# Suwako Ch 2
 n2002 = ["Story","MarisaTest",2,"XXXX","2002"]# Marisa Test
 
 
