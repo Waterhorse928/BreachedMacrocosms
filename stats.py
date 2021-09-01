@@ -1,6 +1,10 @@
 def gon(level):
     if level == 1:
         return {"vit":28,"atk":29,"mag":0,"skl":23,"spd":28,"luk":21,"dfn":27,"res":4}
+    if level == 2:
+        return {"vit":30,"atk":31,"mag":0,"skl":24,"spd":29,"luk":21,"dfn":29,"res":4}
+    if level == 3:
+        return {"vit":32,"atk":32,"mag":0,"skl":25,"spd":30,"luk":22,"dfn":31,"res":4}
 
 def layton(level):
     if level == 1:
@@ -75,10 +79,18 @@ def lea(level):
 def marisa(level):
     if level == 1:
         return {"vit":18,"atk":17,"mag":30,"skl":20,"spd":25,"luk":13,"dfn":15,"res":22}
+    if level == 2:
+        return {"vit":19,"atk":18,"mag":32,"skl":21,"spd":26,"luk":13,"dfn":15,"res":24}
+    if level == 3:
+        return {"vit":20,"atk":18,"mag":34,"skl":22,"spd":27,"luk":15,"dfn":16,"res":25}
         
 def nitori(level):
     if level == 1:
         return {"vit":19,"atk":27,"mag":7,"skl":26,"spd":22,"luk":24,"dfn":18,"res":17}
+    if level == 2:
+        return {"vit":20,"atk":30,"mag":7,"skl":27,"spd":23,"luk":25,"dfn":19,"res":17}
+    if level == 2:
+        return {"vit":21,"atk":31,"mag":7,"skl":28,"spd":24,"luk":28,"dfn":19,"res":18}
         
 def orin(level):
     if level == 1:

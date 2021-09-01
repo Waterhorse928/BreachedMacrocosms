@@ -16,3 +16,15 @@ def startStory (file, type):
             a = input(" ")
             if a == "skip":
                 break
+
+    if type == 3:
+        x = open(f"{dir_path}/txt/{file}.txt","r",encoding='utf-8')
+        y = x.readlines()
+        for z in y:
+            z = z.replace("\n","")
+            z = z.replace("~!@","\n")
+            print(z, end='')
+            a = input(" ")
+            if a == "skip":
+                break
+        return input ("Choose a number: ")
