@@ -5,7 +5,7 @@ import story
 
 n7417 = ["Fight",charactersPlayer.utsuho1,charactersEnemy.rocket1,"3939","7417"]# Utsuho Lvl 1
 n3846 = ["Fight",charactersPlayer.utsuho2,charactersEnemy.rocket2,"7726","3846"]# Utsuho Lvl 2
-n7726 = ["Fight",charactersPlayer.utsuho3,charactersEnemy.rocket3,"XXXX","7726"]# Utsuho Lvl 3
+n7726 = ["Fight",charactersPlayer.utsuho3,charactersEnemy.rocket3,"4678","7726"]# Utsuho Lvl 3
 n9040 = ["Fight",charactersPlayer.nitori1,charactersEnemy.pirate1,"3958","9040"]# Nitori Lvl 1
 n3289 = ["Fight",charactersPlayer.nitori2,charactersEnemy.pirate2,"0653","3289"]# Nitori Lvl 2
 n0653 = ["Fight",charactersPlayer.nitori3,charactersEnemy.pirate3,"XXXX","0653"]# Nitori Lvl 3
@@ -14,6 +14,7 @@ n1606 = ["Fight",charactersPlayer.suwako2,charactersEnemy.beowolf2,"3007","1606"
 n3007 = ["Fight",charactersPlayer.suwako3,charactersEnemy.beowolf3,"XXXX","3007"]# Suwako Lvl 3
 n2468 = ["Story","Utsuho1",2,"7417","2468"]# Utsuho Ch 1
 n3939 = ["Story","Utsuho2",2,"3846","3939"]# Utsuho Ch 2
+n4678 = ["Story","Utsuho3",2,"XXXX","4678"]# Utsuho Ch 3
 n1128 = ["Story","Nitori1",2,"9040","1128"]# Nitori Ch 1
 n3958 = ["Story","Nitori2",2,"3289","3958"]# Nitori Ch 2
 n0803 = ["Story","Suwako1",2,"0171","0803"]# Suwako Ch 1
