@@ -89,7 +89,7 @@ def nitori(level):
         return {"vit":19,"atk":27,"mag":7,"skl":26,"spd":22,"luk":24,"dfn":18,"res":17}
     if level == 2:
         return {"vit":20,"atk":30,"mag":7,"skl":27,"spd":23,"luk":25,"dfn":19,"res":17}
-    if level == 2:
+    if level == 3:
         return {"vit":21,"atk":31,"mag":7,"skl":28,"spd":24,"luk":28,"dfn":19,"res":18}
         
 def orin(level):
