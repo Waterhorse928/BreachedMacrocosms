@@ -52,7 +52,8 @@ def runCode (code):
 while True:
     print ("1. Continue")
     print ("2. New")
-    print ("3. Exit")
+    print ("3. Info")
+    print ("0. Exit")
     select = int(input("Choose a number: "))
     
     if select == 2:
@@ -63,10 +64,11 @@ while True:
                 story.startStory("XXXX", 2)
                 break
 
-    if select == 4:
-        display.displayCode(n7726)
-    
     if select == 3:
+        displayCode = "n" + input("Enter code: ")
+        display.displayCode(eval(displayCode))
+    
+    if select == 0:
         break
 
     if select == 1:
