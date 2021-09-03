@@ -25,6 +25,7 @@ n0000 = ["Story2","Yukari",2,["2468","1128","0803"],"0000"]# Choice
 
 def runCode (code):
     print (f"[Code:{code[4]}]")
+    result = "repeat"
     if code[0] == "Fight":
         t = 1
     if code[0] == "Story":
@@ -32,15 +33,18 @@ def runCode (code):
     if code[0] == "Story2":
         t = 3
     if t == 1:
-        battle.playerList = code[1]
-        battle.enemy = code[2]
-        battle.code = f"Code:{code[3]}"
-        battle.startBattle()
+        while result == "repeat":
+            battle.playerList = code[1]
+            battle.enemy = code[2]
+            battle.code = f"Code:{code[3]}"
+            result = battle.startBattle()        
     if t == 2:
-        story.startStory(code[1], 2)
+        result = story.startStory(code[1], 2)
     if t == 3:
         n = int(story.startStory(code[1], 3))
         code[3] = code[3][n-1]
+    if result == "menu":
+            code[3] = "MENU"
     return "n" + code[3]
 
 
@@ -70,6 +74,8 @@ while True:
             nextCode = runCode (eval(nextCode))
             if nextCode == "nXXXX":
                 story.startStory("XXXX", 2)
+                break
+            if nextCode == "nMENU":
                 break
         
         

@@ -21,6 +21,7 @@ targetEx = {}
 
 # Displays enemies at the start and removes enemy[0]
 def encounter ():
+    enemy[0] = "Enemies"
     print(f"Encountered",end=" ")
     for x in range(1, len(enemy)-1):
         print(f"{enemy[x].name},", end=' ')
@@ -227,6 +228,7 @@ def round ():
 
 # run the entire battle
 def startBattle ():
+    result = 0
     encounter ()
     characterSelect ()
     battleOver = False
@@ -252,7 +254,18 @@ def startBattle ():
             battleOver = True
             playerWon = True
     if playerWon == True:
-        print(f"You Won! [{code}]")
+        result = "next"
+        input(f"You Won!")
     if enemyWon == True:
-        print("You Lost...")
-    input()
+        input("You Lost...")
+        print("1. Try again")
+        print("2. Skip Battle")
+        print("3. Main Menu")
+        result = int(input("Choose a number: "))
+        if result == 1:
+            result = "repeat"
+        if result == 2:
+            result = "next"
+        if result == 3:
+            result = "menu"
+    return result

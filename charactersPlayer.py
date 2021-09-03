@@ -53,7 +53,7 @@ class Orin(charactersMaster.Character):
         if level >= 1:
             self.skillList.append(skillsList.BasicAttack(0,"Kasha's Claws"))
             self.skillList.append(skillsList.RekindlingOfDeadAshes(2,"Rekindling of Dead Ashes"))
-        if level >3:
+        if level >= 3:
             self.skillList.append(skillsList.CatsWalk(3,"Cat's Walk"))
 
 class Sanae(charactersMaster.Character):

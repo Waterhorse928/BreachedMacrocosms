@@ -6,6 +6,7 @@ def startStory (file, type):
         y = x.read()
         print(y)
         input()
+        return 2
 
     if type == 2:
         x = open(f"{dir_path}/txt/{file}.txt","r",encoding='utf-8')
@@ -15,7 +16,9 @@ def startStory (file, type):
             print(z, end='')
             a = input(" ")
             if a == "skip":
-                break
+                return "next"
+            if a == "menu":
+                return "menu"
 
     if type == 3:
         x = open(f"{dir_path}/txt/{file}.txt","r",encoding='utf-8')
