@@ -1,0 +1,11 @@
+
+    -name-
+    
+Type:
+    
+Cooldown:
+     Turns
+Calculations:
+    
+Description:
+    

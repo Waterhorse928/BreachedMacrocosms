@@ -1,0 +1,11 @@
+
+    -Tackle-
+    
+Type:
+    Basic Attack
+Cooldown:
+    0 Turns
+Calculations:
+    ATK*2-T.DEF
+Description:
+    

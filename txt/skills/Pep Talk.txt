@@ -1,0 +1,11 @@
+
+    -Pep Talk-
+    
+Type:
+    Buff
+Cooldown:
+    2 Turns
+Calculations:
+    T.SKL+ATK T.SPD+ATK T.DEF-ATK
+Description:
+    

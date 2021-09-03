@@ -1,0 +1,11 @@
+
+    -Geyser-
+    
+Type:
+    Attack
+Cooldown:
+    1 Turns
+Calculations:
+    MAG*3-T.RES
+Description:
+    Where'd all that water come from? Does it matter?

@@ -1,0 +1,11 @@
+
+    -Cat's Walk-
+    
+Type:
+    Team Attack
+Cooldown:
+    4 Turns
+Calculations:
+    ATK*2-T.DEF (SPD*3)
+Description:
+    She's a lot faster in her cat form.

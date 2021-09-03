@@ -1,0 +1,11 @@
+
+    -Night Shade-
+    
+Type:
+    Attack
+Cooldown:
+    3 Turns
+Calculations:
+    MAG*2-T.RES
+Description:
+    

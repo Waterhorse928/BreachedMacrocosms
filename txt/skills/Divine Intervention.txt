@@ -1,0 +1,11 @@
+
+    -Divine Intervention-
+    
+Type:
+    Party Buff
+Cooldown:
+    3 Turns
+Calculations:
+    T.LUK+(MAG+LUK)*0.5
+Description:
+    How did you dodge that? It must of been a miracle or something.

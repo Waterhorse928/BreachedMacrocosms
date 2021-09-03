@@ -1,0 +1,11 @@
+
+    -Chess Match-
+    
+Type:
+    Attack
+Cooldown:
+    5 Turns
+Calculations:
+    SKL*3-SKL
+Description:
+    A gentleman's game. How does it cause damage though?

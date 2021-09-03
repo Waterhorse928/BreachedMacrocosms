@@ -1,0 +1,11 @@
+
+    -Blazing Wheel-
+    
+Type:
+    Buff
+Cooldown:
+    2 Turns
+Calculations:
+    T.SPD+SPD T.SKL+SPD T.DEF-SPD
+Description:
+    I'm not sure what's going on, but it looks impressive.

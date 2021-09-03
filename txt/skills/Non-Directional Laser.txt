@@ -1,0 +1,11 @@
+
+    -Non-Directional Laser-
+    
+Type:
+    Team Attack
+Cooldown:
+    2 Turns
+Calculations:
+    MAG*2-T.RES
+Description:
+    A half-borrowed spell. Makes you wonder how many of her spells aren't a blatant copy?

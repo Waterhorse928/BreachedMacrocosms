@@ -1,0 +1,11 @@
+
+    -Archaeological Punch-
+    
+Type:
+    Attack
+Cooldown:
+    3 Turns
+Calculations:
+    (ATK+SKL*2)-T.DEF
+Description:
+    A punch filled with the power of archaeology. Wait, what?

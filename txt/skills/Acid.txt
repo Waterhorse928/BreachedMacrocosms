@@ -1,0 +1,11 @@
+
+    -Acid-
+    
+Type:
+    Party Debuff
+Cooldown:
+    2 Turns
+Calculations:
+    T.DEF-ATK
+Description:
+    

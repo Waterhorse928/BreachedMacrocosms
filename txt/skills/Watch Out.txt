@@ -1,0 +1,11 @@
+
+    -Watch Out-
+    
+Type:
+    Buff
+Cooldown:
+    2 Turns
+Calculations:
+    T.LUK+ATK
+Description:
+    

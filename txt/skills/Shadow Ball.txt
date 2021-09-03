@@ -1,0 +1,11 @@
+
+    -Shadow Ball-
+    
+Type:
+    Attack
+Cooldown:
+    0 Turns
+Calculations:
+    MAG*2-T.RES*0.5
+Description:
+    

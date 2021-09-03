@@ -1,0 +1,11 @@
+
+    -Geyser Column-
+    
+Type:
+    Attack
+Cooldown:
+    4 Turns
+Calculations:
+    MAG*7-T.RES*2
+Description:
+    Ow ow ow! That's hot!

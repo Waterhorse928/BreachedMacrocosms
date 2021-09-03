@@ -1,0 +1,11 @@
+
+    -Shadow Tag-
+    
+Type:
+    Party Debuff
+Cooldown:
+    5 Turns
+Calculations:
+    T.SPD-VIT*0.5 T.LUK-VIT*0.5
+Description:
+    

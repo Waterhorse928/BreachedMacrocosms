@@ -1,0 +1,11 @@
+
+    -Will-O-Wisp-
+    
+Type:
+    Debuff
+Cooldown:
+    2 Turns
+Calculations:
+    T.ATK-MAG
+Description:
+    

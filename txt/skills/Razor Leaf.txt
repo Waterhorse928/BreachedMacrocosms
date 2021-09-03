@@ -1,0 +1,11 @@
+
+    -Razor Leaf-
+    
+Type:
+    Attack
+Cooldown:
+    3 Turns
+Calculations:
+    ATK*2-T.DEF (SKL*2)
+Description:
+    

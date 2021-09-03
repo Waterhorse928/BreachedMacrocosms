@@ -1,0 +1,11 @@
+
+    -Curse-
+    
+Type:
+    Debuff
+Cooldown:
+    1 Turns
+Calculations:
+    T.LUK-MAG
+Description:
+    Misforture follows those on the wrong side of a curse god.

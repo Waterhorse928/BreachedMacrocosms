@@ -1,0 +1,11 @@
+
+    -Rock Fling-
+    
+Type:
+    Team Attack
+Cooldown:
+    5 Turns
+Calculations:
+    MAG*3-T.DEF
+Description:
+    If it works, it works. Rocks hurt.

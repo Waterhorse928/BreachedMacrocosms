@@ -1,0 +1,11 @@
+
+    -Photon Torpedo-
+    
+Type:
+    Attack
+Cooldown:
+    2 Turns
+Calculations:
+    ATK*3-T.RES
+Description:
+    How is it a torpedo when it's not used in water?

@@ -1,0 +1,11 @@
+
+    -Rocket Dive-
+    
+Type:
+    Team Attack
+Cooldown:
+    1 Turn
+Calculations:
+     ATK*1.5-T.DEF
+Description:
+    Where'd she go? OH NO SHE'S COMING BACK

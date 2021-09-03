@@ -1,0 +1,11 @@
+
+    -Critical Thinking-
+    
+Type:
+    Buff
+Cooldown:
+    2 Turns
+Calculations:
+    T.SKL+SKL
+Description:
+    An important skill to master.

@@ -1,0 +1,11 @@
+
+    -Subterranean Sun-
+    
+Type:
+    Team Attack
+Cooldown:
+    4 Turns
+Calculations:
+    MAG*3-T.RES (T.LUK*0.5)
+Description:
+    It's a sun so it has it's own gravity. Enemies will have a tough time trying not to get pulled in.

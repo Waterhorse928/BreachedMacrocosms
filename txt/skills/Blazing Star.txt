@@ -1,0 +1,11 @@
+
+    -Blazing Star-
+    
+Type:
+    Buff
+Cooldown:
+    2 Turns
+Calculations:
+    T.SPD+MAG
+Description:
+    Also why are all of her spell cards so awesome? Like all of them?

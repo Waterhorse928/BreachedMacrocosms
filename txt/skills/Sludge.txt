@@ -1,0 +1,11 @@
+
+    -Sludge-
+    
+Type:
+    Team Attack
+Cooldown:
+    2 Turns
+Calculations:
+    MAG*2-T.RES
+Description:
+    

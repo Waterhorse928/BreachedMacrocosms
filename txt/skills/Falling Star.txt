@@ -1,0 +1,11 @@
+
+    -Falling Star-
+    
+Type:
+    Attack
+Cooldown:
+    5 Turns
+Calculations:
+    (MAG+LUK*3)-T.RES
+Description:
+    Terraria wants it's Fallen Stars back. I don't think she going to give them up though.

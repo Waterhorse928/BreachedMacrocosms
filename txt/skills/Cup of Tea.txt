@@ -1,0 +1,11 @@
+
+    -Cup of Tea-
+    
+Type:
+    Heal
+Cooldown:
+    2 Turns
+Calculations:
+    T.HP+SKL
+Description:
+    A good cup of tea will fix you right up.

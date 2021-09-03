@@ -1,0 +1,11 @@
+
+    -Haze-
+    
+Type:
+    Team Debuff
+Cooldown:
+    2 Turns
+Calculations:
+    T.SKL-MAG*0.5
+Description:
+    

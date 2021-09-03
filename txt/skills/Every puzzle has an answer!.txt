@@ -1,0 +1,11 @@
+
+    -Every puzzle has an answer!-
+    
+Type:
+    Debuff
+Cooldown:
+    2 Turns
+Calculations:
+    T.DEF-SKL
+Description:
+    He's good at that. You know, solving puzzles.

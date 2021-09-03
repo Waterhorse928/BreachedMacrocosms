@@ -1,0 +1,11 @@
+
+    -Supersonic-
+    
+Type:
+    Debuff
+Cooldown:
+    2 Turns
+Calculations:
+    T.ATK-ATK
+Description:
+    

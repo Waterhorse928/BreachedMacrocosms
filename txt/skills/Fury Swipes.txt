@@ -1,0 +1,11 @@
+
+    -Fury Swipes-
+    
+Type:
+    Attack
+Cooldown:
+    2 Turns
+Calculations:
+    ATK-T.DEF (SPD*4)
+Description:
+    

@@ -1,0 +1,11 @@
+
+    -Wood Hammer-
+    
+Type:
+    Attack
+Cooldown:
+    2 Turns
+Calculations:
+    ATK*4-T.DEF
+Description:
+    

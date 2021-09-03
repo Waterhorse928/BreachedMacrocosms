@@ -1,0 +1,11 @@
+
+    -Round 2!-
+    
+Type:
+    Buff
+Cooldown:
+    3 Turns
+Calculations:
+    T.SPD+VIT
+Description:
+    Again!

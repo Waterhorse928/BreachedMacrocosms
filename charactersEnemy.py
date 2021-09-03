@@ -11,7 +11,7 @@ class Rattata(charactersMaster.Character):
 class Zubat(charactersMaster.Character):
     def __init__(self):
         super().__init__(1, 0, 10, 10, 10, 15, 15, 25, 10, 10, True, 'Zubat')
-        self.skillList.append(skillsList.BasicAttack(0,'Bite'))
+        self.skillList.append(skillsList.BasicAttack(0,'Astonish'))
         self.skillList.append(skillsList.Supersonic(2,"Supersonic"))
 
 class Muk(charactersMaster.Character):
@@ -78,7 +78,7 @@ class Mimikyu(charactersMaster.Character):
     def __init__(self, name):
         super().__init__(5, 0, 20, 25, 15, 25, 25, 20, 15, 25, True, name) # Total Stats: 170
         self.skillList.append(skillsList.BasicAttack(0,"Play Rough"))
-        self.skillList.append(skillsList.MagicMissile(1,"Shadow Ball"))
+        self.skillList.append(skillsList.MagicMissile(0,"Shadow Ball"))
         self.skillList.append(skillsList.ShadowClaw(1,"Shadow Claw"))
         self.skillList.append(skillsList.Savage(2,"Wood Hammer"))
         self.skillList.append(skillsList.SnuggleForever(5,"Let's Snuggle Forever"))

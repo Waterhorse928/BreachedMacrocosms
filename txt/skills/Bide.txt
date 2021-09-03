@@ -1,0 +1,11 @@
+
+    -Bide-
+    
+Type:
+    Buff
+Cooldown:
+    2 Turns
+Calculations:
+    T.DEF+VIT*0.5
+Description:
+    

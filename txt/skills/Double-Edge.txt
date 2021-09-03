@@ -1,0 +1,11 @@
+
+    -Double-Edge-
+    
+Type:
+    Attack
+Cooldown:
+    2 Turns
+Calculations:
+    ATK*3-T.DEF
+Description:
+    

@@ -1,0 +1,11 @@
+
+    -Fimbulvetr-
+    
+Type:
+    Party Attack
+Cooldown:
+    5 Turns
+Calculations:
+    (ATK+DEF+RES)-T.DEF
+Description:
+    Your enemies will feel the icy bitterness winter can bring.

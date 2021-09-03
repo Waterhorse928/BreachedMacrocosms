@@ -1,0 +1,11 @@
+
+    -Fae Round-
+    
+Type:
+    Party Attack
+Cooldown:
+    1 Turns
+Calculations:
+    MAG*2-T.RES
+Description:
+    Well, it's an orb... and it's green... and... it's the wave element... thingy.

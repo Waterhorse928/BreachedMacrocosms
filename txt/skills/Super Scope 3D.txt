@@ -1,0 +1,11 @@
+
+    -Super Scope 3D-
+    
+Type:
+    Attack
+Cooldown:
+    6 Turns
+Calculations:
+    ATK*4-T.DEF*0.5
+Description:
+    Boom. Headshot. Maybe.

@@ -1,0 +1,11 @@
+
+    -Hell's Tokamak-
+    
+Type:
+    Attack
+Cooldown:
+    2 Turns
+Calculations:
+    MAG*2
+Description:
+    A power so incredible no defence can protect you. Better get out of the way!

@@ -1,0 +1,11 @@
+
+    -Counter-
+    
+Type:
+    Buff
+Cooldown:
+    0 Turns
+Calculations:
+    T.DEF+VIT*0.2 T.ATK+VIT*0.2
+Description:
+    

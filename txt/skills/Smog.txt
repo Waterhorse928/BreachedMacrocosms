@@ -1,0 +1,11 @@
+
+    -Smog-
+    
+Type:
+    Team Attack
+Cooldown:
+    2 Turns
+Calculations:
+    MAG*3-T.RES (SKL*0.5)
+Description:
+    

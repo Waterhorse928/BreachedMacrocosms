@@ -1,0 +1,11 @@
+
+    -Kasha's Claws-
+    
+Type:
+    Basic Attack
+Cooldown:
+    0 Turns
+Calculations:
+    ATK*2-T.DEF
+Description:
+    It's said that Kasha steal the corpses of sinners.

@@ -1,0 +1,11 @@
+
+    -Sleep Powder-
+    
+Type:
+    Debuff
+Cooldown:
+    1 Turns
+Calculations:
+    T.SKL-ATK T.LUK-ATK
+Description:
+    
