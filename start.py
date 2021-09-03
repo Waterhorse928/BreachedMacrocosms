@@ -2,6 +2,7 @@ import battle
 import charactersPlayer
 import charactersEnemy
 import story
+import display
 
 n7417 = ["Fight",charactersPlayer.utsuho1,charactersEnemy.rocket1,"3939","7417"]# Utsuho Lvl 1
 n3846 = ["Fight",charactersPlayer.utsuho2,charactersEnemy.rocket2,"7726","3846"]# Utsuho Lvl 2
@@ -63,7 +64,7 @@ while True:
                 break
 
     if select == 4:
-        story.startStory("Codes", 1)
+        display.displayCode(n7726)
     
     if select == 3:
         break

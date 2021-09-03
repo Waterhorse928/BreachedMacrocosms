@@ -253,6 +253,10 @@ def startBattle ():
         if aliveEnemies == 0:
             battleOver = True
             playerWon = True
+    for x in range(1, len(enemy)+1):
+        enemy[x].reset()
+    for x in range(1, len(player)+1):
+        player[x].reset()
     if playerWon == True:
         result = "next"
         input(f"You Won!")

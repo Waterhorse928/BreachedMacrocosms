@@ -83,15 +83,26 @@ class Character:
         self.resChange1 = 0
         self.statUpdate()
         
-    def removeStatChanges(self): # unused
-        self.vitChange -= 0
-        self.atkChange -= 0
-        self.magChange -= 0
-        self.sklChange -= 0
-        self.spdChange -= 0
-        self.lukChange -= 0
-        self.dfnChange -= 0
-        self.resChange -= 0
+    def reset(self):
+        self.vitChange = 0
+        self.atkChange = 0
+        self.magChange = 0
+        self.sklChange = 0
+        self.spdChange = 0
+        self.lukChange = 0
+        self.dfnChange = 0
+        self.resChange = 0
+        self.vitChange1 = 0
+        self.atkChange1 = 0
+        self.magChange1 = 0
+        self.sklChange1 = 0
+        self.spdChange1 = 0
+        self.lukChange1 = 0
+        self.dfnChange1 = 0
+        self.resChange1 = 0
+        self.statUpdate()
+        self.hp = self.maxHp
+        self.isAlive = True
 
     def lowerStatChanges(self): # unused
         self.vitChange = self.vitChange * (1 - 0.25)

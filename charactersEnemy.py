@@ -106,12 +106,12 @@ class Morgan(charactersMaster.Character):
     def __init__(self, name):
         super().__init__(5, 0, 50, 30, 0, 15, 20, 20, 20, 10, True, name)
 
-beowolf1 = {0:"Beowolves",1:Beowolf("Beowolf A"),2:Beowolf("Beowolf B")}
-beowolf2 = {0:"Beowolves",1:Beowolf("Beowolf A"),2:Beowolf("Beowolf B"),3:Beowolf("Beowolf C")}
-beowolf3 = {0:"Alpha Beowolf",1:Beowolf("Beowolf A"),3:Beowolf("Beowolf B"),2:AlphaBeowolf("Alpha Beowolf")}
-rocket1 = {0:"Team Rocket",1:Rattata(),2:Zubat(),3:Muk()}
-rocket2 = {0:"Team Rocket",1:Arbok("Arbok"),2:Meowth("Meowth"),3:Wheezing("Wheezing")}
-rocket3 = {0:"Team Rocket",1:Wobbuffet("Wobbuffet"),2:Mimikyu("Mimikyu"),3:Victreebel("Victreebel"),4:Yamask("Yamask")}
-pirate1 = {0:"Pirates",1:Pirate("Pirate A"),2:Pirate("Pirate B"),3:Pirate("Pirate C")}
-pirate2 = {0:"Pirates",1:Pirate("Pirate A"),2:Pirate("Pirate B"),3:Pirate("Pirate C"),4:Pirate("Pirate D"),5:Pirate("Pirate E")}
-pirate3 = {0:"Pirates",1:Pirate("Pirate A"),2:Pirate("Pirate B"),3:Morgan("Morgan Axe-hand"),4:Pirate("Pirate C"),5:Pirate("Pirate D")}
+beowolf1 = {1:Beowolf("Beowolf A"),2:Beowolf("Beowolf B")}
+beowolf2 = {1:Beowolf("Beowolf A"),2:Beowolf("Beowolf B"),3:Beowolf("Beowolf C")}
+beowolf3 = {1:Beowolf("Beowolf A"),3:Beowolf("Beowolf B"),2:AlphaBeowolf("Alpha Beowolf")}
+rocket1 = {1:Rattata(),2:Zubat(),3:Muk()}
+rocket2 = {1:Arbok("Arbok"),2:Meowth("Meowth"),3:Wheezing("Wheezing")}
+rocket3 = {1:Wobbuffet("Wobbuffet"),2:Mimikyu("Mimikyu"),3:Victreebel("Victreebel"),4:Yamask("Yamask")}
+pirate1 = {1:Pirate("Pirate A"),2:Pirate("Pirate B"),3:Pirate("Pirate C")}
+pirate2 = {1:Pirate("Pirate A"),2:Pirate("Pirate B"),3:Pirate("Pirate C"),4:Pirate("Pirate D"),5:Pirate("Pirate E")}
+pirate3 = {1:Pirate("Pirate A"),2:Pirate("Pirate B"),3:Morgan("Morgan Axe-hand"),4:Pirate("Pirate C"),5:Pirate("Pirate D")}
