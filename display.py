@@ -1,3 +1,5 @@
+import story
+
 def displayCode(code):
     playerlist = {}
     for z in range(1, len(code[1])):
@@ -44,7 +46,10 @@ def displayCharacter(char):
         if b == 2:
             while True:
                 print(f"--{char.name}'s Skills--")
-                for x in range(0, len(char.skillList)):
-                   print(f"{x+1}. {char.skillList[x].name}")
-                input()
-                break
+                for d in range(0, len(char.skillList)):
+                   print(f" {d+1}. {char.skillList[d].name}")
+                print(" 0. Back")
+                c = int(input("Choose a number: "))
+                if c == 0:
+                    break
+                story.startStory(char.skillList[c-1].name, 4)

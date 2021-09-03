@@ -31,3 +31,9 @@ def startStory (file, type):
             if a == "skip":
                 break
         return input ("Choose a number: ")
+
+    if type == 4:
+        x = open(f"{dir_path}/txt/skills/{file}.txt","r",encoding='utf-8')
+        y = x.read()
+        print(y)
+        input()
