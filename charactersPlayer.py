@@ -9,6 +9,9 @@ class Gon(charactersMaster.Character):
         super().__init__(level, 0, data["vit"], data["atk"], data["mag"], data["skl"], data["spd"], data["luk"], data["dfn"], data["res"], False, "Gon")
         if level >= 1:
             self.skillList.append(skillsList.BasicAttack(0,"Punch"))
+            self.skillList.append(skillsList.ShowMeRock(1,"Show Me Rock!"))
+        if level >= 3:
+            self.skillList.append(skillsList.Maul(2,"Janken Rock!"))
 
 class Layton(charactersMaster.Character):
     def __init__(self, level):
@@ -37,6 +40,8 @@ class Marisa(charactersMaster.Character):
         if level >= 1:
             self.skillList.append(skillsList.BasicAttack(0,"Broom Bash"))
             self.skillList.append(skillsList.MagicMissile(1,"Magic Missile"))
+        if level >= 3:
+            self.skillList.append(skillsList.Sludge(2,"Non-Directional Laser"))
 
 class Nitori(charactersMaster.Character):
     def __init__(self, level):
@@ -44,6 +49,10 @@ class Nitori(charactersMaster.Character):
         super().__init__(level, 0, data["vit"], data["atk"], data["mag"], data["skl"], data["spd"], data["luk"], data["dfn"], data["res"], False, "Nitori")
         if level >= 1:
             self.skillList.append(skillsList.BasicAttack(0,"Crowbar"))
+            self.skillList.append(skillsList.Repair(3,"Repair"))
+        if level >= 3:
+            self.skillList.append(skillsList.PhotonTorpedo(2,"Photon Torpedo"))
+        if level >= 5:
             self.skillList.append(skillsList.OpticalCamouflage(1,"Optical Camouflage"))
 
 class Orin(charactersMaster.Character):

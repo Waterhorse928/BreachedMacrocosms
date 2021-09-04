@@ -104,7 +104,11 @@ class Yamask(charactersMaster.Character):
 
 class Morgan(charactersMaster.Character):
     def __init__(self, name):
-        super().__init__(5, 0, 50, 30, 0, 15, 20, 20, 20, 10, True, name)
+        super().__init__(5, 0, 50, 30, 5, 15, 20, 20, 20, 10, True, name) # Total Stats: 170
+        self.skillList.append(skillsList.BasicAttack(0,"Chop"))
+        self.skillList.append(skillsList.Savage(2,"Overhead Chop"))
+        self.skillList.append(skillsList.Cleave(2,"Cleave"))
+        self.skillList.append(skillsList.DarkStar(2, "Threaten"))
 
 beowolf1 = {1:Beowolf("Beowolf A"),2:Beowolf("Beowolf B")}
 beowolf2 = {1:Beowolf("Beowolf A"),2:Beowolf("Beowolf B"),3:Beowolf("Beowolf C")}
