@@ -197,9 +197,10 @@ class Curse (Skill):
         super().__init__(2, cooldown, name)
 
     def skill(self, user, target, party):
-        target.lukChange1 -= user.mag
+        power = round(user.mag * 1.5)
+        target.lukChange1 -= power
         print(f'{user.name} uses {self.name}!')
-        print(f' {target.name} lost {min(user.mag, target.luk)} LUK...')
+        print(f' {target.name} lost {min(power, target.luk)} LUK...')
         self.cooldown = self.maxCooldown
         if target.hp <= 0:
             print(f" {target.name} was knocked out!")
@@ -340,9 +341,10 @@ class Miracle (Skill):
         super().__init__(1, cooldown, name)
     
     def skill(self, user, target, party):
-        target.lukChange1 += user.mag
+        power = round(user.mag * 1.5)
+        target.lukChange1 += power
         print(f'{user.name} used {self.name}!')
-        print (f' {target.name} gained {user.mag} LUK!')
+        print (f' {target.name} gained {power} LUK!')
         self.cooldown = self.maxCooldown
         if target.hp <= 0:
             print(f" {target.name} was knocked out!")

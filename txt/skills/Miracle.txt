@@ -6,6 +6,6 @@ Type:
 Cooldown:
     1 Turns
 Calculations:
-    T.LUK+MAG
+    T.LUK+MAG*1.5
 Description:
     
