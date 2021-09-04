@@ -340,7 +340,7 @@ class Miracle (Skill):
         super().__init__(1, cooldown, name)
     
     def skill(self, user, target, party):
-        target.lukChange1 += user.luk
+        target.lukChange1 += user.mag
         print(f'{user.name} used {self.name}!')
         print (f' {target.name} gained {user.mag} LUK!')
         self.cooldown = self.maxCooldown

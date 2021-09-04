@@ -1,0 +1,10 @@
+
+    -Calculated Strike-
+
+Type:
+    Attack
+Cooldown:
+    2 Turns
+Calculations:
+    ATK*2-T.DEF (SKL*2)
+Description:
