@@ -19,7 +19,7 @@ n4678 = ["Story","Utsuho3",2,"XXXX","4678"]# Utsuho Ch 3
 n1128 = ["Story","Nitori1",2,"9040","1128"]# Nitori Ch 1
 n3958 = ["Story","Nitori2",2,"3289","3958"]# Nitori Ch 2
 n0803 = ["Story","Suwako1",2,"0171","0803"]# Suwako Ch 1
-n0804 = ["Story","Suwako2",2,"XXXX","0804"]# Suwako Ch 2
+n0804 = ["Story","Suwako2",2,"1606","0804"]# Suwako Ch 2
 n2002 = ["Story","MarisaTest",2,"XXXX","2002"]# Marisa Test
 n0000 = ["Story2","Yukari",2,["2468","1128","0803"],"0000"]# Choice
 
