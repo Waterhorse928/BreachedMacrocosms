@@ -4,7 +4,7 @@
 Type:
     Attack
 Cooldown:
-    2 Turns
+    1 Turns
 Calculations:
     ATK*4-T.DEF
 Description:
