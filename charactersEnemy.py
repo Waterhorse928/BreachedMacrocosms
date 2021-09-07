@@ -110,6 +110,25 @@ class Morgan(charactersMaster.Character):
         self.skillList.append(skillsList.Cleave(1,"Cleave"))
         self.skillList.append(skillsList.DarkStar(2, "Threaten"))
 
+class Goldarmor(charactersMaster.Character):
+    def __init__(self, name):
+        super().__init__(5, 0, 60, 30, 5, 20, 10, 5, 50, 15, True, name)#195
+        self.skillList.append(skillsList.BasicAttack(0,"Stab"))
+        self.skillList.append(skillsList.Guard(3,"Guard"))
+        self.skillList.append(skillsList.ShieldBash(3, "Shield Bash"))
+
+class PropellerRat(charactersMaster.Character):
+    def __init__(self, name):
+        super().__init__(2, 0, 20, 10, 5, 15, 30, 50, 10, 10, True, name)#150
+        self.skillList.append(skillsList.BasicAttack(0,"Tackle"))
+        self.skillList.append(skillsList.Propel(3,"Propel"))
+
+class FlareWizzem(charactersMaster.Character):
+    def __init__(self, name):
+        super().__init__(6, 0, 30, 0, 50, 50, 20, 10, 10, 40, True, name)#210
+        self.skillList.append(skillsList.BasicAttack(0,"Idle"))
+
+
 beowolf1 = {1:Beowolf("Beowolf A"),2:Beowolf("Beowolf B")}
 beowolf2 = {1:Beowolf("Beowolf A"),2:Beowolf("Beowolf B"),3:Beowolf("Beowolf C")}
 beowolf3 = {1:Beowolf("Beowolf A"),3:Beowolf("Beowolf B"),2:AlphaBeowolf("Alpha Beowolf")}

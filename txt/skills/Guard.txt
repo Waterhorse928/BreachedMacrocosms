@@ -1,0 +1,11 @@
+
+    -Guard-
+    
+Type:
+    Buff
+Cooldown:
+    3 Turns
+Calculations:
+    T.DEF+DEF*2
+Description:
+    Carefully shielding himself or those around him, He refuses to fall.

@@ -1,0 +1,11 @@
+
+    -Propel-
+    
+Type:
+    Buff
+Cooldown:
+    3 Turns
+Calculations:
+    T.SPD+SPD*2
+Description:
+    *Helicopter noises*
