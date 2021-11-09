@@ -101,7 +101,15 @@ def orin(level):
         return {'vit':17,'atk':19,'mag':24,'skl':20,'spd':37,'luk':30,'dfn':12,'res':17}
     if level == 3:
         return {'vit':17,'atk':20,'mag':24,'skl':20,'spd':40,'luk':32,'dfn':13,'res':18}
-        
+
+def ruby(level):
+    if level == 1:
+        return {'vit':18,'atk':26,'mag':13,'skl':21,'spd':36,'luk':25,'dfn':22,'res':7}#168
+    if level == 2:
+        return {'vit':22,'atk':22,'mag':22,'skl':22,'spd':22,'luk':22,'dfn':22,'res':22}#176
+    if level == 3:
+        return {'vit':23,'atk':23,'mag':23,'skl':23,'spd':23,'luk':23,'dfn':23,'res':23}#184
+
 def sanae(level):
     if level == 1:
         return {"vit":23,"atk":10,"mag":17,"skl":14,"spd":19,"luk":31,"dfn":26,"res":27}

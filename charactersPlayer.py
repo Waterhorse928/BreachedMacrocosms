@@ -65,6 +65,13 @@ class Orin(charactersMaster.Character):
         if level >= 3:
             self.skillList.append(skillsList.CatsWalk(3,"Cat's Walk"))
 
+class Ruby(charactersMaster.Character):
+    def __init__(self, level):
+        data = stats.ruby(level)
+        super().__init__(level, 0, data["vit"], data["atk"], data["mag"], data["skl"], data["spd"], data["luk"], data["dfn"], data["res"], False, "Ruby")
+        if level >= 1:
+            self.skillList.append(skillsList.BasicAttack(0, "Crescent Rose"))
+        
 class Sanae(charactersMaster.Character):
     def __init__(self, level):
         data = stats.sanae(level)
