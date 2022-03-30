@@ -8,4 +8,4 @@ Cooldown:
 Calculations:
     MAG*2-T.RES*0.5
 Description:
-    Actually looks like a missile, unlike in a certain TTRPG.
+    Actually looks like a missile, unlike in a certain Role-playing Game.

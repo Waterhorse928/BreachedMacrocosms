@@ -106,9 +106,9 @@ def ruby(level):
     if level == 1:
         return {'vit':18,'atk':26,'mag':13,'skl':21,'spd':36,'luk':25,'dfn':22,'res':7}#168
     if level == 2:
-        return {'vit':22,'atk':22,'mag':22,'skl':22,'spd':22,'luk':22,'dfn':22,'res':22}#176
+        return {'vit':18,'atk':28,'mag':13,'skl':22,'spd':38,'luk':27,'dfn':23,'res':7}#176
     if level == 3:
-        return {'vit':23,'atk':23,'mag':23,'skl':23,'spd':23,'luk':23,'dfn':23,'res':23}#184
+        return {'vit':19,'atk':29,'mag':13,'skl':22,'spd':41,'luk':28,'dfn':24,'res':8}#184
 
 def sanae(level):
     if level == 1:

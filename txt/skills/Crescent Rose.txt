@@ -8,4 +8,5 @@ Cooldown:
 Calculations:
     ATK*2-T.DEF
 Description:
+    It's a High-Caliber Sniper-Scythe.
     
