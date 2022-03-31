@@ -1,4 +1,5 @@
 import os
+import skillsInfo
 dir_path = os.path.dirname(os.path.abspath(__file__))
 def startStory (file, type):
     if type == 1:
@@ -33,7 +34,9 @@ def startStory (file, type):
         return input ("Choose a number: ")
 
     if type == 4:
-        x = open(f"{dir_path}/txt/skills/{file}.txt","r",encoding='utf-8')
-        y = x.read()
+        # Old File Based System
+        #x = open(f"{dir_path}/txt/skills/{file}.txt","r",encoding='utf-8')
+        #y = x.read()
+        y = skillsInfo.getSkillInfo(file)
         print(y)
         input()
