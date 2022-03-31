@@ -258,10 +258,17 @@ The palace of the earth spirits is under attack
 
 #Suwako, Nitori and Lea try to find the Tengu
 #The Tengu are under attack by a large force
+#The force is comprised of Crosscode Enemies.
 
 #Ruby, Utsuho and Sanae try to bring back Eirin
 #They get lost
+#They find Henry and Mokou
 
 
 
-
+Yukari has a cold because,
+She was experimenting with a ability ampliphiyer.
+Ran, who normally works on this with her, is preocupied by Chen.
+Yukari ends up working on the experiment without Ran.
+Yukari makes a mistake and Ran isn't there to activate the failsafe.
+Her ablity is amped but she can't control it.
