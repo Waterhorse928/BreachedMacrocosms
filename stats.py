@@ -1,18 +1,18 @@
 def gon(level):
     if level == 1:
-        return {"vit":28,"atk":29,"mag":0,"skl":23,"spd":28,"luk":21,"dfn":27,"res":4}
+        return {'vit':30,'atk':31,'mag':0,'skl':24,'spd':29,'luk':21,'dfn':29,'res':4}
     if level == 2:
-        return {"vit":30,"atk":31,"mag":0,"skl":24,"spd":29,"luk":21,"dfn":29,"res":4}
+        return {'vit':32,'atk':32,'mag':0,'skl':25,'spd':30,'luk':22,'dfn':31,'res':4}
     if level == 3:
-        return {"vit":32,"atk":32,"mag":0,"skl":25,"spd":30,"luk":22,"dfn":31,"res":4}
+        return {'vit':34,'atk':34,'mag':0,'skl':26,'spd':31,'luk':23,'dfn':32,'res':4}
 
 def layton(level):
     if level == 1:
-        return {"vit":26,"atk":22,"mag":4,"skl":29,"spd":22,"luk":16,"dfn":22,"res":19}
+        return {'vit':27,'atk':23,'mag':4,'skl':32,'spd':23,'luk':17,'dfn':23,'res':19}
     if level == 2:
-        return {"vit":27,"atk":23,"mag":4,"skl":32,"spd":23,"luk":17,"dfn":23,"res":19}
+        return {'vit':28,'atk':25,'mag':4,'skl':35,'spd':24,'luk':17,'dfn':24,'res':19}
     if level == 3:
-        return {"vit":28,"atk":25,"mag":4,"skl":35,"spd":24,"luk":16,"dfn":24,"res":19}
+        return {'vit':28,'atk':26,'mag':5,'skl':39,'spd':24,'luk':18,'dfn':24,'res':20}
         
 def lea(level):
     if level == 0:
@@ -80,19 +80,19 @@ def lea(level):
     
 def marisa(level):
     if level == 1:
-        return {"vit":18,"atk":17,"mag":30,"skl":20,"spd":25,"luk":13,"dfn":15,"res":22}
+        return {'vit':18,'atk':17,'mag':31,'skl':18,'spd':26,'luk':23,'dfn':15,'res':20}
     if level == 2:
-        return {"vit":19,"atk":18,"mag":32,"skl":21,"spd":26,"luk":13,"dfn":15,"res":24}
+        return {'vit':19,'atk':17,'mag':33,'skl':18,'spd':28,'luk':25,'dfn':15,'res':21}
     if level == 3:
-        return {"vit":20,"atk":18,"mag":34,"skl":22,"spd":27,"luk":15,"dfn":16,"res":25}
+        return {'vit':19,'atk':18,'mag':35,'skl':19,'spd':30,'luk':26,'dfn':16,'res':21}
         
 def nitori(level):
     if level == 1:
-        return {"vit":19,"atk":27,"mag":7,"skl":26,"spd":22,"luk":24,"dfn":18,"res":17}
+        return {'vit':19,'atk':29,'mag':7,'skl':28,'spd':24,'luk':26,'dfn':18,'res':17}
     if level == 2:
-        return {"vit":20,"atk":30,"mag":7,"skl":27,"spd":23,"luk":25,"dfn":19,"res":17}
+        return {'vit':20,'atk':31,'mag':7,'skl':29,'spd':24,'luk':27,'dfn':20,'res':18}
     if level == 3:
-        return {"vit":21,"atk":31,"mag":7,"skl":28,"spd":24,"luk":28,"dfn":19,"res":18}
+        return {'vit':21,'atk':32,'mag':9,'skl':30,'spd':25,'luk':28,'dfn':21,'res':18}
         
 def orin(level):
     if level == 1:

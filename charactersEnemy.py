@@ -127,6 +127,7 @@ class FlareWizzem(charactersMaster.Character):
     def __init__(self, name):
         super().__init__(6, 0, 30, 0, 50, 50, 20, 10, 10, 40, True, name)#210
         self.skillList.append(skillsList.BasicAttack(0,"Idle"))
+        self.skillList.append(skillsList.GeyserColumn(0,'Flare'))
 
 
 beowolf1 = {1:Beowolf("Beowolf A"),2:Beowolf("Beowolf B")}
