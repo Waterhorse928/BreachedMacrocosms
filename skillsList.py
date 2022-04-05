@@ -914,3 +914,19 @@ class Rush (Skill):
         if target.hp <= 0:
             print(f" {target.name} was knocked out!")
 
+class DogWalk (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(1, cooldown, name)
+    
+    def skill(self, user, target, party):
+        target.sklChange1 += user.mag
+        target.spdChange1 += user.mag
+        target.vitChange1 -= user.mag
+        print(f'{user.name} used {self.name}!')
+        print (f' {target.name} gained {user.mag} SKL!')
+        print (f' {target.name} gained {user.mag} SPD!')
+        print (f' {target.name} lost {min(user.mag,target.vit)} VIT...')
+        self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
+
