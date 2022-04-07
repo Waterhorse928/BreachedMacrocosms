@@ -134,3 +134,11 @@ def utsuho(level):
     if level == 3:
         return {'vit':30,'atk':34,'mag':39,'skl':14,'spd':2,'luk':6,'dfn':31,'res':28}
 
+def usopp(level):
+    if level == 1:
+        return {'vit':14,'atk':22,'mag':13,'skl':27,'spd':23,'luk':30,'dfn':23,'res':16}
+    if level == 2:
+        return {'vit':14,'atk':23,'mag':13,'skl':30,'spd':23,'luk':33,'dfn':24,'res':16}
+    if level == 3:
+        return {'vit':15,'atk':24,'mag':13,'skl':32,'spd':24,'luk':35,'dfn':24,'res':17}
+

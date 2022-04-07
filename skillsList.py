@@ -98,7 +98,7 @@ class RekindlingOfDeadAshes (Skill):
     def skill(self, user, target, party):
         preHp = target.hp
         if target.hp == 0:
-            target.hp = min(target.hp + (user.mag * 2), target.maxHp)
+            target.hp = min(target.hp + (user.mag * 3), target.maxHp)
         else:
             target.hp = min(target.hp + user.mag, target.maxHp)
         healed = target.hp - preHp
@@ -149,14 +149,14 @@ class Sludge (Skill):
         super().__init__(4, cooldown, name)
 
     def skill(self, user, target, party):
-        critMod = crit(user, target)
-        atkCount = multipleAttack(user, target)
         print(f"{user.name} used {self.name}!")
-        if critMod != 1:
-            print(f" x{critMod} Critical!")
-        if atkCount != 1:
-            print(f" {user.name} attacked {atkCount} times!")
         for x in party:
+            critMod = crit(user, x)
+            atkCount = multipleAttack(user, x)
+            if critMod != 1:
+                print(f" x{critMod} Critical!")
+            if atkCount != 1:
+                print(f" {user.name} attacked {atkCount} times!")
             atkDmg = max(round((user.mag * 2 * critMod) - x.res),0)
             for i in range(atkCount):
                 if miss(user, x) == False:
@@ -397,17 +397,15 @@ class Sun (Skill):
         super().__init__(4, cooldown, name)
 
     def skill(self, user, target, party):
-        target.luk *= 0.5
-        critMod = crit(user, target)
-        target.luk *= 2
-        atkCount = multipleAttack(user, target)
         print(f"{user.name} used {self.name}!")
-        if critMod != 1:
-            print(f" x{critMod} Critical!")
-        if atkCount != 1:
-            print(f" {user.name} attacked {atkCount} times!")
         for x in party:
             x.luk *= 0.5
+            critMod = crit(user, x)
+            atkCount = multipleAttack(user, x)
+            if critMod != 1:
+                print(f" x{critMod} Critical!")
+            if atkCount != 1:
+                print(f" {user.name} attacked {atkCount} times!")
             atkDmg = max(round((user.mag * 3 * critMod) - x.res),0)
             for i in range(atkCount):
                 if miss(user, x) == False:
@@ -449,15 +447,15 @@ class CatsWalk (Skill):
         super().__init__(4, cooldown, name)
 
     def skill(self, user, target, party):
-        user.spd *= 2
-        critMod = crit(user, target)
-        atkCount = multipleAttack(user, target)
         print(f"{user.name} used {self.name}!")
-        if critMod != 1:
-            print(f" x{critMod} Critical!")
-        if atkCount != 1:
-            print(f" {user.name} attacked {atkCount} times!")
+        user.spd *= 2
         for x in party:
+            critMod = crit(user, x)
+            atkCount = multipleAttack(user, x)
+            if critMod != 1:
+                print(f" x{critMod} Critical!")
+            if atkCount != 1:
+                print(f" {user.name} attacked {atkCount} times!")
             atkDmg = max(round((user.atk * 2 * critMod) - x.dfn),0)
             for i in range(atkCount):
                 if miss(user, x) == False:
@@ -488,15 +486,15 @@ class Smog (Skill):
         super().__init__(4, cooldown, name)
 
     def skill(self, user, target, party):
-        user.skl *= 0.5
-        critMod = crit(user, target)
-        atkCount = multipleAttack(user, target)
         print(f"{user.name} used {self.name}!")
-        if critMod != 1:
-            print(f" x{critMod} Critical!")
-        if atkCount != 1:
-            print(f" {user.name} attacked {atkCount} times!")
+        user.skl *= 0.5
         for x in party:
+            critMod = crit(user, x)
+            atkCount = multipleAttack(user, x)
+            if critMod != 1:
+                print(f" x{critMod} Critical!")
+            if atkCount != 1:
+                print(f" {user.name} attacked {atkCount} times!")
             atkDmg = max(round((user.mag * 3 * critMod) - x.res),0)
             for i in range(atkCount):
                 if miss(user, x) == False:
@@ -680,14 +678,14 @@ class SnuggleForever (Skill):
         super().__init__(4, cooldown, name)
 
     def skill(self, user, target, party):
-        critMod = crit(user, target)
-        atkCount = multipleAttack(user, target)
         print(f"{user.name} used {self.name}!")
-        if critMod != 1:
-            print(f" x{critMod} Critical!")
-        if atkCount != 1:
-            print(f" {user.name} attacked {atkCount} times!")
         for x in party:
+            critMod = crit(user, x)
+            atkCount = multipleAttack(user, x)
+            if critMod != 1:
+                print(f" x{critMod} Critical!")
+            if atkCount != 1:
+                print(f" {user.name} attacked {atkCount} times!")
             atkDmg = max(round((user.atk * 4 * critMod) - x.dfn),0)
             for i in range(atkCount):
                 if miss(user, x) == False:
@@ -813,14 +811,14 @@ class Cleave (Skill):
         super().__init__(4, cooldown, name)
 
     def skill(self, user, target, party):
-        critMod = crit(user, target)
-        atkCount = multipleAttack(user, target)
         print(f"{user.name} used {self.name}!")
-        if critMod != 1:
-            print(f" x{critMod} Critical!")
-        if atkCount != 1:
-            print(f" {user.name} attacked {atkCount} times!")
         for x in party:
+            critMod = crit(user, x)
+            atkCount = multipleAttack(user, x)
+            if critMod != 1:
+                print(f" x{critMod} Critical!")
+            if atkCount != 1:
+                print(f" {user.name} attacked {atkCount} times!")
             atkDmg = max(round((user.atk * 2 * critMod) - x.dfn),0)
             for i in range(atkCount):
                 if miss(user, x) == False:
@@ -930,3 +928,28 @@ class DogWalk (Skill):
         if target.hp <= 0:
             print(f" {target.name} was knocked out!")
 
+class KomaSpin (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(7, cooldown, name)
+
+    def skill(self, user, target, party):
+        print(f"{user.name} used {self.name}!")
+        for x in party:
+            preHp = x.hp
+            x.hp = min(x.hp + user.mag, x.maxHp)
+            healed = x.hp - preHp
+            print(f" {x.name} recovered {healed} HP!")
+        self.cooldown = self.maxCooldown
+
+class Intervention (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(5, cooldown, name)
+
+    def skill(self, user, target, party):
+        print(f'{user.name} used {self.name}!')
+        power = round((user.mag + user.luk) * 0.5)
+        for x in party:
+            x.lukChange1 += power
+            print (f' {target.name} gained {power} LUK!')
+            x.statUpdate()
+        self.cooldown = self.maxCooldown

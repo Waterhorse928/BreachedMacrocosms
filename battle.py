@@ -91,7 +91,8 @@ def useSkill(user, skill, target):
         party = player
     if target in enemy.values():
         party = enemy
-    party = listAliveCharacters(party)
+    if user.skillList[skill].type in [0,2,4,6]:
+        party = listAliveCharacters(party)
     if user.skillList[skill].type in [0,1,2]:
         if target.hp == 0:
             if target in player.values():
@@ -150,7 +151,7 @@ def chooseActions ():
                 target[x] = random.choice(listAliveCharacters(enemy))
                 targetEx[x] = 0
             if player[x].skillList[action[x]].type in [5,7]:
-                target[x] = random.choice(listAliveCharacters(enemy))
+                target[x] = random.choice(listAliveCharacters(player))
                 targetEx[x] = 0
         else:
             action[x] = 0
