@@ -3,6 +3,13 @@ import charactersMaster
 import skillsList
 import stats
 
+class Aunn(charactersMaster.Character):
+    def __init__(self, level):
+        data = stats.aunn(level)
+        super().__init__(level, 0, data["vit"], data["atk"], data["mag"], data["skl"], data["spd"], data["luk"], data["dfn"], data["res"], False, "Aunn")
+        if level >= 1:
+            self.skillList.append(skillsList.BasicAttack(0,"Fencing"))
+
 class Gon(charactersMaster.Character):
     def __init__(self, level):
         data = stats.gon(level)
@@ -12,6 +19,13 @@ class Gon(charactersMaster.Character):
             self.skillList.append(skillsList.ShowMeRock(1,"Show Me Rock!"))
         if level >= 3:
             self.skillList.append(skillsList.Maul(2,"Janken Rock!"))
+
+class Komachi(charactersMaster.Character):
+    def __init__(self, level):
+        data = stats.komachi(level)
+        super().__init__(level, 0, data["vit"], data["atk"], data["mag"], data["skl"], data["spd"], data["luk"], data["dfn"], data["res"], False, "Komachi")
+        if level >= 1:
+            self.skillList.append(skillsList.BasicAttack(0,"Fencing"))
 
 class Layton(charactersMaster.Character):
     def __init__(self, level):
@@ -43,6 +57,13 @@ class Marisa(charactersMaster.Character):
         if level >= 3:
             self.skillList.append(skillsList.Sludge(2,"Non-Directional Laser"))
 
+class Mayumi(charactersMaster.Character):
+    def __init__(self, level):
+        data = stats.mayumi(level)
+        super().__init__(level, 0, data["vit"], data["atk"], data["mag"], data["skl"], data["spd"], data["luk"], data["dfn"], data["res"], False, "Mayumi")
+        if level >= 1:
+            self.skillList.append(skillsList.BasicAttack(0,"Fencing"))
+
 class Nitori(charactersMaster.Character):
     def __init__(self, level):
         data = stats.nitori(level)
@@ -65,6 +86,13 @@ class Orin(charactersMaster.Character):
         if level >= 3:
             self.skillList.append(skillsList.CatsWalk(3,"Cat's Walk"))
 
+class Pikachu(charactersMaster.Character):
+    def __init__(self, level):
+        data = stats.pikachu(level)
+        super().__init__(level, 0, data["vit"], data["atk"], data["mag"], data["skl"], data["spd"], data["luk"], data["dfn"], data["res"], False, "Pikachu")
+        if level >= 1:
+            self.skillList.append(skillsList.BasicAttack(0,"Fencing"))
+
 class Ruby(charactersMaster.Character):
     def __init__(self, level):
         data = stats.ruby(level)
@@ -74,6 +102,13 @@ class Ruby(charactersMaster.Character):
             self.skillList.append(skillsList.Speed(1,"Speed"))
         if level >= 3:
             self.skillList.append(skillsList.Rush(2,"High-Speed Rush"))
+
+class Sain(charactersMaster.Character):
+    def __init__(self, level):
+        data = stats.sain(level)
+        super().__init__(level, 0, data["vit"], data["atk"], data["mag"], data["skl"], data["spd"], data["luk"], data["dfn"], data["res"], False, "Sain")
+        if level >= 1:
+            self.skillList.append(skillsList.BasicAttack(0,"Fencing"))
         
 class Sanae(charactersMaster.Character):
     def __init__(self, level):
@@ -94,6 +129,13 @@ class Suwako(charactersMaster.Character):
             self.skillList.append(skillsList.GeyserColumn(1,"Geyser"))            
         if level >= 3:
             self.skillList.append(skillsList.Curse(1,"Curse"))
+
+class Usopp(charactersMaster.Character):
+    def __init__(self, level):
+        data = stats.usopp(level)
+        super().__init__(level, 0, data["vit"], data["atk"], data["mag"], data["skl"], data["spd"], data["luk"], data["dfn"], data["res"], False, "Usopp")
+        if level >= 1:
+            self.skillList.append(skillsList.BasicAttack(0,"Fencing"))
 
 class Utsuho(charactersMaster.Character):
     def __init__(self, level):

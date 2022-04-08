@@ -1,3 +1,7 @@
+def aunn(level):
+    if level == 1:
+        return {'vit':16,'atk':18,'mag':25,'skl':28,'spd':29,'luk':21,'dfn':18,'res':13}
+
 def gon(level):
     if level == 1:
         return {'vit':30,'atk':31,'mag':0,'skl':24,'spd':29,'luk':21,'dfn':29,'res':4}
@@ -5,6 +9,10 @@ def gon(level):
         return {'vit':32,'atk':32,'mag':0,'skl':25,'spd':30,'luk':22,'dfn':31,'res':4}
     if level == 3:
         return {'vit':34,'atk':34,'mag':0,'skl':26,'spd':31,'luk':23,'dfn':32,'res':4}
+
+def komachi(level):
+    if level == 1:
+        return {'vit':29,'atk':18,'mag':22,'skl':26,'spd':8,'luk':28,'dfn':15,'res':22}
 
 def layton(level):
     if level == 1:
@@ -85,6 +93,10 @@ def marisa(level):
         return {'vit':19,'atk':17,'mag':33,'skl':18,'spd':28,'luk':25,'dfn':15,'res':21}
     if level == 3:
         return {'vit':19,'atk':18,'mag':35,'skl':19,'spd':30,'luk':26,'dfn':16,'res':21}
+
+def mayumi(level):
+    if level == 1:
+        return {'vit':33,'atk':26,'mag':16,'skl':24,'spd':16,'luk':12,'dfn':16,'res':25}
         
 def nitori(level):
     if level == 1:
@@ -102,13 +114,21 @@ def orin(level):
     if level == 3:
         return {'vit':17,'atk':20,'mag':24,'skl':20,'spd':40,'luk':32,'dfn':13,'res':18}
 
+def pikachu(level):
+    if level == 1:
+        return {'vit':12,'atk':27,'mag':22,'skl':20,'spd':31,'luk':28,'dfn':13,'res':15}
+
 def ruby(level):
     if level == 1:
-        return {'vit':18,'atk':26,'mag':13,'skl':21,'spd':36,'luk':25,'dfn':22,'res':7}#168
+        return {'vit':18,'atk':26,'mag':13,'skl':21,'spd':36,'luk':25,'dfn':22,'res':7}
     if level == 2:
-        return {'vit':18,'atk':28,'mag':13,'skl':22,'spd':38,'luk':27,'dfn':23,'res':7}#176
+        return {'vit':18,'atk':28,'mag':13,'skl':22,'spd':38,'luk':27,'dfn':23,'res':7}
     if level == 3:
-        return {'vit':19,'atk':29,'mag':13,'skl':22,'spd':41,'luk':28,'dfn':24,'res':8}#184
+        return {'vit':19,'atk':29,'mag':13,'skl':22,'spd':41,'luk':28,'dfn':24,'res':7}
+
+def sain(level):
+    if level == 1:
+        return {'vit':28,'atk':28,'mag':6,'skl':18,'spd':17,'luk':16,'dfn':30,'res':25}
 
 def sanae(level):
     if level == 1:
@@ -126,6 +146,14 @@ def suwako(level):
     if level == 3:
         return {"vit":18,"atk":18,"mag":29,"skl":29,"spd":18,"luk":28,"dfn":17,"res":25}
 
+def usopp(level):
+    if level == 1:
+        return {'vit':14,'atk':22,'mag':13,'skl':27,'spd':23,'luk':30,'dfn':23,'res':16}
+    if level == 2:
+        return {'vit':14,'atk':23,'mag':13,'skl':30,'spd':23,'luk':33,'dfn':24,'res':16}
+    if level == 3:
+        return {'vit':15,'atk':24,'mag':13,'skl':32,'spd':24,'luk':35,'dfn':24,'res':17}
+
 def utsuho(level):
     if level == 1:
         return {'vit':28,'atk':30,'mag':35,'skl':13,'spd':2,'luk':5,'dfn':29,'res':26}
@@ -134,11 +162,4 @@ def utsuho(level):
     if level == 3:
         return {'vit':30,'atk':34,'mag':39,'skl':14,'spd':2,'luk':6,'dfn':31,'res':28}
 
-def usopp(level):
-    if level == 1:
-        return {'vit':14,'atk':22,'mag':13,'skl':27,'spd':23,'luk':30,'dfn':23,'res':16}
-    if level == 2:
-        return {'vit':14,'atk':23,'mag':13,'skl':30,'spd':23,'luk':33,'dfn':24,'res':16}
-    if level == 3:
-        return {'vit':15,'atk':24,'mag':13,'skl':32,'spd':24,'luk':35,'dfn':24,'res':17}
 

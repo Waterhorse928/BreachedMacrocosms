@@ -1381,3 +1381,202 @@ class CupOfTea (Skill):
         if target.hp <= 0:
             print(f" {target.name} was knocked out!")
 
+class Fimbulvetr (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(4, cooldown, name)
+
+    def skill(self, user, target, party):
+        print(f"{user.name} used {self.name}!")
+
+        power = user.atk + user.dfn + user.res
+
+        for x in party:
+
+            guard = x.dfn
+
+            critMod = crit(user, x)
+            atkCount = multipleAttack(user, x)
+            if critMod != 1:
+                print(f" x{critMod} Critical!")
+            if atkCount != 1:
+                print(f" {user.name} attacked {atkCount} times!")
+            atkDmg = max(round((power * critMod) - guard),0)
+            for i in range(atkCount):
+                if miss(user, x) == False:
+                    x.hp -= atkDmg
+                    print(f" {x.name} took {atkDmg} damage!")
+                else:
+                    print(f" {x.name} dodged...")
+            if x.hp <= 0:
+                print(f" {x.name} was knocked out!")
+            x.statUpdate()
+        self.cooldown = self.maxCooldown
+
+class Windstorm (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(4, cooldown, name)
+
+    def skill(self, user, target, party):
+        print(f"{user.name} used {self.name}!")
+
+        power = user.mag + (user.luk * 2)
+
+        for x in party:
+
+            guard = x.res
+
+            critMod = crit(user, x)
+            atkCount = multipleAttack(user, x)
+            if critMod != 1:
+                print(f" x{critMod} Critical!")
+            if atkCount != 1:
+                print(f" {user.name} attacked {atkCount} times!")
+            atkDmg = max(round((power * critMod) - guard),0)
+            for i in range(atkCount):
+                if miss(user, x) == False:
+                    x.hp -= atkDmg
+                    print(f" {x.name} took {atkDmg} damage!")
+                else:
+                    print(f" {x.name} dodged...")
+            if x.hp <= 0:
+                print(f" {x.name} was knocked out!")
+            x.statUpdate()
+        self.cooldown = self.maxCooldown
+
+class RocketDive (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(4, cooldown, name)
+
+    def skill(self, user, target, party):
+        print(f"{user.name} used {self.name}!")
+
+        power = round (user.atk * 1.5)
+
+        for x in party:
+
+            guard = x.dfn
+
+            critMod = crit(user, x)
+            atkCount = multipleAttack(user, x)
+            if critMod != 1:
+                print(f" x{critMod} Critical!")
+            if atkCount != 1:
+                print(f" {user.name} attacked {atkCount} times!")
+            atkDmg = max(round((power * critMod) - guard),0)
+            for i in range(atkCount):
+                if miss(user, x) == False:
+                    x.hp -= atkDmg
+                    print(f" {x.name} took {atkDmg} damage!")
+                else:
+                    print(f" {x.name} dodged...")
+            if x.hp <= 0:
+                print(f" {x.name} was knocked out!")
+            x.statUpdate()
+        self.cooldown = self.maxCooldown
+
+class OmikujiBarrage (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(4, cooldown, name)
+
+    def skill(self, user, target, party):
+        print(f"{user.name} used {self.name}!")
+
+        power = user.mag * 2
+
+        for x in party:
+
+            guard = x.luk
+
+            critMod = crit(user, x)
+            atkCount = multipleAttack(user, x)
+            if critMod != 1:
+                print(f" x{critMod} Critical!")
+            if atkCount != 1:
+                print(f" {user.name} attacked {atkCount} times!")
+            atkDmg = max(round((power * critMod) - guard),0)
+            for i in range(atkCount):
+                if miss(user, x) == False:
+                    x.hp -= atkDmg
+                    print(f" {x.name} took {atkDmg} damage!")
+                else:
+                    print(f" {x.name} dodged...")
+            if x.hp <= 0:
+                print(f" {x.name} was knocked out!")
+            x.statUpdate()
+        self.cooldown = self.maxCooldown
+
+class RockFling (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(4, cooldown, name)
+
+    def skill(self, user, target, party):
+        print(f"{user.name} used {self.name}!")
+
+        power = user.mag * 3
+
+        for x in party:
+
+            guard = x.dfn
+
+            critMod = crit(user, x)
+            atkCount = multipleAttack(user, x)
+            if critMod != 1:
+                print(f" x{critMod} Critical!")
+            if atkCount != 1:
+                print(f" {user.name} attacked {atkCount} times!")
+            atkDmg = max(round((power * critMod) - guard),0)
+            for i in range(atkCount):
+                if miss(user, x) == False:
+                    x.hp -= atkDmg
+                    print(f" {x.name} took {atkDmg} damage!")
+                else:
+                    print(f" {x.name} dodged...")
+            if x.hp <= 0:
+                print(f" {x.name} was knocked out!")
+            x.statUpdate()
+        self.cooldown = self.maxCooldown
+
+class NeedleMountain (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(4, cooldown, name)
+
+    def skill(self, user, target, party):
+        print(f"{user.name} used {self.name}!")
+
+        power = user.mag * 3
+
+        for x in party:
+
+            guard = x.res
+
+            critMod = crit(user, x)
+            atkCount = multipleAttack(user, x)
+            if critMod != 1:
+                print(f" x{critMod} Critical!")
+            if atkCount != 1:
+                print(f" {user.name} attacked {atkCount} times!")
+            atkDmg = max(round((power * critMod) - guard),0)
+            for i in range(atkCount):
+                if miss(user, x) == False:
+                    x.hp -= atkDmg
+                    print(f" {x.name} took {atkDmg} damage!")
+                else:
+                    print(f" {x.name} dodged...")
+            if x.hp <= 0:
+                print(f" {x.name} was knocked out!")
+            x.statUpdate()
+        self.cooldown = self.maxCooldown
+
+class CurlUpAndDie (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(6, cooldown, name)
+
+    def skill(self, user, target, party):
+        print(f'{user.name} used {self.name}!')
+        power = user.mag
+        for x in party:
+            x.spdChange1 -= power
+            print (f' {x.name} lost {min(power,x.spd)} SPD...')
+            x.statUpdate()
+        self.cooldown = self.maxCooldown
+
