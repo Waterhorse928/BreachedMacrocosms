@@ -953,3 +953,431 @@ class Intervention (Skill):
             print (f' {target.name} gained {power} LUK!')
             x.statUpdate()
         self.cooldown = self.maxCooldown
+
+class ArchaeologicalPunch (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(0, cooldown, name)
+    
+    def skill(self, user, target, party):
+        print(f"{user.name} used {self.name}!")
+
+        power = user.atk + (user.skl * 2)
+        guard = target.dfn
+
+        critMod = crit(user, target)
+        atkCount = multipleAttack(user, target)
+        atkDmg = max(round((power * critMod) - guard),0)
+        
+        if critMod != 1:
+            print(f" x{critMod} Critical!")
+        if atkCount != 1:
+            print(f" {user.name} attacked {atkCount} times!")
+        for i in range(atkCount):
+            if miss(user, target) == False:
+                target.hp -= atkDmg
+                print(f" {target.name} took {atkDmg} damage!")
+            else:
+                print(f" {target.name} dodged...")
+        self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
+
+class FallingStar (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(0, cooldown, name)
+    
+    def skill(self, user, target, party):
+        print(f"{user.name} used {self.name}!")
+
+        power = user.mag + (user.luk * 3)
+        guard = target.res
+
+        critMod = crit(user, target)
+        atkCount = multipleAttack(user, target)
+        atkDmg = max(round((power * critMod) - guard),0)
+        
+        if critMod != 1:
+            print(f" x{critMod} Critical!")
+        if atkCount != 1:
+            print(f" {user.name} attacked {atkCount} times!")
+        for i in range(atkCount):
+            if miss(user, target) == False:
+                target.hp -= atkDmg
+                print(f" {target.name} took {atkDmg} damage!")
+            else:
+                print(f" {target.name} dodged...")
+        self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
+
+class FlickeringStars (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(0, cooldown, name)
+    
+    def skill(self, user, target, party):
+        print(f"{user.name} used {self.name}!")
+
+        user.spd *= 2
+        power = user.mag + (user.spd * 2)
+        guard = target.res
+
+        critMod = crit(user, target)
+        atkCount = multipleAttack(user, target)
+        atkDmg = max(round((power * critMod) - guard),0)
+        
+        if critMod != 1:
+            print(f" x{critMod} Critical!")
+        if atkCount != 1:
+            print(f" {user.name} attacked {atkCount} times!")
+        for i in range(atkCount):
+            if miss(user, target) == False:
+                target.hp -= atkDmg
+                print(f" {target.name} took {atkDmg} damage!")
+            else:
+                print(f" {target.name} dodged...")
+        self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
+
+class SuperScope3D (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(0, cooldown, name)
+    
+    def skill(self, user, target, party):
+        print(f"{user.name} used {self.name}!")
+
+        power = user.atk * 4
+        guard = round (target.dfn * 0.5)
+
+        critMod = crit(user, target)
+        atkCount = multipleAttack(user, target)
+        atkDmg = max(round((power * critMod) - guard),0)
+        
+        if critMod != 1:
+            print(f" x{critMod} Critical!")
+        if atkCount != 1:
+            print(f" {user.name} attacked {atkCount} times!")
+        for i in range(atkCount):
+            if miss(user, target) == False:
+                target.hp -= atkDmg
+                print(f" {target.name} took {atkDmg} damage!")
+            else:
+                print(f" {target.name} dodged...")
+        self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
+
+class VengefulCannibalSpirit (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(0, cooldown, name)
+    
+    def skill(self, user, target, party):
+        print(f"{user.name} used {self.name}!")
+
+        power = user.atk + user.mag
+        guard = round (target.dfn * 0.5)
+
+        critMod = crit(user, target)
+        atkCount = multipleAttack(user, target)
+        atkDmg = max(round((power * critMod) - guard),0)
+        
+        if critMod != 1:
+            print(f" x{critMod} Critical!")
+        if atkCount != 1:
+            print(f" {user.name} attacked {atkCount} times!")
+        for i in range(atkCount):
+            if miss(user, target) == False:
+                target.hp -= atkDmg
+                print(f" {target.name} took {atkDmg} damage!")
+            else:
+                print(f" {target.name} dodged...")
+        self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
+
+class FinalSpark (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(0, cooldown, name)
+    
+    def skill(self, user, target, party):
+        print(f"{user.name} used {self.name}!")
+
+        power = user.mag * 10
+        guard = target.res * 2
+
+        critMod = crit(user, target)
+        atkCount = multipleAttack(user, target)
+        atkDmg = max(round((power * critMod) - guard),0)
+        
+        if critMod != 1:
+            print(f" x{critMod} Critical!")
+        if atkCount != 1:
+            print(f" {user.name} attacked {atkCount} times!")
+        for i in range(atkCount):
+            if miss(user, target) == False:
+                target.hp -= atkDmg
+                print(f" {target.name} took {atkDmg} damage!")
+            else:
+                print(f" {target.name} dodged...")
+        self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
+
+class HellTokamak (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(0, cooldown, name)
+    
+    def skill(self, user, target, party):
+        print(f"{user.name} used {self.name}!")
+
+        power = user.mag * 2
+        guard = 0
+
+        critMod = crit(user, target)
+        atkCount = multipleAttack(user, target)
+        atkDmg = max(round((power * critMod) - guard),0)
+        
+        if critMod != 1:
+            print(f" x{critMod} Critical!")
+        if atkCount != 1:
+            print(f" {user.name} attacked {atkCount} times!")
+        for i in range(atkCount):
+            if miss(user, target) == False:
+                target.hp -= atkDmg
+                print(f" {target.name} took {atkDmg} damage!")
+            else:
+                print(f" {target.name} dodged...")
+        self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
+
+class SolitaryAUnBreathing (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(0, cooldown, name)
+    
+    def skill(self, user, target, party):
+        print(f"{user.name} used {self.name}!")
+
+        user.skl *= 3
+        user.spd *= 3
+        power = user.mag * 2
+        guard = target.res
+
+        critMod = crit(user, target)
+        atkCount = multipleAttack(user, target)
+        atkDmg = max(round((power * critMod) - guard),0)
+        
+        if critMod != 1:
+            print(f" x{critMod} Critical!")
+        if atkCount != 1:
+            print(f" {user.name} attacked {atkCount} times!")
+        for i in range(atkCount):
+            if miss(user, target) == False:
+                target.hp -= atkDmg
+                print(f" {target.name} took {atkDmg} damage!")
+            else:
+                print(f" {target.name} dodged...")
+        self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
+
+class EarthSpike (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(0, cooldown, name)
+    
+    def skill(self, user, target, party):
+        print(f"{user.name} used {self.name}!")
+
+        power = user.mag * 4
+        guard = target.dfn
+
+        critMod = crit(user, target)
+        atkCount = multipleAttack(user, target)
+        atkDmg = max(round((power * critMod) - guard),0)
+        
+        if critMod != 1:
+            print(f" x{critMod} Critical!")
+        if atkCount != 1:
+            print(f" {user.name} attacked {atkCount} times!")
+        for i in range(atkCount):
+            if miss(user, target) == False:
+                target.hp -= atkDmg
+                print(f" {target.name} took {atkDmg} damage!")
+            else:
+                print(f" {target.name} dodged...")
+        self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
+
+class MasterSpark (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(0, cooldown, name)
+    
+    def skill(self, user, target, party):
+        print(f"{user.name} used {self.name}!")
+
+        power = user.mag * 5
+        guard = target.res
+
+        critMod = crit(user, target)
+        atkCount = multipleAttack(user, target)
+        atkDmg = max(round((power * critMod) - guard),0)
+        
+        if critMod != 1:
+            print(f" x{critMod} Critical!")
+        if atkCount != 1:
+            print(f" {user.name} attacked {atkCount} times!")
+        for i in range(atkCount):
+            if miss(user, target) == False:
+                target.hp -= atkDmg
+                print(f" {target.name} took {atkDmg} damage!")
+            else:
+                print(f" {target.name} dodged...")
+        self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
+
+class GeyserColumn (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(0, cooldown, name)
+    
+    def skill(self, user, target, party):
+        print(f"{user.name} used {self.name}!")
+
+        power = user.mag * 7
+        guard = target.res * 2
+
+        critMod = crit(user, target)
+        atkCount = multipleAttack(user, target)
+        atkDmg = max(round((power * critMod) - guard),0)
+        
+        if critMod != 1:
+            print(f" x{critMod} Critical!")
+        if atkCount != 1:
+            print(f" {user.name} attacked {atkCount} times!")
+        for i in range(atkCount):
+            if miss(user, target) == False:
+                target.hp -= atkDmg
+                print(f" {target.name} took {atkDmg} damage!")
+            else:
+                print(f" {target.name} dodged...")
+        self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
+
+class ChessMatch(Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(0, cooldown, name)
+    
+    def skill(self, user, target, party):
+        print(f"{user.name} used {self.name}!")
+
+        power = user.skl * 3
+        guard = target.skl
+
+        critMod = crit(user, target)
+        atkCount = multipleAttack(user, target)
+        atkDmg = max(round((power * critMod) - guard),0)
+        
+        if critMod != 1:
+            print(f" x{critMod} Critical!")
+        if atkCount != 1:
+            print(f" {user.name} attacked {atkCount} times!")
+        for i in range(atkCount):
+            if miss(user, target) == False:
+                target.hp -= atkDmg
+                print(f" {target.name} took {atkDmg} damage!")
+            else:
+                print(f" {target.name} dodged...")
+        self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
+
+class BlazingStar (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(1, cooldown, name)
+    
+    def skill(self, user, target, party):
+        print(f'{user.name} used {self.name}!')
+
+        power = user.mag
+
+        target.spdChange1 += power
+        
+        print (f' {target.name} gained {power} SPD!')
+        self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
+
+class BlazingWheel (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(1, cooldown, name)
+    
+    def skill(self, user, target, party):
+        print(f'{user.name} used {self.name}!')
+
+        power = user.spd
+
+        target.sklChange1 += power
+        target.spdChange1 += power
+        target.dfnChange1 -= power
+        
+        print (f' {target.name} gained {power} SKL!')
+        print (f' {target.name} gained {power} SPD!')
+        print (f' {target.name} lost {min(power,target.dfn)} DEF...')
+        
+        self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
+
+class Round2 (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(1, cooldown, name)
+    
+    def skill(self, user, target, party):
+        print(f'{user.name} used {self.name}!')
+
+        power = user.vit
+
+        target.spdChange1 += power
+        
+        print (f' {target.name} gained {power} SPD!')
+        
+        self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
+
+class PuzzleAnswer (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(2, cooldown, name)
+    
+    def skill(self, user, target, party):
+        print(f'{user.name} used {self.name}!')
+
+        power = user.skl
+
+        target.dfnChange1 -= power
+
+        print(f' {target.name} lost {min(power, target.dfn)} DEF...')
+
+        self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
+
+class CupOfTea (Skill):
+    def __init__(self, cooldown, name):
+        super().__init__(3, cooldown, name)
+
+    def skill(self, user, target, party):
+        print(f"{user.name} used {self.name}!")
+
+        power = user.skl
+
+        preHp = target.hp
+        target.hp = min(target.hp + power, target.maxHp)
+        healed = target.hp - preHp
+        print(f" {target.name} recovered {healed} HP!")
+        self.cooldown = self.maxCooldown
+        if target.hp <= 0:
+            print(f" {target.name} was knocked out!")
+
