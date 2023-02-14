@@ -1,0 +1,17 @@
+volume 1
+ plot
+ 2 v1 l1
+ plot
+ 3 v1 l2
+ 3 v1 l3
+ plot
+volume 2
+ plot
+ 2 v2 l2
+ 2 v2 l3
+ plot
+ 5 v1v2 l4
+ 5 v1v2 l5
+ plot
+
+I need a flow chart
